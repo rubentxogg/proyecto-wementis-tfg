@@ -3,6 +3,7 @@ package com.rgg.wementis.beans;
 public class Cita {
 	private Integer id;
 	private Integer idPaciente;
+	private Integer idPsicologo;
 	private Integer idTarifa;
 	private Integer idEstado;
 	private String fecha;
@@ -12,15 +13,16 @@ public class Cita {
 		super();
 	}
 
-	public Cita(Integer id, Integer id_paciente, Integer id_tarifa, Integer id_estado, String fecha,
-			Integer cantidad_horas) {
+	public Cita(Integer id, Integer idPaciente, Integer idPsicologo, Integer idTarifa, Integer idEstado, String fecha,
+			Integer cantidadHoras) {
 		super();
 		this.id = id;
-		this.idPaciente = id_paciente;
-		this.idTarifa = id_tarifa;
-		this.idEstado = id_estado;
+		this.idPaciente = idPaciente;
+		this.idPsicologo = idPsicologo;
+		this.idTarifa = idTarifa;
+		this.idEstado = idEstado;
 		this.fecha = fecha;
-		this.cantidadHoras = cantidad_horas;
+		this.cantidadHoras = cantidadHoras;
 	}
 
 	public Integer getId() {
@@ -37,6 +39,14 @@ public class Cita {
 
 	public void setIdPaciente(Integer idPaciente) {
 		this.idPaciente = idPaciente;
+	}
+
+	public Integer getIdPsicologo() {
+		return idPsicologo;
+	}
+
+	public void setIdPsicologo(Integer idPsicologo) {
+		this.idPsicologo = idPsicologo;
 	}
 
 	public Integer getIdTarifa() {
