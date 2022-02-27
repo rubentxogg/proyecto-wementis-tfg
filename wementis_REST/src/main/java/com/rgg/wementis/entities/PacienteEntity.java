@@ -19,10 +19,10 @@ public class PacienteEntity {
 		super();
 	}
 
-	public PacienteEntity(Integer id, String nombre, String apellidos, String email, String telefono,
+	public PacienteEntity(Integer idPaciente, String nombre, String apellidos, String email, String telefono,
 			String fechaNacimiento, char genero, String fechaCreacion) {
 		super();
-		this.id = id;
+		this.idPaciente = idPaciente;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -35,7 +35,7 @@ public class PacienteEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Integer id;
+	private Integer idPaciente;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -61,12 +61,12 @@ public class PacienteEntity {
 	@OneToMany(mappedBy = "paciente")
 	private List<CitaEntity> citas = new ArrayList<>();
 
-	public Integer getId() {
-		return id;
+	public Integer getIdPaciente() {
+		return idPaciente;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdPaciente(Integer idPaciente) {
+		this.idPaciente = idPaciente;
 	}
 
 	public String getNombre() {

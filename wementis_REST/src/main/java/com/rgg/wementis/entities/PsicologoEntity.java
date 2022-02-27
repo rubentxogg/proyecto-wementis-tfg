@@ -20,10 +20,10 @@ public class PsicologoEntity {
 		super();
 	}
 	
-	public PsicologoEntity(Integer id, String nombre, String apellidos, String email, String telefono,
+	public PsicologoEntity(Integer idPsicologo, String nombre, String apellidos, String email, String telefono,
 			String fechaCreacion, List<CitaEntity> citas) {
 		super();
-		this.id = id;
+		this.idPsicologo = idPsicologo;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -35,7 +35,7 @@ public class PsicologoEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Integer id;
+	private Integer idPsicologo;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -55,12 +55,12 @@ public class PsicologoEntity {
 	@OneToMany(mappedBy = "psicologo")
 	private List<CitaEntity> citas = new ArrayList<>();
 
-	public Integer getId() {
-		return id;
+	public Integer getIdPsicologo() {
+		return idPsicologo;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdPsicologo(Integer idPsicologo) {
+		this.idPsicologo = idPsicologo;
 	}
 
 	public String getNombre() {

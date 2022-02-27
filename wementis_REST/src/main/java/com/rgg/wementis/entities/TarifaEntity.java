@@ -19,9 +19,9 @@ public class TarifaEntity {
 		super();
 	}
 	
-	public TarifaEntity(Integer id, String nombre, Double precioHora, String fechaCreacion) {
+	public TarifaEntity(Integer idTarifa, String nombre, Double precioHora, String fechaCreacion) {
 		super();
-		this.id = id;
+		this.idTarifa = idTarifa;
 		this.nombre = nombre;
 		this.precioHora = precioHora;
 		this.fechaCreacion = fechaCreacion;
@@ -30,7 +30,7 @@ public class TarifaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Integer id;
+	private Integer idTarifa;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -44,12 +44,12 @@ public class TarifaEntity {
 	@OneToMany(mappedBy = "tarifa")
 	private List<CitaEntity> citas = new ArrayList<>();
 
-	public Integer getId() {
-		return id;
+	public Integer getIdTarifa() {
+		return idTarifa;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdTarifa(Integer idTarifa) {
+		this.idTarifa = idTarifa;
 	}
 
 	public String getNombre() {

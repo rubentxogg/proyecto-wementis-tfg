@@ -17,15 +17,15 @@ public class EstadoEntity {
 		super();
 	}
 
-	public EstadoEntity(Integer id, String nombre) {
+	public EstadoEntity(Integer idEstado, String nombre) {
 		super();
-		this.id = id;
+		this.idEstado = idEstado;
 		this.nombre = nombre;
 	}
 
 	@Id
 	@Column(name = "id")
-	private Integer id;
+	private Integer idEstado;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -33,12 +33,12 @@ public class EstadoEntity {
 	@OneToMany(mappedBy = "estado")
 	private List<CitaEntity> citas = new ArrayList<>();
 
-	public Integer getId() {
-		return id;
+	public Integer getIdEstado() {
+		return idEstado;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdEstado(Integer idEstado) {
+		this.idEstado = idEstado;
 	}
 
 	public String getNombre() {

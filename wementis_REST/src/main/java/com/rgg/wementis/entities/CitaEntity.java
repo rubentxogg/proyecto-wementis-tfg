@@ -42,19 +42,19 @@ public class CitaEntity {
 	private Integer cantidadHoras;
 	
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idPaciente")
 	private PacienteEntity paciente;
 
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idPsicologo")
 	private PsicologoEntity psicologo;
 	
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idTarifa")
 	private TarifaEntity tarifa;
 	
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idEstado")
 	private EstadoEntity estado;
 	
 	@OneToOne(mappedBy = "cita")
