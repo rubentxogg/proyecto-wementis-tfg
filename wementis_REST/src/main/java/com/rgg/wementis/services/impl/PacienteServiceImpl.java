@@ -1,22 +1,22 @@
-package com.rgg.wementis.dao.impl;
+package com.rgg.wementis.services.impl;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.rgg.wementis.beans.Paciente;
-import com.rgg.wementis.dao.interfaces.IPacienteDAO;
 import com.rgg.wementis.entities.PacienteEntity;
 import com.rgg.wementis.repositories.PacienteRepository;
+import com.rgg.wementis.services.interfaces.IPacienteService;
 
-@Component
-public class PacienteDAOImpl implements IPacienteDAO {
+@Service
+public class PacienteServiceImpl implements IPacienteService{
 
 	@Autowired
 	PacienteRepository pacienteRepository;
-	
+
 	@Override
 	public Iterable<PacienteEntity> getPacientes() {
 		return pacienteRepository.findAll();

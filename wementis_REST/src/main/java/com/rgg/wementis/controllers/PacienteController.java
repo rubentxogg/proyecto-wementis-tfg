@@ -1,4 +1,4 @@
-package com.rgg.wementis.controladores;
+package com.rgg.wementis.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rgg.wementis.beans.Paciente;
 import com.rgg.wementis.entities.PacienteEntity;
-import com.rgg.wementis.servicios.interfaces.IPacienteService;
+import com.rgg.wementis.services.interfaces.IPacienteService;
 
 @RestController
 @RequestMapping("/v1")
@@ -42,6 +42,9 @@ public class PacienteController {
 			@RequestParam(value = "genero", required = false) String genero,
 			@RequestParam(value = "fechaCreacion", required = false) String fechaCreacion) {
 		
-		return pacienteService.getPacientesPorCampos(id, nombre, apellidos, email, telefono, fechaNacimiento, genero, fechaCreacion);
+		String fechaNac = fechaNacimiento.equals("") ? "0001-01-01" : fechaNacimiento;
+		String fechaCrea = fechaCreacion.equals("") ? "0001-01-01" : fechaCreacion;
+		
+		return pacienteService.getPacientesPorCampos(id, nombre, apellidos, email, telefono, fechaNac, genero, fechaCrea);
 	}
 }
