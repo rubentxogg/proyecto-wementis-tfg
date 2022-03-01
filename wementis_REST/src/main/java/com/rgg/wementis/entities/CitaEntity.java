@@ -17,19 +17,19 @@ public class CitaEntity {
 	public CitaEntity() {
 		super();
 	}
-
-	public CitaEntity(Integer id, String fecha, Integer cantidadHoras, PacienteEntity paciente,
-			PsicologoEntity psicologo, TarifaEntity tarifa, EstadoEntity estado) {
+	
+	public CitaEntity(Integer id, PacienteEntity paciente, PsicologoEntity psicologo, TarifaEntity tarifa,
+			EstadoEntity estado, String fecha, Integer cantidadHoras) {
 		super();
 		this.id = id;
-		this.fecha = fecha;
-		this.cantidadHoras = cantidadHoras;
 		this.paciente = paciente;
 		this.psicologo = psicologo;
 		this.tarifa = tarifa;
 		this.estado = estado;
+		this.fecha = fecha;
+		this.cantidadHoras = cantidadHoras;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
