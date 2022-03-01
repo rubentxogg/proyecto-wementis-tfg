@@ -37,7 +37,7 @@ public class GananciaEntity {
 	private String fechaCreacion;
 	
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_cita")
 	private CitaEntity cita;
 
 	public Integer getId() {
