@@ -39,13 +39,13 @@ public class CitaController {
 	
 	@GetMapping(value = "/citas", params = {"id", "idPaciente", "idPsicologo", "idTarifa", "idEstado", "fecha", "cantidadHoras"})
 	public List<Cita> getCitasPorCampos(
-			@RequestParam(value = "id") String id,
-			@RequestParam(value = "idPaciente") String idPaciente,
-			@RequestParam(value = "idPsicologo") String idPsicologo,
-			@RequestParam(value = "idTarifa") String idTarifa,
-			@RequestParam(value = "idEstado") String idEstado, 
-			@RequestParam(value = "fecha") String fecha,
-			@RequestParam(value = "cantidadHoras") String cantidadHoras){
+			@RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "idPaciente", required = false) String idPaciente,
+			@RequestParam(value = "idPsicologo", required = false) String idPsicologo,
+			@RequestParam(value = "idTarifa", required = false) String idTarifa,
+			@RequestParam(value = "idEstado", required = false) String idEstado, 
+			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "cantidadHoras", required = false) String cantidadHoras){
 		
 		String fcha = fecha.equals("") ? "0001-01-01" : fecha;
 		Integer horas = cantidadHoras.equals("") ? 0 : Integer.parseInt(cantidadHoras);
