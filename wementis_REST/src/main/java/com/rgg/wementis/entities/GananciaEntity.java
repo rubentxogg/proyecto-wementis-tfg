@@ -17,12 +17,12 @@ public class GananciaEntity {
 		super();
 	}
 	
-	public GananciaEntity(Integer id, Double cantidad, String fechaCreacion, CitaEntity cita) {
+	public GananciaEntity(Integer id, CitaEntity cita, Double cantidad, String fechaCreacion) {
 		super();
 		this.id = id;
+		this.cita = cita;
 		this.cantidad = cantidad;
 		this.fechaCreacion = fechaCreacion;
-		this.cita = cita;
 	}
 
 	@Id
