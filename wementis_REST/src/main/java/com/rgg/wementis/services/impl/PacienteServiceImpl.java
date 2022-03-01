@@ -32,4 +32,19 @@ public class PacienteServiceImpl implements IPacienteService{
 			String telefono, String fechaNacimiento, String genero, String fechaCreacion) {
 		return pacienteRepository.getPacientesPorCampos(id, nombre, apellidos, email, telefono, fechaNacimiento, genero, fechaCreacion);
 	}
+
+	@Override
+	public void actualizarPaciente(PacienteEntity paciente) {
+		pacienteRepository.save(paciente);
+	}
+
+	@Override
+	public void insertarPaciente(PacienteEntity paciente) {
+		pacienteRepository.save(paciente);
+	}
+
+	@Override
+	public void borrarPaciente(Integer id) {
+		pacienteRepository.deleteById(id);
+	}
 }

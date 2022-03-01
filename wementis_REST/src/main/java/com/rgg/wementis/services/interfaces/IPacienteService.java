@@ -14,4 +14,10 @@ public interface IPacienteService {
 
 	public List<Paciente> getPacientesPorCampos(String id, String nombre, String apellidos, String email,
 			String telefono, String fechaNacimiento, String genero, String fechaCreacion);
+	
+	public void actualizarPaciente(PacienteEntity paciente);
+	
+	public void insertarPaciente(PacienteEntity paciente);
+	
+	public void borrarPaciente(Integer id);
 }
