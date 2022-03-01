@@ -15,7 +15,7 @@ import com.rgg.wementis.services.interfaces.IPacienteService;
 public class PacienteServiceImpl implements IPacienteService{
 
 	@Autowired
-	PacienteRepository pacienteRepository;
+	private PacienteRepository pacienteRepository;
 
 	@Override
 	public Iterable<PacienteEntity> getPacientes() {

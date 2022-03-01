@@ -15,7 +15,7 @@ import com.rgg.wementis.services.interfaces.IPsicologoService;
 public class PsicologoServiceImpl implements IPsicologoService{
 
 	@Autowired
-	PsicologoRepository psicologoRepository;
+	private PsicologoRepository psicologoRepository;
 	
 	@Override
 	public Iterable<PsicologoEntity> getPsicologos() {
