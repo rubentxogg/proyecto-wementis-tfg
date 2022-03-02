@@ -68,9 +68,9 @@ public class CitaController {
 	}
 	
 	@DeleteMapping(value = "/citas/{id}")
-	public ResponseEntity<String> borrarCita(@PathVariable("id") Integer id) {
-		citaService.borrarCita(id);
+	public ResponseEntity<String> cancelarCita(@PathVariable("id") Integer id) {
+		citaService.cancelarCita(id);
 		
-		return new ResponseEntity<>("Cita borrada con éxito", HttpStatus.OK);
+		return new ResponseEntity<>("Cita cancelada con éxito", HttpStatus.OK);
 	}
 }

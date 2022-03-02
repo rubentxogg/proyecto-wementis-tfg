@@ -19,5 +19,5 @@ public interface ICitaService {
 	
 	public void insertarCita(CitaEntity cita);
 	
-	public void borrarCita(Integer id);
+	public void cancelarCita(Integer id);
 }

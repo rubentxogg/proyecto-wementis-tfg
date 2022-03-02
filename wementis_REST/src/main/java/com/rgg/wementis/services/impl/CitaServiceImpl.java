@@ -56,8 +56,15 @@ public class CitaServiceImpl implements ICitaService{
 	}
 
 	@Override
-	public void borrarCita(Integer id) {
-		citaRepository.deleteById(id);
+	public void cancelarCita(Integer id) {
+		EstadoEntity estadoCancelada;
+		CitaEntity cita = citaRepository.findById(id).get();
+		
+		if (estadoRepository.findById(3).isPresent()) {
+			estadoCancelada = estadoRepository.findById(3).get();
+			cita.setEstado(estadoCancelada);
+		}
+		
+		citaRepository.save(cita);
 	}
-
 }
