@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
+import com.rgg.wementis.entities.EstadoEntity;
 import com.rgg.wementis.repositories.CitaRepository;
+import com.rgg.wementis.repositories.EstadoRepository;
 import com.rgg.wementis.services.interfaces.ICitaService;
 
 @Service
@@ -16,6 +18,9 @@ public class CitaServiceImpl implements ICitaService{
 
 	@Autowired
 	private CitaRepository citaRepository;
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
 	
 	@Override
 	public Iterable<CitaEntity> getCitas() {
@@ -40,6 +45,13 @@ public class CitaServiceImpl implements ICitaService{
 
 	@Override
 	public void insertarCita(CitaEntity cita) {
+		EstadoEntity estadoActiva;
+		
+		if (estadoRepository.findById(1).isPresent()) {
+			estadoActiva = estadoRepository.findById(1).get();
+			cita.setEstado(estadoActiva);
+		}
+		
 		citaRepository.save(cita);
 	}
 
