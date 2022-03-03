@@ -9,9 +9,12 @@ import org.springframework.stereotype.Service;
 import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
 import com.rgg.wementis.entities.EstadoEntity;
+import com.rgg.wementis.entities.GananciaEntity;
 import com.rgg.wementis.repositories.CitaRepository;
 import com.rgg.wementis.repositories.EstadoRepository;
+import com.rgg.wementis.repositories.GananciaRepository;
 import com.rgg.wementis.services.interfaces.ICitaService;
+import com.wementis.utils.Utils;
 
 @Service
 public class CitaServiceImpl implements ICitaService{
@@ -21,6 +24,9 @@ public class CitaServiceImpl implements ICitaService{
 	
 	@Autowired
 	private EstadoRepository estadoRepository;
+	
+	@Autowired
+	private GananciaRepository gananciaRepository;
 	
 	@Override
 	public Iterable<CitaEntity> getCitas() {
@@ -63,6 +69,24 @@ public class CitaServiceImpl implements ICitaService{
 		if (estadoRepository.findById(3).isPresent()) {
 			estadoCancelada = estadoRepository.findById(3).get();
 			cita.setEstado(estadoCancelada);
+		}
+		
+		citaRepository.save(cita);
+	}
+
+	@Override
+	public void completarCita(Integer id) {
+		EstadoEntity estadoCompletada;
+		GananciaEntity ganancia;
+		CitaEntity cita = citaRepository.findById(id).get();
+		Double cantidad;
+		
+		if (estadoRepository.findById(2).isPresent()) {
+			estadoCompletada = estadoRepository.findById(2).get();
+			cita.setEstado(estadoCompletada);
+			cantidad = cita.getCantidadHoras() * cita.getTarifa().getPrecioHora();
+			ganancia = new GananciaEntity(cantidad, Utils.currentDate(), cita);
+			gananciaRepository.save(ganancia);
 		}
 		
 		citaRepository.save(cita);

@@ -24,6 +24,13 @@ public class GananciaEntity {
 		this.cantidad = cantidad;
 		this.fechaCreacion = fechaCreacion;
 	}
+	
+	public GananciaEntity(Double cantidad, String fechaCreacion, CitaEntity cita) {
+		super();
+		this.cantidad = cantidad;
+		this.fechaCreacion = fechaCreacion;
+		this.cita = cita;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

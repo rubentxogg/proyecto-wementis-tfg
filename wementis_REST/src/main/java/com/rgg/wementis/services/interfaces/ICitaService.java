@@ -20,4 +20,6 @@ public interface ICitaService {
 	public void insertarCita(CitaEntity cita);
 	
 	public void cancelarCita(Integer id);
+	
+	public void completarCita(Integer id);
 }

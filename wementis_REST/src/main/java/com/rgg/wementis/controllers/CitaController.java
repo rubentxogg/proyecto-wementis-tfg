@@ -73,4 +73,11 @@ public class CitaController {
 		
 		return new ResponseEntity<>("Cita cancelada con éxito", HttpStatus.OK);
 	}
+	
+	@PutMapping(value = "/citas/{id}")
+	public ResponseEntity<String> completarCita(@PathVariable("id") Integer id) {
+		citaService.completarCita(id);
+		
+		return new ResponseEntity<>("Cita completada con éxito", HttpStatus.OK);
+	}
 }
