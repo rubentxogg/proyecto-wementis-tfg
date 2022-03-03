@@ -10,6 +10,7 @@ import com.rgg.wementis.beans.Tarifa;
 import com.rgg.wementis.entities.TarifaEntity;
 import com.rgg.wementis.repositories.TarifaRepository;
 import com.rgg.wementis.services.interfaces.ITarifaService;
+import com.wementis.utils.Utils;
 
 @Service
 public class TarifaServiceImpl implements ITarifaService{
@@ -39,6 +40,7 @@ public class TarifaServiceImpl implements ITarifaService{
 
 	@Override
 	public void insertarTarifa(TarifaEntity tarifa) {
+		tarifa.setFechaCreacion(Utils.currentDate());
 		tarifaRepository.save(tarifa);
 	}
 

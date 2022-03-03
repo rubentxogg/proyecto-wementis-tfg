@@ -10,6 +10,7 @@ import com.rgg.wementis.beans.Paciente;
 import com.rgg.wementis.entities.PacienteEntity;
 import com.rgg.wementis.repositories.PacienteRepository;
 import com.rgg.wementis.services.interfaces.IPacienteService;
+import com.wementis.utils.Utils;
 
 @Service
 public class PacienteServiceImpl implements IPacienteService{
@@ -40,6 +41,7 @@ public class PacienteServiceImpl implements IPacienteService{
 
 	@Override
 	public void insertarPaciente(PacienteEntity paciente) {
+		paciente.setFechaCreacion(Utils.currentDate());
 		pacienteRepository.save(paciente);
 	}
 
