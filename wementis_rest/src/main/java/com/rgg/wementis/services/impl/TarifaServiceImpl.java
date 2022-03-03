@@ -10,7 +10,7 @@ import com.rgg.wementis.beans.Tarifa;
 import com.rgg.wementis.entities.TarifaEntity;
 import com.rgg.wementis.repositories.TarifaRepository;
 import com.rgg.wementis.services.interfaces.ITarifaService;
-import com.wementis.utils.Utils;
+import com.rgg.wementis.utils.Utils;
 
 @Service
 public class TarifaServiceImpl implements ITarifaService{

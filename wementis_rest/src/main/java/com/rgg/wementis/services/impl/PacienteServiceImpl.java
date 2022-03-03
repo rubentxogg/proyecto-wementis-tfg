@@ -10,7 +10,7 @@ import com.rgg.wementis.beans.Paciente;
 import com.rgg.wementis.entities.PacienteEntity;
 import com.rgg.wementis.repositories.PacienteRepository;
 import com.rgg.wementis.services.interfaces.IPacienteService;
-import com.wementis.utils.Utils;
+import com.rgg.wementis.utils.Utils;
 
 @Service
 public class PacienteServiceImpl implements IPacienteService{

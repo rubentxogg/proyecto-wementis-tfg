@@ -10,7 +10,7 @@ import com.rgg.wementis.beans.Psicologo;
 import com.rgg.wementis.entities.PsicologoEntity;
 import com.rgg.wementis.repositories.PsicologoRepository;
 import com.rgg.wementis.services.interfaces.IPsicologoService;
-import com.wementis.utils.Utils;
+import com.rgg.wementis.utils.Utils;
 
 @Service
 public class PsicologoServiceImpl implements IPsicologoService{

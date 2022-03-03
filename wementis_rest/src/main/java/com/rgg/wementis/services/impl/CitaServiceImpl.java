@@ -14,7 +14,7 @@ import com.rgg.wementis.repositories.CitaRepository;
 import com.rgg.wementis.repositories.EstadoRepository;
 import com.rgg.wementis.repositories.GananciaRepository;
 import com.rgg.wementis.services.interfaces.ICitaService;
-import com.wementis.utils.Utils;
+import com.rgg.wementis.utils.Utils;
 
 @Service
 public class CitaServiceImpl implements ICitaService{

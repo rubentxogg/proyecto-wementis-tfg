@@ -1,4 +1,4 @@
-package com.wementis.utils;
+package com.rgg.wementis.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
