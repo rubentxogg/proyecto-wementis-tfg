@@ -7,6 +7,7 @@ public class Cita {
 	private Integer idTarifa;
 	private Integer idEstado;
 	private String fecha;
+	private String hora;
 	private Integer cantidadHoras;
 	
 	public Cita() {
@@ -14,7 +15,7 @@ public class Cita {
 	}
 
 	public Cita(Integer id, Integer idPaciente, Integer idPsicologo, Integer idTarifa, Integer idEstado, String fecha,
-			Integer cantidadHoras) {
+			String hora, Integer cantidadHoras) {
 		super();
 		this.id = id;
 		this.idPaciente = idPaciente;
@@ -22,6 +23,7 @@ public class Cita {
 		this.idTarifa = idTarifa;
 		this.idEstado = idEstado;
 		this.fecha = fecha;
+		this.hora = hora;
 		this.cantidadHoras = cantidadHoras;
 	}
 
@@ -79,5 +81,13 @@ public class Cita {
 
 	public void setCantidadHoras(Integer cantidadHoras) {
 		this.cantidadHoras = cantidadHoras;
+	}
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 }

@@ -45,12 +45,13 @@ public class CitaController {
 			@RequestParam(value = "idTarifa", required = false) String idTarifa,
 			@RequestParam(value = "idEstado", required = false) String idEstado, 
 			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "hora", required = false) String hora,
 			@RequestParam(value = "cantidadHoras", required = false) String cantidadHoras){
 		
 		String fcha = fecha.equals("") ? "0001-01-01" : fecha;
-		Integer horas = cantidadHoras.equals("") ? 0 : Integer.parseInt(cantidadHoras);
+		Integer cntHoras = cantidadHoras.equals("") ? 0 : Integer.parseInt(cantidadHoras);
 		
-		return citaService.getCitasPorCampos(id, idPaciente, idPsicologo, idTarifa, idEstado, fcha, horas);
+		return citaService.getCitasPorCampos(id, idPaciente, idPsicologo, idTarifa, idEstado, fcha, hora, cntHoras);
 	}
 	
 	@PutMapping(value = "/citas")
