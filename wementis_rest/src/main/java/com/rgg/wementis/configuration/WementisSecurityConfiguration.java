@@ -46,8 +46,7 @@ public class WementisSecurityConfiguration extends WebSecurityConfigurerAdapter 
 				.and()
 			.logout()
 				.logoutUrl("/logout")
-				.deleteCookies("JSESSIONID")
-				.and()
+				.deleteCookies("JSESSIONID");
 		
 		http.csrf().disable();
 	}
