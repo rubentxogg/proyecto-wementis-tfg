@@ -42,10 +42,12 @@ public class WementisSecurityConfiguration extends WebSecurityConfigurerAdapter 
 				.usernameParameter("username")
 				.passwordParameter("password")
 				.failureUrl("http://localhost:8081/?error=true")
+				.defaultSuccessUrl("http://localhost:8081/testeo")
 				.and()
 			.logout()
 				.logoutUrl("/logout")
-				.deleteCookies("JSESSIONID");
+				.deleteCookies("JSESSIONID")
+				.and()
 		
 		http.csrf().disable();
 	}
