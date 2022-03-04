@@ -17,7 +17,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:8080/wementis/v1/pacientes/")
+      .get("wementis/v1/pacientes/")
       .then((response) => (this.datos = response.data))
       .catch((error) => console.log(error))
   },

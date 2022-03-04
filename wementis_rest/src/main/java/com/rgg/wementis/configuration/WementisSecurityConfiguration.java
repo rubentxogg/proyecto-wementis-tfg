@@ -50,4 +50,5 @@ public class WementisSecurityConfiguration extends WebSecurityConfigurerAdapter 
 		
 		http.csrf().disable();
 	}
+	
 }
