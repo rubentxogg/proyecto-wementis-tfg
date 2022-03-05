@@ -1,13 +1,17 @@
 <template>
-    <!-- v-if="this.$route.name !== 'Home'" to="/" -->
   <div class="app">
-    <router-link v-if="this.$route.name !== 'Home'" to="/">Testeo</router-link>
+    <side-nav-menu v-if="this.$route.name !== 'Home'"/>
     <router-view />
   </div>
 </template>
 
 <script>
+import SideNavMenu from '@/components/SideNavMenu.vue';
+
 export default {
   name: "App",
+  components: {
+    SideNavMenu
+  }
 };
 </script>

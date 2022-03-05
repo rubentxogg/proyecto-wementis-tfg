@@ -4,7 +4,7 @@
       <table>
         <tr>
           <td>User:</td>
-          <td><input type="text" name="username" value="" /></td>
+          <td><input type="text" name="username"/></td>
         </tr>
         <tr>
           <td>Password:</td>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: "Login"
+    name: "FormLogin"
 };
 </script>
 

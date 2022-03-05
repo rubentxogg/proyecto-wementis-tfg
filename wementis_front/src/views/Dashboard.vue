@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Testeo</h1>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
     <p>{{ datos[0] }}</p>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import axios from "axios";
 
 export default {
-  name: "Testeo",
+  name: "Dashboard",
   data() {
     return {
       datos: [],
