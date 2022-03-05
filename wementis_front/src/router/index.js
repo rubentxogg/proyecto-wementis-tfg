@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import axios from "axios";
+
 const routes = [
   {
     path: '/',
@@ -16,6 +18,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.afterEach(async () => {
+  let estado = "";
+
+  try {
+    await axios.get("wementis/v1/estados/1").then((response) => (estado = response.data));
+    if(typeof estado !== 'object' && router.currentRoute.value.path !== "/") throw Error;
+  } catch(err) {
+    router.push("/");
+  }
 })
 
 export default router
