@@ -31,10 +31,12 @@
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
-      <hr>
-      <a href="http://localhost:8080/wementis/logout" class="text-center rounded">LOGOUT
-        <i class="bi bi-caret-down"></i>
-      </a>
+      <div class="mt-5 d-flex flex-column justify-content-center">
+        <hr>
+        <a href="http://localhost:8080/wementis/logout" class="text-center rounded">LOGOUT
+          <i class="bi bi-caret-down ms-0"></i>
+        </a>
+      </div>
     </nav>
   </aside>
 </template>
