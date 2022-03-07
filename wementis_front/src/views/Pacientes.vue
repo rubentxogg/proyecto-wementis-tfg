@@ -1,18 +1,31 @@
 <template>
   <div class="pacientes">
-      <h5 class="text-muted">Pacientes</h5>
+      <p class="text-muted">Pacientes</p>
+      
+      <div class="d-flex justify-content-between">
+        <browser-pacientes />
+
+        <button type="button" class="btn btn-success d-flex justify-content-center btn-anadir align-self-end mb-1">
+          <i class="bi bi-person-plus me-1 align-self-center"></i>
+          <span class="align-self-center">Añadir</span>
+        </button>
+      </div>
+
+      <hr>
       <table-pacientes :pacientes="pacientes"/>
   </div>
 </template>
 
 <script>
-import TablePacientes from '@/components/TablePacientes.vue';
+import TablePacientes from '@/components/pacientes/TablePacientes.vue';
+import BrowserPacientes from '@/components/pacientes/BrowserPacientes.vue';
 import axios from 'axios';
 
 export default {
     name: "Pacientes",
     components: {
-      TablePacientes
+      TablePacientes,
+      BrowserPacientes
     },
     data() {
       return {
@@ -33,6 +46,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.btn-anadir {
+  height: 3rem;
+}
 </style>

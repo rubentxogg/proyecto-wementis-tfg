@@ -76,7 +76,6 @@ a {
 a.router-link-exact-active {
   color: #ffffff !important;
   background-color: #0d6efd;
-  
 }
 
 a:hover {
