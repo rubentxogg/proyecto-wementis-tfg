@@ -15,11 +15,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            ¿Está seguro de que desea eliminar el paciente con el ID {{ id }}?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Borrar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deletePaciente">Borrar</button>
           </div>
         </div>
       </div>
@@ -28,8 +28,18 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: "ModalDeletePaciente"
+    name: "ModalDeletePaciente",
+    props: ["id"],
+    methods: {
+      deletePaciente() {
+        axios
+          .delete("wementis/v1/pacientes/"+this.id)
+          .catch((err) => console.error(err));
+      }
+    }
 }
 </script>
 

@@ -41,7 +41,7 @@
 
      <div class="modal-footer w-100">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="anadirPaciente">Guardar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="anadirPaciente">Guardar</button>
      </div>
   </form>
 </template>

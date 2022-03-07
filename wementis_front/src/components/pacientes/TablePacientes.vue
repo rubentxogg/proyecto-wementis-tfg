@@ -27,7 +27,7 @@
           <modal-update-paciente />
         </td>
         <td>
-          <modal-delete-paciente />
+          <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id"/>
         </td>
       </tr>
     </tbody>
@@ -41,9 +41,19 @@ import ModalDeletePaciente from '@/components/pacientes/ModalDeletePaciente.vue'
 export default {
   name: "TablePacientes",
   props: ["pacientes"],
+  data() {
+    return {
+      id: ""
+    }
+  },
   components: {
     ModalUpdatePaciente,
     ModalDeletePaciente
+  },
+  methods: {
+    obtenerIdPaciente(id) {
+      this.id = id;
+    }
   }
 };
 </script>
