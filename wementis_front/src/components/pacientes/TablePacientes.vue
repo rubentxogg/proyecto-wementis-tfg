@@ -24,7 +24,7 @@
         <td>{{ paciente.genero }}</td>
         <td>{{ paciente.fechaCreacion }}</td>
         <td>
-          <modal-update-paciente />
+          <modal-update-paciente @click="obtenerPaciente(paciente)" :paciente="pacienteToUpdate"/>
         </td>
         <td>
           <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id"/>
@@ -43,7 +43,8 @@ export default {
   props: ["pacientes"],
   data() {
     return {
-      id: ""
+      id: "",
+      pacienteToUpdate: ""
     }
   },
   components: {
@@ -53,6 +54,9 @@ export default {
   methods: {
     obtenerIdPaciente(id) {
       this.id = id;
+    },
+    obtenerPaciente(paciente) {
+      this.pacienteToUpdate = paciente;
     }
   }
 };

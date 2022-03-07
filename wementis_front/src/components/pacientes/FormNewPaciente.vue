@@ -1,5 +1,5 @@
 <template>
-   <form class="browser-pacientes d-flex flex-wrap">
+   <form class="form-new-paciente d-flex flex-wrap">
     <div class="input-group mb-3">
      <span class="input-group-text">Nombre</span>
      <input type="text" class="form-control" name="nombre" v-model="nombre">

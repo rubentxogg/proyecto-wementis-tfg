@@ -15,11 +15,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form-update-paciente :paciente="paciente"/>
           </div>
         </div>
       </div>
@@ -28,8 +24,12 @@
 </template>
 
 <script>
+import FormUpdatePaciente from '@/components/pacientes/FormUpdatePaciente.vue'
+
 export default {
-    name: "ModalUpdatePaciente"
+  components: { FormUpdatePaciente },
+    name: "ModalUpdatePaciente",
+    props: ["paciente"]
 }
 </script>
 
