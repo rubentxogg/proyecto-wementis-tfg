@@ -82,5 +82,7 @@ export default {
 </script>
 
 <style scoped>
-
+input[type="date"] {
+  cursor: pointer;
+}
 </style>

@@ -4,11 +4,7 @@
       
       <div class="d-flex justify-content-between">
         <browser-pacientes @buscarPacientes="getPacientesPorCampos"/>
-
-        <button type="button" class="btn btn-success d-flex justify-content-center btn-anadir align-self-end mb-1">
-          <i class="bi bi-person-plus me-1 align-self-center"></i>
-          <span class="align-self-center">Añadir</span>
-        </button>
+        <modal-new-paciente />
       </div>
 
       <hr>
@@ -19,13 +15,15 @@
 <script>
 import TablePacientes from '@/components/pacientes/TablePacientes.vue';
 import BrowserPacientes from '@/components/pacientes/BrowserPacientes.vue';
+import ModalNewPaciente from '@/components/pacientes/ModalNewPaciente.vue';
 import axios from 'axios';
 
 export default {
     name: "Pacientes",
     components: {
       TablePacientes,
-      BrowserPacientes
+      BrowserPacientes,
+      ModalNewPaciente
     },
     data() {
       return {
@@ -63,8 +61,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.btn-anadir {
-  height: 3rem;
-}
+<style>
 </style>

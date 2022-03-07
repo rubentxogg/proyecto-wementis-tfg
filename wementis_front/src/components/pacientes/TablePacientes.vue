@@ -24,14 +24,10 @@
         <td>{{ paciente.genero }}</td>
         <td>{{ paciente.fechaCreacion }}</td>
         <td>
-          <button type="button" class="btn btn-warning">
-            <i class="bi bi-pen text-light"></i>
-          </button>
+          <modal-update-paciente />
         </td>
         <td>
-          <button type="button" class="btn btn-danger">
-            <i class="bi bi-person-x"></i>
-          </button>
+          <modal-delete-paciente />
         </td>
       </tr>
     </tbody>
@@ -39,9 +35,16 @@
 </template>
 
 <script>
+import ModalUpdatePaciente from '@/components/pacientes/ModalUpdatePaciente.vue';
+import ModalDeletePaciente from '@/components/pacientes/ModalDeletePaciente.vue';
+
 export default {
   name: "TablePacientes",
   props: ["pacientes"],
+  components: {
+    ModalUpdatePaciente,
+    ModalDeletePaciente
+  }
 };
 </script>
 
