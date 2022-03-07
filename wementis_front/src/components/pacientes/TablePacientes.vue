@@ -14,8 +14,8 @@
     </thead>
 
     <tbody>
-      <tr v-for="paciente in pacientes" :key="paciente.id" class="table-light">
-        <th>{{ paciente.idPaciente }}</th>
+      <tr v-for="paciente in pacientes" :key="paciente.idPaciente || paciente.id" class="table-light">
+        <th>{{ paciente.idPaciente || paciente.id }}</th>
         <td>{{ paciente.nombre }}</td>
         <td>{{ paciente.apellidos }}</td>
         <td>{{ paciente.telefono }}</td>

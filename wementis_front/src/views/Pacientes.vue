@@ -3,7 +3,7 @@
       <p class="text-muted">Pacientes</p>
       
       <div class="d-flex justify-content-between">
-        <browser-pacientes />
+        <browser-pacientes @buscarPacientes="getPacientesPorCampos"/>
 
         <button type="button" class="btn btn-success d-flex justify-content-center btn-anadir align-self-end mb-1">
           <i class="bi bi-person-plus me-1 align-self-center"></i>
@@ -29,13 +29,30 @@ export default {
     },
     data() {
       return {
-        pacientes: []
+        pacientes: [],
       }
     },
     methods: {
       getPacientes(url) {
         axios
           .get(url)
+          .then((response) => this.pacientes = response.data)
+          .catch((err) => console.error(err));
+      },
+      getPacientesPorCampos(idPaciente, nombre, apellidos, telefono, email, fechaNacimiento, genero, fechaCreacion) {
+        const params = {
+          id: idPaciente,
+          nombre: nombre,
+          apellidos: apellidos,
+          telefono: telefono,
+          email: email,
+          fechaNacimiento: fechaNacimiento,
+          genero: genero,
+          fechaCreacion: fechaCreacion
+        }
+
+        axios
+          .get("wementis/v1/pacientes/", { params })
           .then((response) => this.pacientes = response.data)
           .catch((err) => console.error(err));
       }
