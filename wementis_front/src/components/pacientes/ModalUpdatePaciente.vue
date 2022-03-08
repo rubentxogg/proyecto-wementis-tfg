@@ -15,7 +15,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form-update-paciente :paciente="paciente"/>
+            <form-update-paciente :paciente="paciente" @updateTabla="updateTabla"/>
           </div>
         </div>
       </div>
@@ -30,10 +30,13 @@ export default {
   components: { FormUpdatePaciente },
     name: "ModalUpdatePaciente",
     props: ["paciente"],
-    events: ["updatePaciente"],
+    events: ["updatePaciente", "updateTabla"],
     methods: {
       updatePaciente() {
         this.$emit("updatePaciente");
+      },
+      updateTabla() {
+        this.$emit("updateTabla");
       }
     }
 }

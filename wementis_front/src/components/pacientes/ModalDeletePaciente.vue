@@ -33,10 +33,12 @@ import axios from 'axios';
 export default {
     name: "ModalDeletePaciente",
     props: ["id"],
+    events: ["updateTabla"],
     methods: {
       deletePaciente() {
         axios
           .delete("wementis/v1/pacientes/"+this.id)
+          .then(() => this.$emit("updateTabla"))
           .catch((err) => console.error(err));
       }
     }

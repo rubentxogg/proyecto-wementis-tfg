@@ -24,10 +24,10 @@
         <td>{{ paciente.genero }}</td>
         <td>{{ paciente.fechaCreacion }}</td>
         <td>
-          <modal-update-paciente @updatePaciente="obtenerPaciente(paciente)" :paciente="pacienteToUpdate"/>
+          <modal-update-paciente @updatePaciente="obtenerPaciente(paciente)" :paciente="pacienteToUpdate" @updateTabla="updateTabla"/>
         </td>
         <td>
-          <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id"/>
+          <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id" @updateTabla="updateTabla"/>
         </td>
       </tr>
     </tbody>
@@ -41,6 +41,7 @@ import ModalDeletePaciente from '@/components/pacientes/ModalDeletePaciente.vue'
 export default {
   name: "TablePacientes",
   props: ["pacientes"],
+  events: ["updateTabla"],
   data() {
     return {
       id: "",
@@ -57,6 +58,9 @@ export default {
     },
     obtenerPaciente(paciente) {
       this.pacienteToUpdate = paciente;
+    },
+    updateTabla() {
+      this.$emit("updateTabla");
     }
   }
 };

@@ -4,11 +4,11 @@
       
       <div class="d-flex justify-content-between">
         <browser-pacientes @buscarPacientes="getPacientesPorCampos"/>
-        <modal-new-paciente />
+        <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
       </div>
 
       <hr>
-      <table-pacientes :pacientes="pacientes"/>
+      <table-pacientes :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
   </div>
 </template>
 

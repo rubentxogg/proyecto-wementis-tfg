@@ -52,6 +52,7 @@ import axios from 'axios';
 export default {
   name: "FormUpdatePaciente",
   props: ["paciente"],
+  events: ["updateTabla"],
   data() {
     return {
       nombre: "",
@@ -63,7 +64,6 @@ export default {
   },
   methods: {
     actualizarPaciente() {
-      console.log(this.paciente);
       axios
         .put("wementis/v1/pacientes/", { 
           idPaciente: this.paciente.idPaciente || this.paciente.id,
@@ -74,6 +74,7 @@ export default {
           fechaNacimiento: this.fechaNacimiento || this.paciente.fechaNacimiento,
           genero: this.genero || this.paciente.genero,
           fechaCreacion: this.paciente.fechaCreacion})
+        .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     }
   },

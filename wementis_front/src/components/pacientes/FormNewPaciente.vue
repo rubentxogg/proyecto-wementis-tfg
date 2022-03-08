@@ -51,6 +51,7 @@ import axios from 'axios';
 
 export default {
   name: "FormNewPaciente",
+  events: ["updateTabla"],
   data() {
     return {
       nombre: "",
@@ -75,6 +76,7 @@ export default {
       axios
         .post("wementis/v1/pacientes/", paciente)
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "", this.fechaNacimiento = "", this.genero = "")
+        .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     }
   }
