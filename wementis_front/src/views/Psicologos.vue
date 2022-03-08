@@ -4,7 +4,7 @@
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-psicologos v-else :psicologos="psicologos"/>
+    <table-psicologos v-else :psicologos="psicologos" @updateTabla="getPsicologos('wementis/v1/psicologos/')"/>
   </div>
 </template>
 

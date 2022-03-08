@@ -19,15 +19,41 @@
         <td>{{ psicologo.telefono }}</td>
         <td>{{ psicologo.email }}</td>
         <td>{{ psicologo.fechaCreacion }}</td>
+        <td>
+          <modal-update-psicologo @updatePsicologo="obtenerPsicologo(psicologo)" :psicologo="psicologoToUpdate" @updateTabla="updateTabla"/>
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import ModalUpdatePsicologo from './ModalUpdatePsicologo.vue';
+
 export default {
   name: "TablePsicologos",
-  props: ["psicologos"]
+  props: ["psicologos"],
+  events: ["updateTabla"],
+  data() {
+    return {
+      id: "",
+      psicologoToUpdate: ""
+    }
+  },
+  components: { 
+    ModalUpdatePsicologo 
+  },
+  methods: {
+    obtenerIdPsicologo(id) {
+      this.id = id;
+    },
+    obtenerPsicologo(psicologo) {
+      this.psicologoToUpdate = psicologo;
+    },
+    updateTabla() {
+      this.$emit("updateTabla");
+    }
+  }
 };
 </script>
 

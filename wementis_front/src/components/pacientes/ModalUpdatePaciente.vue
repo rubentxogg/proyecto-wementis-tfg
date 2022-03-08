@@ -27,10 +27,10 @@
 import FormUpdatePaciente from '@/components/pacientes/FormUpdatePaciente.vue'
 
 export default {
-  components: { FormUpdatePaciente },
     name: "ModalUpdatePaciente",
     props: ["paciente"],
     events: ["updatePaciente", "updateTabla"],
+    components: { FormUpdatePaciente },
     methods: {
       updatePaciente() {
         this.$emit("updatePaciente");
