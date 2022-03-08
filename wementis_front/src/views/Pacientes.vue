@@ -1,7 +1,7 @@
 <template>
   <div class="pacientes">
-      <p class="text-muted">Pacientes</p>
-      
+      <p class="text-muted fs-4 text-decoration-underline">Pacientes</p>
+
       <div class="d-flex justify-content-between">
         <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
           <i :class="browserIcon"></i> {{ buttonBrowserText }}
@@ -11,7 +11,8 @@
       </div>
 
       <hr>
-      <table-pacientes :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+      <spinner v-if="isLoading"/>
+      <table-pacientes v-else :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import TablePacientes from '@/components/pacientes/TablePacientes.vue';
 import BrowserPacientes from '@/components/pacientes/BrowserPacientes.vue';
 import ModalNewPaciente from '@/components/pacientes/ModalNewPaciente.vue';
+import Spinner from '@/components/Spinner.vue';
 import axios from 'axios';
 
 export default {
@@ -26,12 +28,14 @@ export default {
     components: {
       TablePacientes,
       BrowserPacientes,
-      ModalNewPaciente
+      ModalNewPaciente,
+      Spinner
     },
     data() {
       return {
         pacientes: [],
-        showBrowser: false
+        showBrowser: false,
+        isLoading: false
       }
     },
     methods: {
@@ -53,10 +57,13 @@ export default {
           fechaCreacion: fechaCreacion
         }
 
+        this.isLoading = true;
+
         axios
           .get("wementis/v1/pacientes/", { params })
           .then((response) => this.pacientes = response.data)
-          .catch((err) => console.error(err));
+          .catch((err) => console.error(err))
+          .finally(() => this.isLoading = false);
       },
       openCloseBrowser() {
         this.showBrowser = !this.showBrowser;

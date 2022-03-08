@@ -1,12 +1,20 @@
 <template>
   <div class="psicologos">
-      <h1>Psicólogos</h1>
+    <p class="text-muted fs-4 text-decoration-underline">Psicólogos</p>
+
+    <hr>
+    <table-psicologos />
   </div>
 </template>
 
 <script>
+import TablePsicologos from '@/components/psicologos/TablePsicologos.vue';
+
 export default {
-    name: "Psicologos"
+    name: "Psicologos",
+    components: {
+      TablePsicologos
+    }
 }
 </script>
 

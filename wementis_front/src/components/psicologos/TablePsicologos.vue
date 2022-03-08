@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-pacientes bg-primary">
+  <table class="table table-psicologos bg-primary">
     <thead>
       <tr class="text-light">
         <th>ID</th>
@@ -35,34 +35,8 @@
 </template>
 
 <script>
-import ModalUpdatePaciente from '@/components/pacientes/ModalUpdatePaciente.vue';
-import ModalDeletePaciente from '@/components/pacientes/ModalDeletePaciente.vue';
-
 export default {
-  name: "TablePacientes",
-  props: ["pacientes"],
-  events: ["updateTabla"],
-  data() {
-    return {
-      id: "",
-      pacienteToUpdate: ""
-    }
-  },
-  components: {
-    ModalUpdatePaciente,
-    ModalDeletePaciente
-  },
-  methods: {
-    obtenerIdPaciente(id) {
-      this.id = id;
-    },
-    obtenerPaciente(paciente) {
-      this.pacienteToUpdate = paciente;
-    },
-    updateTabla() {
-      this.$emit("updateTabla");
-    }
-  }
+  name: "TablePsicologos",
 };
 </script>
 

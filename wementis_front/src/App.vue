@@ -33,4 +33,8 @@ input[type="date"],
 input[type="radio"] {
   cursor: pointer;
 }
+
+tbody > tr:hover > * {
+  background-color: #d5e6ff;
+}
 </style>
