@@ -40,10 +40,12 @@ export default {
     },
     methods: {
       getPacientes(url) {
+        this.isLoading = true;
         axios
           .get(url)
           .then((response) => this.pacientes = response.data)
-          .catch((err) => console.error(err));
+          .catch((err) => console.error(err))
+          .finally(() => this.isLoading = false);
       },
       getPacientesPorCampos(idPaciente, nombre, apellidos, telefono, email, fechaNacimiento, genero, fechaCreacion) {
         const params = {
@@ -57,13 +59,10 @@ export default {
           fechaCreacion: fechaCreacion
         }
 
-        this.isLoading = true;
-
         axios
           .get("wementis/v1/pacientes/", { params })
           .then((response) => this.pacientes = response.data)
-          .catch((err) => console.error(err))
-          .finally(() => this.isLoading = false);
+          .catch((err) => console.error(err));
       },
       openCloseBrowser() {
         this.showBrowser = !this.showBrowser;
