@@ -24,7 +24,7 @@
         <td>{{ paciente.genero }}</td>
         <td>{{ paciente.fechaCreacion }}</td>
         <td>
-          <modal-update-paciente @click="obtenerPaciente(paciente)" :paciente="pacienteToUpdate"/>
+          <modal-update-paciente @updatePaciente="obtenerPaciente(paciente)" :paciente="pacienteToUpdate"/>
         </td>
         <td>
           <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id"/>

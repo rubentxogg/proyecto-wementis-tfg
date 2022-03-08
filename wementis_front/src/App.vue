@@ -28,4 +28,9 @@ export default {
 .bg-standard {
   background: rgb(255, 251, 251)
 }
+
+input[type="date"], 
+input[type="radio"] {
+  cursor: pointer;
+}
 </style>

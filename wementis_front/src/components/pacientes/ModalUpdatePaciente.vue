@@ -1,7 +1,7 @@
 <template>
   <div class="modal-update-paciente">
       
-    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatePaciente">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatePaciente" @click="updatePaciente">
       <i class="bi bi-pen text-light"></i>
     </button>
 
@@ -29,7 +29,13 @@ import FormUpdatePaciente from '@/components/pacientes/FormUpdatePaciente.vue'
 export default {
   components: { FormUpdatePaciente },
     name: "ModalUpdatePaciente",
-    props: ["paciente"]
+    props: ["paciente"],
+    events: ["updatePaciente"],
+    methods: {
+      updatePaciente() {
+        this.$emit("updatePaciente");
+      }
+    }
 }
 </script>
 

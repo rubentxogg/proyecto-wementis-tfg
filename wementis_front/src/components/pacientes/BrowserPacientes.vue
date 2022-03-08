@@ -90,9 +90,5 @@ export default {
 }
 </script>
 
-<style scoped>
-input[type="date"], 
-input[type="radio"] {
-  cursor: pointer;
-}
+<style>
 </style>
