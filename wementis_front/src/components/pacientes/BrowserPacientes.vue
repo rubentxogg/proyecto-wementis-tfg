@@ -32,7 +32,12 @@
       <input type="date" class="form-control" name="fechaNac" v-model="fechaNacimiento">
     </div>
 
-    <div class="input-group mb-3 m-1">
+    <div class="input-group mb-3 w-25 m-1 h-fix">
+      <span class="input-group-text">Fecha crea.</span>
+      <input type="date" class="form-control" name="fechaCrea" v-model="fechaCreacion">
+    </div>
+
+    <div class="input-group w-50 mb-3 m-1 h-fix">
       <span class="input-group-text me-4">Género</span>
      
       <div class="form-check form-check-inline align-self-center">
@@ -46,12 +51,7 @@
       </div>
     </div>
 
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Fecha crea.</span>
-      <input type="date" class="form-control" name="fechaCrea" v-model="fechaCreacion">
-    </div>
-
-    <button type="button" class="btn btn-outline-secondary mb-3 m-1" @click="buscarPacientes">
+    <button type="button" class="btn btn-outline-secondary mb-3" @click="buscarPacientes">
       <i class="bi bi-search me-1"></i>Buscar
     </button>
   </form>
@@ -90,5 +90,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+button {
+  position: relative;
+  left: 4%;
+  bottom: 72%;
+  height: 100%;
+}
+
+.h-fix {
+  height: 1rem;
+}
 </style>

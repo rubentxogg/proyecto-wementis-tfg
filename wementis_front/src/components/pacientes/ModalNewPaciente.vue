@@ -1,7 +1,7 @@
 <template>
   <div class="modal-new-paciente align-self-end">
       
-    <button type="button" class="btn btn-success d-flex mb-1" data-bs-toggle="modal" data-bs-target="#newPaciente">
+    <button type="button" class="btn btn-success d-flex" data-bs-toggle="modal" data-bs-target="#newPaciente">
       <i class="bi bi-person-plus me-1"></i>
       <span class="align-self-center">Añadir</span>
     </button>

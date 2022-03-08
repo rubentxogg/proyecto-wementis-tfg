@@ -3,7 +3,10 @@
       <p class="text-muted">Pacientes</p>
       
       <div class="d-flex justify-content-between">
-        <browser-pacientes @buscarPacientes="getPacientesPorCampos"/>
+        <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
+          <i :class="browserIcon"></i> {{ buttonBrowserText }}
+        </button>
+        <browser-pacientes @buscarPacientes="getPacientesPorCampos" v-if="showBrowser"/>
         <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
       </div>
 
@@ -28,6 +31,7 @@ export default {
     data() {
       return {
         pacientes: [],
+        showBrowser: false
       }
     },
     methods: {
@@ -53,6 +57,23 @@ export default {
           .get("wementis/v1/pacientes/", { params })
           .then((response) => this.pacientes = response.data)
           .catch((err) => console.error(err));
+      },
+      openCloseBrowser() {
+        this.showBrowser = !this.showBrowser;
+      }
+    },
+    computed: {
+      buttonBrowserText() {
+        if(!this.showBrowser) return "Abrir buscador";
+        return "Cerrar buscador"
+      },
+      buttonBrowserStyles() {
+        if(!this.showBrowser) return "btn btn-primary";
+        return "btn btn-outline-primary me-4"
+      },
+      browserIcon() {
+        if(!this.showBrowser) return "bi bi-arrows-angle-expand me-1";
+        return "bi bi-arrows-angle-contract me-1"
       }
     },
     mounted() {
