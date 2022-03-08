@@ -22,13 +22,17 @@
         <td>
           <modal-update-psicologo @updatePsicologo="obtenerPsicologo(psicologo)" :psicologo="psicologoToUpdate" @updateTabla="updateTabla"/>
         </td>
+        <td>
+          <modal-delete-psicologo @click="obtenerIdPsicologo(psicologo.idPsicologo || psicologo.id)" :id="id" @updateTabla="updateTabla"/>
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
-import ModalUpdatePsicologo from './ModalUpdatePsicologo.vue';
+import ModalUpdatePsicologo from '@/components/psicologos/ModalUpdatePsicologo.vue';
+import ModalDeletePsicologo from '@/components/psicologos/ModalDeletePsicologo.vue';
 
 export default {
   name: "TablePsicologos",
@@ -41,7 +45,8 @@ export default {
     }
   },
   components: { 
-    ModalUpdatePsicologo 
+    ModalUpdatePsicologo,
+    ModalDeletePsicologo
   },
   methods: {
     obtenerIdPsicologo(id) {
