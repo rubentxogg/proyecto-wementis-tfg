@@ -37,4 +37,8 @@ input[type="radio"] {
 tbody > tr:hover > * {
   background-color: #d5e6ff;
 }
+
+li {
+  cursor: pointer;
+}
 </style>
