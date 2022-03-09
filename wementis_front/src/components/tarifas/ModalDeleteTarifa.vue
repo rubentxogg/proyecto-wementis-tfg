@@ -2,7 +2,7 @@
   <div class="modal-delete-tarifa">
       
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTarifa" title="Borrar tarifa">
-      <i class="bi bi-person-x"></i>
+      <i class="bi bi-trash"></i>
     </button>
 
     <div class="modal fade" id="deleteTarifa" tabindex="-1" aria-labelledby="deleteTarifa" aria-hidden="true">
@@ -10,7 +10,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="deleteTarifa">
-               <i class="bi bi-person-x me-1"></i>Borrar tarifa
+              <i class="bi bi-trash me-1"></i>Borrar tarifa
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
