@@ -1,18 +1,17 @@
 <template>
   <div class="pacientes">
-      <p class="text-muted fs-5 text-decoration-underline">Pacientes</p>
-
-      <div class="d-flex justify-content-between">
-        <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
-          <i :class="browserIcon"></i> {{ buttonBrowserText }}
-        </button>
-        <browser-pacientes @buscarPacientes="getPacientesPorCampos" v-if="showBrowser"/>
-        <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
-      </div>
-
-      <hr>
-      <spinner v-if="isLoading"/>
-      <table-pacientes v-else :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    <p class="text-muted fs-5 text-decoration-underline">Pacientes</p>
+    <div class="d-flex justify-content-between">
+      <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
+        <i :class="browserIcon"></i> {{ buttonBrowserText }}
+      </button>
+      <browser-pacientes @buscarPacientes="getPacientesPorCampos" v-if="showBrowser"/>
+      <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    </div>
+    
+    <hr>
+    <spinner v-if="isLoading"/>
+    <table-pacientes v-else :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
   </div>
 </template>
 

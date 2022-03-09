@@ -37,7 +37,7 @@ public class CitaController {
 		return citaService.getCitaPorId(id);
 	}
 	
-	@GetMapping(value = "/citas", params = {"id", "idPaciente", "idPsicologo", "idTarifa", "idEstado", "fecha", "cantidadHoras"})
+	@GetMapping(value = "/citas", params = {"id", "idPaciente", "idPsicologo", "idTarifa", "idEstado", "fecha", "hora", "cantidadHoras"})
 	public List<Cita> getCitasPorCampos(
 			@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "idPaciente", required = false) String idPaciente,
