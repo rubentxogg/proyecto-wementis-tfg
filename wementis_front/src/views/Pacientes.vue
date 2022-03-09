@@ -1,6 +1,6 @@
 <template>
   <div class="pacientes">
-      <p class="text-muted fs-4 text-decoration-underline">Pacientes</p>
+      <p class="text-muted fs-5 text-decoration-underline">Pacientes</p>
 
       <div class="d-flex justify-content-between">
         <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">

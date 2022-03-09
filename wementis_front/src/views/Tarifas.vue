@@ -1,6 +1,14 @@
 <template>
   <div class="tarifas">
-    <p class="text-muted fs-4 text-decoration-underline">Tarifas</p>
+    <p class="text-muted fs-5 text-decoration-underline">Tarifas</p>
+
+    <div class="d-flex justify-content-between">
+      <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
+        <i :class="browserIcon"></i> {{ buttonBrowserText }}
+      </button>
+      <browser-tarifas @buscarTarifas="getTarifasPorCampos" v-if="showBrowser"/>
+      <modal-new-tarifa @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+    </div>
 
     <hr>
     <spinner v-if="isLoading"/>
@@ -10,6 +18,8 @@
 
 <script>
 import TableTarifas from '@/components/tarifas/TableTarifas.vue';
+import BrowserTarifas from '@/components/tarifas/BrowserTarifas.vue';
+import ModalNewTarifa from '@/components/tarifas/ModalNewTarifa.vue';
 import Spinner from '@/components/Spinner.vue';
 import axios from 'axios';
 
@@ -17,6 +27,8 @@ export default {
   name: "Tarifas",
   components: {
     TableTarifas,
+    BrowserTarifas,
+    ModalNewTarifa,
     Spinner
   },
   data() {
@@ -35,6 +47,35 @@ export default {
         .catch((err) => console.error(err))
         .finally(() => this.isLoading = false);
     },
+    getTarifasPorCampos(idTarifa, nombre, precioHora, fechaCreacion) {
+      const params = {
+        id: idTarifa,
+        nombre: nombre,
+        precioHora: precioHora,
+        fechaCreacion: fechaCreacion
+      }
+      axios
+        .get("wementis/v1/tarifas/", { params })
+        .then((response) => this.tarifas = response.data)
+        .catch((err) => console.error(err));
+    },
+    openCloseBrowser() {
+      this.showBrowser = !this.showBrowser;
+    }
+  },
+  computed: {
+    buttonBrowserText() {
+      if(!this.showBrowser) return "Abrir buscador";
+      return "Cerrar buscador"
+    },
+    buttonBrowserStyles() {
+      if(!this.showBrowser) return "btn btn-primary";
+      return "btn btn-outline-primary me-4"
+    },
+    browserIcon() {
+      if(!this.showBrowser) return "bi bi-arrows-angle-expand me-1";
+      return "bi bi-arrows-angle-contract me-1"
+    }
   },
   mounted() {
     this.getTarifas('wementis/v1/tarifas/');
