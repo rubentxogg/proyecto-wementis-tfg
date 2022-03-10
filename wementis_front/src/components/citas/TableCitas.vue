@@ -16,25 +16,34 @@
     <tbody>
       <tr v-for="cita in citas" :key="cita.id" class="table-light">
         <th>{{ cita.id }}</th>
-        <td>{{ cita.paciente.nombre }}</td>
-        <td>{{ cita.psicologo.nombre }}</td>
+        <td>{{ cita.paciente.idPaciente || cita.paciente.id }}-{{ cita.paciente.nombre }}</td>
+        <td>{{ cita.psicologo.idPsicologo || cita.psicologo.id}}-{{ cita.psicologo.nombre }}</td>
         <td>{{ cita.tarifa.nombre }}</td>
         <td>{{ cita.fecha }}</td>
         <td>{{ cita.hora.substring(0,5) }}</td>
         <td>{{ cita.cantidadHoras }}</td>
         <td>
-            <span :class="circuloEstado(cita.estado.idEstado)"></span>{{ cita.estado.nombre }}
+          <span :class="circuloEstado(cita.estado.idEstado)"></span>{{ cita.estado.nombre }}
         </td>
+        <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
+          <modal-completar-cita @click="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
+        </td>
+        <td v-else></td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import ModalCompletarCita from '@/components/citas/ModalCompletarCita.vue';
+
 export default {
   name: "TableCitas",
   props: ["citas"],
   events: ["updateTabla"],
+  components: {
+    ModalCompletarCita
+  },
   data() {
     return {
       id: "",

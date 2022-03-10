@@ -17,17 +17,17 @@
 
     <div class="input-group mb-3">
      <span class="input-group-text">Hora</span>
-     <input type="text" class="form-control" name="hora" placeholder="hh:mm">
+     <input type="text" class="form-control" name="hora" placeholder="hh:mm" v-model="hora">
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Fecha</span>
-     <input type="date" class="form-control" name="fecha" v-model="fechaNacimiento">
+     <input type="date" class="form-control" name="fecha" v-model="fecha">
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Cantidad/h</span>
-     <input type="number" class="form-control" name="email" v-model="email">
+     <input type="number" class="form-control" name="email" v-model="cantidadHoras">
     </div>
 
      <div class="modal-footer w-100">
@@ -56,9 +56,9 @@ export default {
       paciente: "",
       psicologo: "",
       tarifa: "",
-      email: "",
-      fechaNacimiento: "",
-      genero: "",
+      fecha: "",
+      hora: "",
+      cantidadHoras: "",
     };
   },
   methods: {
@@ -67,25 +67,25 @@ export default {
         paciente: this.paciente,
         psicologo: this.psicologo,
         tarifa: this.tarifa,
-        email: this.email,
-        fechaNacimiento: this.fechaNacimiento,
-        genero: this.genero
+        fecha: this.fecha,
+        hora: this.hora,
+        cantidadHoras: this.cantidadHoras
       }
       
       axios
-        .post("wementis/v1/cita/", cita)
-        .then(() => this.paciente = "", this.psicologo = "", this.tarifa = "", this.email = "", this.fechaNacimiento = "", this.genero = "")
+        .post("wementis/v1/citas/", cita)
+        .then(() => this.paciente = "", this.psicologo = "", this.tarifa = "", this.fecha = "", this.hora = "", this.cantidadHoras = "")
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     },
     pacienteSeleccionado(paciente) {
-        this.paciente = paciente;
+      this.paciente = paciente;
     },
     psicologoSeleccionado(psicologo) {
-        this.psicologo = psicologo;
+      this.psicologo = psicologo;
     },
     tarifaSeleccionada(tarifa) {
-        this.tarifa = tarifa;
+      this.tarifa = tarifa;
     }
   },
   computed: {
