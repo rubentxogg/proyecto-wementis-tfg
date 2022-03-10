@@ -27,7 +27,7 @@
           <modal-update-paciente @updatePaciente="obtenerPaciente(paciente)" :paciente="pacienteToUpdate" @updateTabla="updateTabla"/>
         </td>
         <td>
-          <modal-delete-paciente @click="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id" @updateTabla="updateTabla"/>
+          <modal-delete-paciente @borradoPaciente="obtenerIdPaciente(paciente.idPaciente || paciente.id)" :id="id" @updateTabla="updateTabla"/>
         </td>
       </tr>
     </tbody>

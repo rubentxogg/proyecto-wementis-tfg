@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-paciente">
       
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePaciente" title="Borrar paciente">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePaciente" title="Borrar paciente" @click="borradoPaciente">
       <i class="bi bi-person-x"></i>
     </button>
 
@@ -33,13 +33,16 @@ import axios from 'axios';
 export default {
     name: "ModalDeletePaciente",
     props: ["id"],
-    events: ["updateTabla"],
+    events: ["borradoPaciente", "updateTabla"],
     methods: {
       deletePaciente() {
         axios
           .delete("wementis/v1/pacientes/"+this.id)
           .then(() => this.$emit("updateTabla"))
           .catch((err) => console.error(err));
+      },
+      borradoPaciente() {
+        this.$emit("borradoPaciente");
       }
     }
 }

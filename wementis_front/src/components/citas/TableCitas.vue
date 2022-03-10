@@ -26,7 +26,12 @@
           <span :class="circuloEstado(cita.estado.idEstado)"></span>{{ cita.estado.nombre }}
         </td>
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
-          <modal-completar-cita @click="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
+          <modal-completar-cita @completacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
+          
+        </td>
+        <td v-else></td>
+        <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
+          <modal-cancelar-cita @cancelacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id" />
         </td>
         <td v-else></td>
       </tr>
@@ -36,13 +41,15 @@
 
 <script>
 import ModalCompletarCita from '@/components/citas/ModalCompletarCita.vue';
+import ModalCancelarCita from '@/components/citas/ModalCancelarCita.vue';
 
 export default {
   name: "TableCitas",
   props: ["citas"],
   events: ["updateTabla"],
   components: {
-    ModalCompletarCita
+    ModalCompletarCita,
+    ModalCancelarCita
   },
   data() {
     return {

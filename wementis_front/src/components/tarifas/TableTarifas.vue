@@ -19,7 +19,7 @@
           <modal-update-tarifa @updateTarifa="obtenerTarifa(tarifa)" :tarifa="tarifaToUpdate" @updateTabla="updateTabla"/>
         </td>
         <td>
-          <modal-delete-tarifa @click="obtenerIdTarifa(tarifa.idTarifa || tarifa.id)" :id="id" @updateTabla="updateTabla"/>
+          <modal-delete-tarifa @borradoTarifa="obtenerIdTarifa(tarifa.idTarifa || tarifa.id)" :id="id" @updateTabla="updateTabla"/>
         </td>
       </tr>
     </tbody>

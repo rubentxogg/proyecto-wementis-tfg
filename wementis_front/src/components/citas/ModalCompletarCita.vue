@@ -1,7 +1,7 @@
 <template>
   <div class="modal-completar-cita">
       
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#completarCita" title="Completar cita">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#completarCita" title="Completar cita" @click="completacionCita">
       <i class="bi bi-check2-circle"></i>
     </button>
 
@@ -15,7 +15,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ¿Está seguro de que completar la cita con el ID {{ id }}?
+            ¿Está seguro de desea completar la cita con el ID {{ id }}?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -33,13 +33,16 @@ import axios from 'axios';
 export default {
     name: "ModalCompletarCita",
     props: ["id"],
-    events: ["updateTabla"],
+    events: ["completacionCita", "updateTabla"],
     methods: {
       completarCita() {
         axios
           .put("wementis/v1/citas/"+this.id)
           .then(() => this.$emit("updateTabla"))
           .catch((err) => console.error(err));
+      },
+      completacionCita() {
+        this.$emit("completacionCita");
       }
     }
 }

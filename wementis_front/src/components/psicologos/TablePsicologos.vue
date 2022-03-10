@@ -23,7 +23,7 @@
           <modal-update-psicologo @updatePsicologo="obtenerPsicologo(psicologo)" :psicologo="psicologoToUpdate" @updateTabla="updateTabla"/>
         </td>
         <td>
-          <modal-delete-psicologo @click="obtenerIdPsicologo(psicologo.idPsicologo || psicologo.id)" :id="id" @updateTabla="updateTabla"/>
+          <modal-delete-psicologo @borradoPsicologo="obtenerIdPsicologo(psicologo.idPsicologo || psicologo.id)" :id="id" @updateTabla="updateTabla"/>
         </td>
       </tr>
     </tbody>

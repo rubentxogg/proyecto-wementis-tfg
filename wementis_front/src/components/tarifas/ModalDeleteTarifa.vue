@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-tarifa">
       
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTarifa" title="Borrar tarifa">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTarifa" title="Borrar tarifa" @click="borradoTarifa">
       <i class="bi bi-trash"></i>
     </button>
 
@@ -33,13 +33,16 @@ import axios from 'axios';
 export default {
     name: "ModalDeleteTarifa",
     props: ["id"],
-    events: ["updateTabla"],
+    events: ["borradoTarifa", "updateTabla"],
     methods: {
       deleteTarifa() {
         axios
           .delete("wementis/v1/tarifas/"+this.id)
           .then(() => this.$emit("updateTabla"))
           .catch((err) => console.error(err));
+      },
+      borradoTarifa() {
+        this.$emit("borradoTarifa");
       }
     }
 }
