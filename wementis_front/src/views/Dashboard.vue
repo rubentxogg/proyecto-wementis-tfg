@@ -2,23 +2,27 @@
   <div class="dashboard">
     <p class="text-muted fs-5 text-decoration-underline">Dashboard</p>
     <hr>
-    <header-dashboard :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
+    <spinner v-if="isHeaderLoading"/>
+    <header-dashboard  v-else :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
     <hr class="mt-4">
-    
-    <section-citas-estados :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
+
+    <spinner v-if="isSectionLoading"/>
+    <section-citas-estados v-else :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
   </div>
 </template>
 
 <script>
 import HeaderDashboard from '@/components/dashboard/HeaderDashboard.vue';
 import SectionCitasEstados from '@/components/dashboard/SectionCitasEstados.vue';
+import Spinner from '@/components/Spinner.vue';
 import axios from "axios";
 
 export default {
   name: "Dashboard",
   components: {
     HeaderDashboard,
-    SectionCitasEstados
+    SectionCitasEstados,
+    Spinner
   },
   data() {
     return {
@@ -29,42 +33,44 @@ export default {
       citasCompletadas: [],
       citasCanceladas: [],
       citasActivas: [],
-      gananciaTotal: 0
+      gananciaTotal: 0,
+      isHeaderLoading: false,
+      isSectionLoading: false
     };
   },
   methods: {
     getPacientes(url) {
-      this.isLoading = true;
+      this.isHeaderLoading = true;
       axios
         .get(url)
         .then((response) => (this.pacientes = response.data))
         .catch((err) => console.error(err))
-        .finally(() => (this.isLoading = false));
+        .finally(() => (this.isHeaderLoading = false));
     },
     getPsicologos(url) {
-      this.isLoading = true;
+      this.isHeaderLoading = true;
       axios
         .get(url)
         .then((response) => (this.psicologos = response.data))
         .catch((err) => console.error(err))
-        .finally(() => (this.isLoading = false));
+        .finally(() => (this.isHeaderLoading = false));
     },
     getCitas(url) {
-      this.isLoading = true;
+      this.isHeaderLoading = true;
       axios
         .get(url)
         .then((response) => (this.citas = response.data))
         .catch((err) => console.error(err))
-        .finally(() => (this.isLoading = false));
+        .finally(() => (this.isHeaderLoading = false));
     },
     getGanancias(url) {
-      this.isLoading = true;
+      this.isHeaderLoading = true;
       axios
         .get(url)
         .then((response) => (this.ganancias = response.data))
         .then(() => this.calcularGananciaTotal())
         .catch((err) => console.error(err))
-        .finally(() => (this.isLoading = false));
+        .finally(() => (this.isHeaderLoading = false));
     },
     async getCitasPorEstado(idEstado) {
       const params = {
@@ -77,13 +83,14 @@ export default {
         hora: "",
         cantidadHoras: ""
       };
-
-      this.isLoading = true;
       
+      this.isSectionLoading = true;
+
       const response = axios
         .get("wementis/v1/citas/", { params })
         .catch((err) => console.error(err))
-        .finally(() => this.isLoading = false)
+        .finally(() => this.isSectionLoading = false);
+        
       return (await response).data;
     },
     calcularGananciaTotal() {
