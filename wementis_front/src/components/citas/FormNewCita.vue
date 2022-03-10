@@ -17,7 +17,7 @@
 
     <div class="input-group mb-3">
      <span class="input-group-text">Hora</span>
-     <input type="text" class="form-control" name="hora" placeholder="hh:mm" v-model="hora">
+     <input type="time" class="form-control" name="hora" placeholder="hh:mm" v-model="hora">
     </div>
 
     <div class="input-group mb-3">

@@ -27,7 +27,6 @@
         </td>
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-completar-cita @completacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
-          
         </td>
         <td v-else></td>
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
