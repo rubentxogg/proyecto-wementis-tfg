@@ -34,7 +34,7 @@ export default {
     return {
       citas: [],
       showFullBrowser: false,
-      isLoading: false
+      isLoading: false,
     }
   },
   methods: {
@@ -47,8 +47,6 @@ export default {
         .finally(() => this.isLoading = false);
     },
     getCitasPorCampos(id, pacienteNombre, psicologoNombre, tarifaNombre, estado, fecha, hora, cantidadHoras) {
-      let paciente = "";
-
       const params = {
         id: id,
         nombrePaciente: pacienteNombre,
@@ -63,7 +61,6 @@ export default {
       axios
         .get("wementis/v1/citas/", { params })
         .then((response) => this.citas = response.data)
-        .then(() => console.log(paciente))
         .catch((err) => console.error(err));
     },
     openCloseFullBrowser() {
