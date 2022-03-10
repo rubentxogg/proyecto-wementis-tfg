@@ -2,58 +2,24 @@
   <div class="dashboard">
     <p class="text-muted fs-5 text-decoration-underline">Dashboard</p>
     <hr>
-    <div class="d-flex justify-content-evenly mt-4">
-      <div class="d-flex align-items-center">
-        <span class="bg-primary rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
-          <i class="bi bi-calendar-week fs-5"></i>
-        </span>
-        <h6 class="mt-1">Citas: {{ citas.length }}</h6>
-      </div>
-
-      <div class="d-flex align-items-center">
-        <span class="bg-indigo rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
-          <i class="bi bi-people fs-5"></i>
-        </span>
-        <h6 class="mt-1">Pacientes: {{ pacientes.length }}</h6>
-      </div>
-
-      <div class="d-flex align-items-center">
-        <span class="bg-pink rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
-          <i class="bi bi-bandaid fs-5"></i>
-        </span>
-        <h6 class="mt-1">Psicólogos: {{ psicologos.length }}</h6>
-      </div>
-
-      <div class="d-flex align-items-center">
-        <span class="bg-success rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
-          <i class="bi bi-piggy-bank fs-4"></i>
-        </span>
-        <h6 class="mt-1">
-          Ganancia total: {{ gananciaTotal }}<i class="bi bi-currency-euro"></i>
-        </h6>
-      </div>
-    </div>
-
+    <header-dashboard :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
     <hr class="mt-4">
-
-    <div class="d-flex justify-content-evenly mt-5">
-      <h6 class="bg-warning p-4 text-light rounded-pill">
-        <i class="bi bi-calendar-minus me-2 fs-5"></i>Citas activas: {{ citasActivas.length }}
-      </h6>
-      <h6 class="bg-success p-4 text-light rounded-pill">
-        <i class="bi bi-calendar-check me-2 fs-5"></i>Citas completadas: {{ citasCompletadas.length }}
-      </h6>
-      <h6 class="bg-danger p-4 text-light rounded-pill">
-        <i class="bi bi-calendar-x me-2 fs-5"></i>Citas canceladas: {{ citasCanceladas.length }}</h6>
-    </div>
+    
+    <section-citas-estados :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
   </div>
 </template>
 
 <script>
+import HeaderDashboard from '@/components/dashboard/HeaderDashboard.vue';
+import SectionCitasEstados from '@/components/dashboard/SectionCitasEstados.vue';
 import axios from "axios";
 
 export default {
   name: "Dashboard",
+  components: {
+    HeaderDashboard,
+    SectionCitasEstados
+  },
   data() {
     return {
       pacientes: [],
@@ -139,16 +105,5 @@ export default {
 </script>
 
 <style scoped>
-span {
-  width: 2.5em;
-  height: 2.5em;
-}
 
-.bg-pink {
-  background-color: #d63384;
-}
-
-.bg-indigo {
-  background-color: #6610f2;
-}
 </style>
