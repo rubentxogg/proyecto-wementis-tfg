@@ -28,7 +28,9 @@
         <span class="bg-success rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
           <i class="bi bi-piggy-bank fs-4"></i>
         </span>
-        <h6 class="mt-1">Ganancias totales: {{ ganancias.length }}</h6>
+        <h6 class="mt-1">
+          Ganancia total: {{ gananciaTotal }}<i class="bi bi-currency-euro"></i>
+        </h6>
       </div>
     </div>
 
@@ -60,7 +62,8 @@ export default {
       ganancias: [],
       citasCompletadas: [],
       citasCanceladas: [],
-      citasActivas: []
+      citasActivas: [],
+      gananciaTotal: 0
     };
   },
   methods: {
@@ -93,6 +96,7 @@ export default {
       axios
         .get(url)
         .then((response) => (this.ganancias = response.data))
+        .then(() => this.calcularGananciaTotal())
         .catch((err) => console.error(err))
         .finally(() => (this.isLoading = false));
     },
@@ -116,6 +120,11 @@ export default {
         .finally(() => this.isLoading = false)
       return (await response).data;
     },
+    calcularGananciaTotal() {
+      let objetoCantidadTotal = this.ganancias.reduce((prev, curr) => ({cantidad: prev.cantidad + curr.cantidad}));
+
+      this.gananciaTotal = objetoCantidadTotal.cantidad;
+    }
   },
   async mounted() {
     this.getPacientes("wementis/v1/pacientes/");
