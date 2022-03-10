@@ -1,9 +1,9 @@
 <template>
-  <div class="dropdown-pacientes btn-group dropstart">
+  <div class="dropdown-pacientes btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-people me-1 ms-2"></i> Pacientes
+      <i class="bi bi-people me-1"></i> Pacientes
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu dropdown-menu-dark">
       <li v-for="paciente in pacientes" :key="paciente.idPaciente || paciente.id" class="text-center">
         <a class="dropdown-item" @click="seleccionarPaciente(paciente)">{{paciente.idPaciente || paciente.id}} - {{ paciente.nombre }}</a>
         <hr class="dropdown-divider" />

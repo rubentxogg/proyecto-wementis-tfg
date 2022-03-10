@@ -1,9 +1,9 @@
 <template>
-  <div class="dropdown-tarifas btn-group dropstart">
+  <div class="dropdown-tarifas btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-wallet2 ms-2 me-1"></i> Tarifas
+      <i class="bi bi-wallet2 me-1"></i> Tarifas
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu dropdown-menu-dark">
       <li v-for="tarifa in tarifas" :key="tarifa.idTarifa || tarifa.id" class="text-center">
         <a class="dropdown-item" @click="seleccionarTarifa(tarifa)">{{tarifa.idTarifa || tarifa.id}} - {{ tarifa.nombre }}</a>
         <hr class="dropdown-divider" />

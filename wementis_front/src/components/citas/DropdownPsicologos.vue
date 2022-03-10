@@ -1,9 +1,9 @@
 <template>
-  <div class="dropdown-psicologos btn-group dropstart">
+  <div class="dropdown-psicologos btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-       <i class="bi bi-bandaid me-1 ms-2"></i> Psicólogos
+       <i class="bi bi-bandaid me-1"></i> Psicólogos
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu dropdown-menu-dark">
       <li v-for="psicologo in psicologos" :key="psicologo.idPsicologo || psicologo.id" class="text-center">
         <a class="dropdown-item" @click="seleccionarPsicologo(psicologo)">{{psicologo.idPsicologo || psicologo.id}} - {{ psicologo.nombre }}</a>
         <hr class="dropdown-divider" />
