@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <p class="text-muted fs-5 text-decoration-underline">Dashboard</p>
-
+    <hr>
     <div class="d-flex justify-content-evenly mt-4">
       <div class="d-flex align-items-center">
         <span class="bg-primary rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
@@ -32,10 +32,17 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-evenly mt-4">
-      <div>Citas activas: {{ citasActivas.length }}</div>
-      <div>Citas completadas: {{ citasCompletadas.length }}</div>
-      <div>Citas canceladas: {{ citasCanceladas.length }}</div>
+    <hr class="mt-4">
+
+    <div class="d-flex justify-content-evenly mt-5">
+      <h6 class="bg-warning p-4 text-light rounded-pill">
+        <i class="bi bi-calendar-minus me-2 fs-5"></i>Citas activas: {{ citasActivas.length }}
+      </h6>
+      <h6 class="bg-success p-4 text-light rounded-pill">
+        <i class="bi bi-calendar-check me-2 fs-5"></i>Citas completadas: {{ citasCompletadas.length }}
+      </h6>
+      <h6 class="bg-danger p-4 text-light rounded-pill">
+        <i class="bi bi-calendar-x me-2 fs-5"></i>Citas canceladas: {{ citasCanceladas.length }}</h6>
     </div>
   </div>
 </template>

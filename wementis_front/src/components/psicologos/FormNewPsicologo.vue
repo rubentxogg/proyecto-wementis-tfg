@@ -20,20 +20,6 @@
      <input type="text" class="form-control" name="email" v-model="email">
     </div>
 
-    <div class="input-group mb-3 m-1">
-      <span class="input-group-text me-4">Género</span>
-     
-      <div class="form-check form-check-inline align-self-center">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="masculino" value="M" v-model="genero">
-        <label class="form-check-label" for="masculino">Masculino</label>
-      </div>
-
-      <div class="form-check form-check-inline align-self-center">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femenino" value="F" v-model="genero">
-        <label class="form-check-label" for="femenino">Femenino</label>
-      </div>
-    </div>
-
      <div class="modal-footer w-100">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="anadirPsicologo">Guardar</button>

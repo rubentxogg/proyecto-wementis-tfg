@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-paciente">
       
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePaciente" title="Borrar paciente" @click="borradoPaciente">
+    <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deletePaciente" title="Borrar paciente" @click="borradoPaciente">
       <i class="bi bi-person-x"></i>
     </button>
 
