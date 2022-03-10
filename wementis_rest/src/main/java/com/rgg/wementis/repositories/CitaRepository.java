@@ -16,18 +16,18 @@ public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 	@Query(value = "SELECT new com.rgg.wementis.beans.Cita (id, paciente.idPaciente, psicologo.idPsicologo, tarifa.idTarifa, estado.idEstado, fecha, hora, cantidadHoras) "
 			+ "FROM com.rgg.wementis.entities.CitaEntity "
 			+ "WHERE (id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
-			+ "AND (paciente.idPaciente LIKE CONCAT('%', :idPaciente, '%') OR :idPaciente is NULL) "
-			+ "AND (psicologo.idPsicologo LIKE CONCAT('%', :idPsicologo, '%') OR :idPsicologo is NULL) "
-			+ "AND (tarifa.idTarifa LIKE CONCAT('%', :idTarifa, '%') OR :idTarifa is NULL) "
+			+ "AND paciente.nombre LIKE CONCAT('%', :nombrePaciente, '%') "
+			+ "AND psicologo.nombre LIKE CONCAT('%', :nombrePsicologo, '%') "
+			+ "AND tarifa.nombre LIKE CONCAT('%', :nombreTarifa, '%') "
 			+ "AND (estado.idEstado LIKE CONCAT('%', :idEstado, '%') OR :idEstado is NULL) "
 			+ "AND fecha >= :fecha "
 			+ "AND hora >= :hora "
 			+ "AND cantidadHoras >= :cantidadHoras")
 	public List<Cita> getCitasPorCampos(
 			@Param("id") String id,
-			@Param("idPaciente") String idPaciente,
-			@Param("idPsicologo") String idPsicologo,
-			@Param("idTarifa") String idTarifa,
+			@Param("nombrePaciente") String nombrePaciente,
+			@Param("nombrePsicologo") String nombrePsicologo,
+			@Param("nombreTarifa") String nombreTarifa,
 			@Param("idEstado") String idEstado,
 			@Param("fecha") String fecha,
 			@Param("hora") String hora,

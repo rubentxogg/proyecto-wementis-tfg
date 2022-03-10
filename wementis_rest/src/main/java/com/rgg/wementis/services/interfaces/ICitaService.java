@@ -12,7 +12,7 @@ public interface ICitaService {
 
 	public Optional<CitaEntity> getCitaPorId(Integer id);
 
-	public List<Cita> getCitasPorCampos(String id, String idPaciente, String idPsicologo, String idTarifa,
+	public List<Cita> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
 			String idEstado, String fecha, String hora, Integer cantidadHoras);
 	
 	public void actualizarCita(CitaEntity cita);

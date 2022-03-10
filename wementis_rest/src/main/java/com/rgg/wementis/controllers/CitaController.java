@@ -37,12 +37,12 @@ public class CitaController {
 		return citaService.getCitaPorId(id);
 	}
 	
-	@GetMapping(value = "/citas", params = {"id", "idPaciente", "idPsicologo", "idTarifa", "idEstado", "fecha", "hora", "cantidadHoras"})
+	@GetMapping(value = "/citas", params = {"id", "nombrePaciente", "nombrePsicologo", "nombreTarifa", "idEstado", "fecha", "hora", "cantidadHoras"})
 	public List<Cita> getCitasPorCampos(
 			@RequestParam(value = "id", required = false) String id,
-			@RequestParam(value = "idPaciente", required = false) String idPaciente,
-			@RequestParam(value = "idPsicologo", required = false) String idPsicologo,
-			@RequestParam(value = "idTarifa", required = false) String idTarifa,
+			@RequestParam(value = "nombrePaciente", required = false) String nombrePaciente,
+			@RequestParam(value = "nombrePsicologo", required = false) String nombrePsicologo,
+			@RequestParam(value = "nombreTarifa", required = false) String nombreTarifa,
 			@RequestParam(value = "idEstado", required = false) String idEstado, 
 			@RequestParam(value = "fecha", required = false) String fecha,
 			@RequestParam(value = "hora", required = false) String hora,
@@ -51,7 +51,7 @@ public class CitaController {
 		String fcha = fecha.equals("") ? "0001-01-01" : fecha;
 		Integer cntHoras = cantidadHoras.equals("") ? 0 : Integer.parseInt(cantidadHoras);
 		
-		return citaService.getCitasPorCampos(id, idPaciente, idPsicologo, idTarifa, idEstado, fcha, hora, cntHoras);
+		return citaService.getCitasPorCampos(id, nombrePaciente, nombrePsicologo, nombreTarifa, idEstado, fcha, hora, cntHoras);
 	}
 	
 	@PutMapping(value = "/citas")

@@ -39,9 +39,9 @@ public class CitaServiceImpl implements ICitaService{
 	}
 
 	@Override
-	public List<Cita> getCitasPorCampos(String id, String idPaciente, String idPsicologo, String idTarifa,
+	public List<Cita> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
 			String idEstado, String fecha, String hora, Integer cantidadHoras) {
-		return citaRepository.getCitasPorCampos(id, idPaciente, idPsicologo, idTarifa, idEstado, fecha, hora, cantidadHoras);
+		return citaRepository.getCitasPorCampos(id, nombrePaciente, nombrePsicologo, nombreTarifa, idEstado, fecha, hora, cantidadHoras);
 	}
 
 	@Override
