@@ -31,6 +31,12 @@
         <h6 class="mt-1">Ganancias totales: {{ ganancias.length }}</h6>
       </div>
     </div>
+
+    <div class="d-flex justify-content-evenly mt-4">
+      <div>Citas activas: {{ citasActivas.length }}</div>
+      <div>Citas completadas: {{ citasCompletadas.length }}</div>
+      <div>Citas canceladas: {{ citasCanceladas.length }}</div>
+    </div>
   </div>
 </template>
 
@@ -45,6 +51,9 @@ export default {
       psicologos: [],
       citas: [],
       ganancias: [],
+      citasCompletadas: [],
+      citasCanceladas: [],
+      citasActivas: []
     };
   },
   methods: {
@@ -80,12 +89,35 @@ export default {
         .catch((err) => console.error(err))
         .finally(() => (this.isLoading = false));
     },
+    async getCitasPorEstado(idEstado) {
+      const params = {
+        id: "",
+        nombrePaciente: "",
+        nombrePsicologo: "",
+        nombreTarifa: "",
+        idEstado: idEstado,
+        fecha: "",
+        hora: "",
+        cantidadHoras: ""
+      };
+
+      this.isLoading = true;
+      
+      const response = axios
+        .get("wementis/v1/citas/", { params })
+        .catch((err) => console.error(err))
+        .finally(() => this.isLoading = false)
+      return (await response).data;
+    },
   },
-  mounted() {
+  async mounted() {
     this.getPacientes("wementis/v1/pacientes/");
     this.getPsicologos("wementis/v1/psicologos/");
     this.getCitas("wementis/v1/citas/");
     this.getGanancias("wementis/v1/ganancias/");
+    this.citasCompletadas = await this.getCitasPorEstado(2);
+    this.citasActivas = await this.getCitasPorEstado(1);
+    this.citasCanceladas = await this.getCitasPorEstado(3);
   },
 };
 </script>
