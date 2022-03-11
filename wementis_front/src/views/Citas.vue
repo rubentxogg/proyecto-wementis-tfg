@@ -11,7 +11,11 @@
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-citas v-else :citas="citas" @updateTabla="getCitas('wementis/v1/citas/')"/>
+    <table-citas v-else-if="citas.length > 0" :citas="citas" @updateTabla="getCitas('wementis/v1/citas/')"/>
+    <h2 v-else class="text-center mt-5">
+      Actualmente no existen citas en la BBDD, <br><br>
+      pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer cita
+    </h2>
   </div>
 </template>
 

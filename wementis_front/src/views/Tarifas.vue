@@ -12,7 +12,11 @@
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-tarifas v-else :tarifas="tarifas" @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+    <table-tarifas v-else-if="tarifas.length > 0" :tarifas="tarifas" @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+    <h2 v-else class="text-center mt-5">
+      Actualmente no existen tarifas en la BBDD, <br><br>
+      pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer tarifa
+    </h2>
   </div>
 </template>
 
