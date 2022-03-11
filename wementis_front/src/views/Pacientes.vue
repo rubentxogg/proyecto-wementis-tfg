@@ -11,7 +11,11 @@
     
     <hr>
     <spinner v-if="isLoading"/>
-    <table-pacientes v-else :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    <table-pacientes v-else-if="pacientes.length > 0" :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    <h2 v-else class="text-center mt-5">
+      Actualmente no existen pacientes en la BBDD, <br><br>
+      pulsa en el botón <span class="text-success"> <i class="bi bi-person-plus me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer paciente
+    </h2>
   </div>
 </template>
 
