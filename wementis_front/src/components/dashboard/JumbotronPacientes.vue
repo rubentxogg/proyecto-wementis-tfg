@@ -3,9 +3,9 @@
     <div class="container-fluid py-5">
       <h3 class="display-6 fw-bold mb-3 text-center">Últimos pacientes</h3>
       <hr>
-      <h5 v-for="paciente in pacientes" :key="paciente.idPaciente || paciente.id" class="mb-3">
-        <span class="d-inline-block bg-indigo rounded-circle me-1"></span> {{ paciente.nombre }} {{ paciente.apellidos }} 
-        <i class="bi bi-caret-right"></i> {{ paciente.fechaCreacion }}
+      <h5 v-for="paciente in ultimosPacientes" :key="paciente.idPaciente || paciente.id" class="mb-3">
+        <span class="d-inline-block bg-indigo rounded-circle me-1"></span> {{ paciente.fechaCreacion }}
+        <i class="bi bi-caret-right"></i> {{ paciente.nombre }} {{ paciente.apellidos }} 
       </h5>
     </div>
   </div>
@@ -14,7 +14,15 @@
 <script>
 export default {
     name: "JumbotronPacientes",
-    props: ["pacientes"]
+    props: ["pacientes"],
+    data() {
+        return {
+            ultimosPacientes: []
+        }
+    },
+    mounted() {
+        this.ultimosPacientes = this.pacientes.slice(Math.max(this.pacientes.length - 5, 0));
+    }
 }
 </script>
 

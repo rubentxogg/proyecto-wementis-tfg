@@ -10,8 +10,8 @@
     <section-citas-estados v-else :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
 
     <div class="jumbo-container container d-flex justify-content-between">
-      <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes"/>
-      <jumbotron-ganancias class="w-75" :ganancias="ganancias" />
+      <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes" v-if="pacientes.length > 0"/>
+      <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-if="ganancias.length > 0"/>
     </div>
 
   </div>
