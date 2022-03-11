@@ -8,12 +8,20 @@
 
     <spinner v-if="isSectionLoading"/>
     <section-citas-estados v-else :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
+
+    <div class="jumbo-container container d-flex justify-content-between">
+      <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes"/>
+      <jumbotron-ganancias class="w-75" :ganancias="ganancias" />
+    </div>
+
   </div>
 </template>
 
 <script>
 import HeaderDashboard from '@/components/dashboard/HeaderDashboard.vue';
 import SectionCitasEstados from '@/components/dashboard/SectionCitasEstados.vue';
+import JumbotronGanancias from '@/components/dashboard/JumbotronGanancias.vue';
+import JumbotronPacientes from '@/components/dashboard/JumbotronPacientes.vue';
 import Spinner from '@/components/Spinner.vue';
 import axios from "axios";
 
@@ -22,6 +30,8 @@ export default {
   components: {
     HeaderDashboard,
     SectionCitasEstados,
+    JumbotronGanancias,
+    JumbotronPacientes,
     Spinner
   },
   data() {
@@ -112,5 +122,7 @@ export default {
 </script>
 
 <style scoped>
-
+.jumbo-container {
+  margin-top: 4rem;
+}
 </style>

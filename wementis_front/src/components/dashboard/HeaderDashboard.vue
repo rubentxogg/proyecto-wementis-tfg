@@ -41,12 +41,4 @@ span {
   width: 2.5em;
   height: 2.5em;
 }
-
-.bg-pink {
-  background-color: #d63384;
-}
-
-.bg-indigo {
-  background-color: #6610f2;
-}
 </style>

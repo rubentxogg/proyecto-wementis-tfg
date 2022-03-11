@@ -41,4 +41,16 @@ tbody > tr:hover > * {
 li {
   cursor: pointer;
 }
+
+.bg-pink {
+  background-color: #d63384;
+}
+
+.bg-indigo {
+  background-color: #6610f2;
+}
+
+.bg-teal {
+  background-color: #20c997;
+}
 </style>
