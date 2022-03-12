@@ -1,5 +1,5 @@
 <template>
-  <div class="login form-signin rounded mt-5">
+  <div class="login form-signin rounded">
     <form action="http://localhost:8080/wementis/login" method="POST">
       <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
@@ -32,19 +32,6 @@ export default {
 </script>
 
 <style scoped>
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
 .form-signin {
   width: 100%;
   max-width: 330px;

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="row row-cols-2">
-      <h1>WeMentis</h1>
+    <div class="p-fix row row-cols-2">
+      <jumbotron-wementis/>
       <form-login />
     </div>
 
@@ -10,16 +10,23 @@
 </template>
 
 <script>
-import FormLogin from "@/components/FormLogin.vue";
+import JumbotronWementis from '@/components/JumbotronWementis.vue';
+import FormLogin from '@/components/FormLogin.vue';
 import IconGrid from '@/components/IconGrid.vue';
 
 export default {
   name: "Home",
   components: {
+    JumbotronWementis,
     FormLogin,
     IconGrid
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.p-fix {
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
+</style>
