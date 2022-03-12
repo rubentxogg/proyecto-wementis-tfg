@@ -1,29 +1,75 @@
 <template>
-  <div class="login">
+  <div class="login form-signin rounded mt-5">
     <form action="http://localhost:8080/wementis/login" method="POST">
-      <table>
-        <tr>
-          <td>User:</td>
-          <td><input type="text" name="username"/></td>
-        </tr>
-        <tr>
-          <td>Password:</td>
-          <td><input type="password" name="password" /></td>
-        </tr>
-        <tr>
-          <td><button type="submit">LOGIN</button></td>
-        </tr>
-      </table>
-    </form>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
+        <label for="floatingInput">Correo</label>
+      </div>
 
-    <a href="http://localhost:8080/wementis/logout">LOGOUT</a>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" name="password">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+
+      <hr>
+
+      <modal-registrarse />
+    </form>
   </div>
 </template>
 
 <script>
+import ModalRegistrarse from '@/components/ModalRegistrarse.vue';
+
 export default {
-    name: "FormLogin"
+    name: "FormLogin",
+    components: {
+      ModalRegistrarse
+    }
 };
 </script>
 
-<style></style>
+<style scoped>
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.39);
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>

@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>This is Home</h1>
-    <form-login />
+    <div class="row row-cols-2">
+      <h1>WeMentis</h1>
+      <form-login />
+    </div>
+
     <icon-grid />
   </div>
 </template>
