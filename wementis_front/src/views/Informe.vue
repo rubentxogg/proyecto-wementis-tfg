@@ -1,12 +1,18 @@
 <template>
-  <div class="informe">
-      <h1>Informe</h1>
+  <div class="informe d-flex flex-column min-vh-100">
+    <h1>Informe</h1>
+    <footer-wementis />
   </div>
 </template>
 
 <script>
+import FooterWementis from '@/components/FooterWementis.vue';
+
 export default {
-    name: "Informe"
+    name: "Informe",
+    components: {
+      FooterWementis
+    }
 }
 </script>
 

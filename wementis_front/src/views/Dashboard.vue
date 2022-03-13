@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard d-flex flex-column min-vh-100">
     <p class="text-muted fs-5 text-decoration-underline">Dashboard</p>
     <hr>
     <spinner v-if="isHeaderLoading"/>
@@ -17,6 +17,7 @@
       <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-else-if="pacientes.length > 0"/>
     </div>
 
+    <footer-wementis />
   </div>
 </template>
 
@@ -25,6 +26,7 @@ import HeaderDashboard from '@/components/dashboard/HeaderDashboard.vue';
 import SectionCitasEstados from '@/components/dashboard/SectionCitasEstados.vue';
 import JumbotronGanancias from '@/components/dashboard/JumbotronGanancias.vue';
 import JumbotronPacientes from '@/components/dashboard/JumbotronPacientes.vue';
+import FooterWementis from '@/components/FooterWementis.vue';
 import Spinner from '@/components/Spinner.vue';
 import axios from "axios";
 
@@ -35,7 +37,8 @@ export default {
     SectionCitasEstados,
     JumbotronGanancias,
     JumbotronPacientes,
-    Spinner
+    Spinner,
+    FooterWementis
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <div class="citas">
+  <div class="citas d-flex flex-column min-vh-100">
     <p class="text-muted fs-5 text-decoration-underline">Citas</p>
     <div class="d-flex justify-content-between">
       <button type="button" :class="buttonBrowserStyles" @click="openCloseFullBrowser">
@@ -16,6 +16,8 @@
       Actualmente no existen citas en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer cita
     </h2>
+
+    <footer-wementis />
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import TableCitas from '@/components/citas/TableCitas.vue';
 import FullBrowserCitas from '@/components/citas/FullBrowserCitas.vue';
 import ModalNewCita from '@/components/citas/ModalNewCita.vue';
 import Spinner from '@/components/Spinner.vue';
+import FooterWementis from '@/components/FooterWementis.vue';
 import axios from 'axios';
 
 export default {
@@ -32,7 +35,8 @@ export default {
     TableCitas,
     FullBrowserCitas,
     ModalNewCita,
-    Spinner
+    Spinner,
+    FooterWementis
   },
   data() {
     return {

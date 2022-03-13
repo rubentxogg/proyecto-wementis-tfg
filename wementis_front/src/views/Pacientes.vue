@@ -1,5 +1,5 @@
 <template>
-  <div class="pacientes">
+  <div class="pacientes d-flex flex-column min-vh-100">
     <p class="text-muted fs-5 text-decoration-underline">Pacientes</p>
     <div class="d-flex justify-content-between">
       <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
@@ -16,6 +16,8 @@
       Actualmente no existen pacientes en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-person-plus me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer paciente
     </h2>
+
+    <footer-wementis />
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import TablePacientes from '@/components/pacientes/TablePacientes.vue';
 import BrowserPacientes from '@/components/pacientes/BrowserPacientes.vue';
 import ModalNewPaciente from '@/components/pacientes/ModalNewPaciente.vue';
 import Spinner from '@/components/Spinner.vue';
+import FooterWementis from '@/components/FooterWementis.vue';
 import axios from 'axios';
 
 export default {
@@ -32,7 +35,8 @@ export default {
       TablePacientes,
       BrowserPacientes,
       ModalNewPaciente,
-      Spinner
+      Spinner,
+      FooterWementis
     },
     data() {
       return {

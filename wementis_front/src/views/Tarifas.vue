@@ -1,5 +1,5 @@
 <template>
-  <div class="tarifas">
+  <div class="tarifas d-flex flex-column min-vh-100">
     <p class="text-muted fs-5 text-decoration-underline">Tarifas</p>
 
     <div class="d-flex justify-content-between">
@@ -17,6 +17,8 @@
       Actualmente no existen tarifas en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer tarifa
     </h2>
+
+    <footer-wementis />
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import TableTarifas from '@/components/tarifas/TableTarifas.vue';
 import BrowserTarifas from '@/components/tarifas/BrowserTarifas.vue';
 import ModalNewTarifa from '@/components/tarifas/ModalNewTarifa.vue';
 import Spinner from '@/components/Spinner.vue';
+import FooterWementis from '@/components/FooterWementis.vue';
 import axios from 'axios';
 
 export default {
@@ -33,7 +36,8 @@ export default {
     TableTarifas,
     BrowserTarifas,
     ModalNewTarifa,
-    Spinner
+    Spinner,
+    FooterWementis
   },
   data() {
     return {

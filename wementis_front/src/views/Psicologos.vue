@@ -1,5 +1,5 @@
 <template>
-  <div class="psicologos">
+  <div class="psicologos d-flex flex-column min-vh-100">
     <p class="text-muted fs-5 text-decoration-underline">Psicólogos</p>
 
     <div class="d-flex justify-content-between">
@@ -17,6 +17,8 @@
       Actualmente no existen psicólogos en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-person-plus me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer psicólogo
     </h2>
+
+    <footer-wementis />
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import TablePsicologos from '@/components/psicologos/TablePsicologos.vue';
 import BrowserPsicologos from '@/components/psicologos/BrowserPsicologos.vue';
 import ModalNewPsicologo from '@/components/psicologos/ModalNewPsicologo.vue';
 import Spinner from '@/components/Spinner.vue';
+import FooterWementis from '@/components/FooterWementis.vue';
 import axios from 'axios';
 
 export default {
@@ -33,6 +36,7 @@ export default {
     TablePsicologos,
     BrowserPsicologos,
     ModalNewPsicologo,
+    FooterWementis,
     Spinner
   },
   data() {

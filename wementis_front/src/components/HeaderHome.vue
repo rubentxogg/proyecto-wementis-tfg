@@ -1,7 +1,7 @@
 <template>
   <header class="header-home d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom p-2">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <p class="text-center text-muted">Rubén García García &copy; 2022</p>
+      <p class="text-center text-muted">&copy; 2021 Rubén García García</p>
     </a>
 
     <ul class="nav">
