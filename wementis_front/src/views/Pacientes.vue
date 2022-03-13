@@ -1,6 +1,6 @@
 <template>
   <div class="pacientes d-flex flex-column min-vh-100">
-    <p class="text-muted fs-5 text-decoration-underline">Pacientes</p>
+    <p class="text-muted fs-6">Pacientes</p>
     <div class="d-flex justify-content-between">
       <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
         <i :class="browserIcon"></i> {{ buttonBrowserText }}

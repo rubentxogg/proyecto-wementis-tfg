@@ -1,6 +1,6 @@
 <template>
   <div class="citas d-flex flex-column min-vh-100">
-    <p class="text-muted fs-5 text-decoration-underline">Citas</p>
+    <p class="text-muted fs-6">Citas</p>
     <div class="d-flex justify-content-between">
       <button type="button" :class="buttonBrowserStyles" @click="openCloseFullBrowser">
         <i :class="browserIcon"></i> {{ buttonBrowserText }}

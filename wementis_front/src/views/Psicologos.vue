@@ -1,6 +1,6 @@
 <template>
   <div class="psicologos d-flex flex-column min-vh-100">
-    <p class="text-muted fs-5 text-decoration-underline">Psicólogos</p>
+    <p class="text-muted fs-6">Psicólogos</p>
 
     <div class="d-flex justify-content-between">
       <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">

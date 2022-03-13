@@ -29,7 +29,7 @@
     </div>
 
      <div class="modal-footer w-100">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetForm">Cancelar</button>
         <button type="button" :class="isFormValidationCorrect" data-bs-dismiss="modal" @click="anadirPsicologo">Guardar</button>
      </div>
   </form>
@@ -67,23 +67,29 @@ export default {
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "")
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
+    },
+    resetForm() {
+      this.nombre = "",
+      this.apellidos = "",
+      this.email = "",
+      this.telefono = ""
     }
   },
   computed: {
     isCorrectNombre() {
-      if(this.nombre === "" || !this.regNombre.test(this.nombre) || this.regNumeros.test(this.nombre)) return false;
+      if(!this.regNombre.test(this.nombre) || this.regNumeros.test(this.nombre)) return false;
       return true;
     },
     isCorrectApellidos() {
-      if(this.apellidos === "" || !this.regNombre.test(this.apellidos) || this.regNumeros.test(this.apellidos)) return false;
+      if(!this.regNombre.test(this.apellidos) || this.regNumeros.test(this.apellidos)) return false;
       return true;
     },
     isCorrectTelefono() {
-      if(this.telefono === "" || !this.regTelefono.test(this.telefono)) return false;
+      if(!this.regTelefono.test(this.telefono)) return false;
       return true;
     },
     isCorrectEmail() {
-      if(this.email === "" || !this.regEmail.test(this.email)) return false;
+      if(!this.regEmail.test(this.email)) return false;
       return true;
     },
     isFormValidationCorrect() {

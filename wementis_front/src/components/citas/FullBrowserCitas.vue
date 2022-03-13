@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <button type="button" class="btn btn-outline-dark mb-3" @click="buscarCitas">
+    <button type="button" class="btn btn-outline-secondary mb-3" @click="buscarCitas">
       <i class="bi bi-search me-1"></i>Buscar
     </button>
   </form>

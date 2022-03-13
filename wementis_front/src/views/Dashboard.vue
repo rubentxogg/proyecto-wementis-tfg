@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard d-flex flex-column min-vh-100">
-    <p class="text-muted fs-5 text-decoration-underline">Dashboard</p>
+    <p class="text-muted fs-6">Dashboard</p>
     <hr>
     <spinner v-if="isHeaderLoading"/>
     <header-dashboard  v-else :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
