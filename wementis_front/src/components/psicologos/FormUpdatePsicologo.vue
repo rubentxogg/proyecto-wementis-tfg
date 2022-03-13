@@ -44,15 +44,15 @@ export default {
   events: ["updateTabla"],
   data() {
     return {
-        nombre: "",
-        apellidos: "",
-        telefono: "",
-        email: "",
-        regNombre: /(^[\w|á|é|í|ó|ú]+[\s]?[\w|á|é|í|ó|ú]*[\s]?[\w|á|é|í|ó|ú]*$)?/, // Juan José
-        regNumeros: /(\d+)/,
-        regTelefono: /^([\d]{9})?$/,
-        regEmail: /(^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$)?/,
-        regEspacios: /^\s+/
+      nombre: "",
+      apellidos: "",
+      telefono: "",
+      email: "",
+      regNombre: /(^[\w|á|é|í|ó|ú]+[\s]?[\w|á|é|í|ó|ú]*[\s]?[\w|á|é|í|ó|ú]*$)?/, // Juan José
+      regNumeros: /(\d+)/,
+      regTelefono: /^([\d]{9})?$/,
+      regEmail: /(^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$)?/,
+      regEspacios: /^\s+/
     }
   },
   methods: {
