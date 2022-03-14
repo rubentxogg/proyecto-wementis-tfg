@@ -2,21 +2,21 @@
   <form class="form-update-cita d-flex flex-wrap">
     <div class="input-group mb-3">
      <dropdown-pacientes @seleccionPaciente="pacienteSeleccionado"/>
-     <input type="text" class="form-control" name="paciente" :value="idYNombrePaciente" readonly>
+     <input type="text" class="form-control" name="paciente" :value="idYNombrePaciente" readonly :placeholder="pacientePlaceholder">
      <i v-if="isCorrectPaciente" class="bi bi-check2-circle fs-3 text-success"></i>
      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <dropdown-psicologos @seleccionPsicologo="psicologoSeleccionado"/>
-     <input type="text" class="form-control" name="psicologo" :value="idYNombrePsicologo" readonly>
+     <input type="text" class="form-control" name="psicologo" :value="idYNombrePsicologo" readonly :placeholder="psicologoPlaceholder">
      <i v-if="isCorrectPsicologo" class="bi bi-check2-circle fs-3 text-success"></i>
      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <dropdown-tarifas @seleccionTarifa="tarifaSeleccionada"/>
-     <input type="text" class="form-control" name="tarifa" :value="idYNombreTarifa" readonly>
+     <input type="text" class="form-control" name="tarifa" :value="idYNombreTarifa" readonly :placeholder="tarifaPlaceholder">
      <i v-if="isCorrectTarifa" class="bi bi-check2-circle fs-3 text-success"></i>
      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
     </div>
@@ -37,7 +37,7 @@
 
     <div class="input-group mb-3">
      <span class="input-group-text">Cantidad/h</span>
-     <input type="text" class="form-control" name="email" v-model="cantidadHoras">
+     <input type="text" class="form-control" name="email" v-model="cantidadHoras" :placeholder="cita.cantidadHoras">
      <i v-if="isCorrectCantidadHoras" class="bi bi-check2-circle fs-3 text-success"></i>
      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
     </div>
@@ -74,7 +74,10 @@ export default {
         cantidadHoras: "",
         regFecha: /^[\d]{2}-[\d]{2}-[\d]{4}$/,
         regHora: /^[\d]{2}:[\d]{2}/,
-        regNum: /^[\d]+$/
+        regNum: /^[\d]+$/,
+        pacientePlaceholder: "",
+        psicologoPlaceholder: "",
+        tarifaPlaceholder: ""
       }
   },
   methods: {
@@ -124,15 +127,12 @@ export default {
       return ""; 
     },
     isCorrectPaciente() {
-      if(this.paciente === "") return false;
       return true;
     },
     isCorrectPsicologo() {
-      if(this.psicologo === "") return false;
       return true;
     },
     isCorrectTarifa() {
-      if(this.tarifa === "") return false;
       return true;
     },
     isCorrectHora() {
@@ -144,14 +144,19 @@ export default {
       return true;
     },
     isCorrectCantidadHoras() {
-      if(!this.regNum.test(this.cantidadHoras)) return false;
-      return true;
+      if(this.regNum.test(this.cantidadHoras) || this.cantidadHoras === "") return true;
+      return false;
     },
     isFormValidationCorrect() {
       if(this.isCorrectPaciente && this.isCorrectPsicologo && this.isCorrectTarifa
         && this.isCorrectHora && this.isCorrectFecha && this.isCorrectCantidadHoras) return "btn btn-success";
       return "btn btn-outline-success disabled";
     }
+  },
+  updated() {
+    this.pacientePlaceholder = `${this.cita.paciente.idPaciente || this.cita.paciente.id} - ${this.cita.paciente.nombre}`;
+    this.psicologoPlaceholder = `${this.cita.psicologo.idPsicologo || this.cita.psicologo.id} - ${this.cita.psicologo.nombre}`;
+    this.tarifaPlaceholder = `${this.cita.tarifa.idTarifa || this.cita.tarifa.id} - ${this.cita.tarifa.nombre}`;
   }
 }
 </script>
