@@ -4,7 +4,7 @@
        <i class="bi bi-bandaid me-1"></i> Psicólogos
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
-      <li v-for="psicologo in psicologos" :key="psicologo.idPsicologo || psicologo.id" class="text-center">
+      <li v-for="psicologo in psicologos" :key="psicologo.idPsicologo || psicologo.id">
         <a class="dropdown-item" @click="seleccionarPsicologo(psicologo)">{{psicologo.idPsicologo || psicologo.id}} - {{ psicologo.nombre }}</a>
         <hr class="dropdown-divider" />
       </li>
