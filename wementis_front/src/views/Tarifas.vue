@@ -13,6 +13,7 @@
     <hr>
     <spinner v-if="isLoading"/>
     <table-tarifas v-else-if="tarifas.length > 0" :tarifas="tarifas" @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+    <h2 v-else-if="isSearchPorCampos" class="text-center mt-5">No se han encontrado tarifas con tus criterios de búsqueda.</h2>
     <h2 v-else class="text-center mt-5">
       Actualmente no existen tarifas en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer tarifa
@@ -43,11 +44,13 @@ export default {
     return {
       tarifas: [],
       showBrowser: false,
-      isLoading: false
+      isLoading: false,
+      isSearchPorCampos: false
     }
   },
   methods: {
     getTarifas(url) {
+      this.isSearchPorCampos = false;
       this.isLoading = true;
       axios
         .get(url)
@@ -62,6 +65,9 @@ export default {
         precioHora: precioHora,
         fechaCreacion: fechaCreacion
       }
+
+      this.isSearchPorCampos = true;
+      
       axios
         .get("wementis/v1/tarifas/", { params })
         .then((response) => this.tarifas = response.data)

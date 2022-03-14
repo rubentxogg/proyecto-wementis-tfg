@@ -12,6 +12,7 @@
     <hr>
     <spinner v-if="isLoading"/>
     <table-pacientes v-else-if="pacientes.length > 0" :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    <h2 v-else-if="isSearchPorCampos" class="text-center mt-5">No se han encontrado pacientes con tus criterios de búsqueda.</h2>
     <h2 v-else class="text-center mt-5">
       Actualmente no existen pacientes en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-person-plus me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer paciente
@@ -42,11 +43,13 @@ export default {
       return {
         pacientes: [],
         showBrowser: false,
-        isLoading: false
+        isLoading: false,
+        isSearchPorCampos: false
       }
     },
     methods: {
       getPacientes(url) {
+        this.isSearchPorCampos = false;
         this.isLoading = true;
         axios
           .get(url)
@@ -65,6 +68,8 @@ export default {
           genero: genero,
           fechaCreacion: fechaCreacion
         }
+
+        this.isSearchPorCampos = true;
 
         axios
           .get("wementis/v1/pacientes/", { params })

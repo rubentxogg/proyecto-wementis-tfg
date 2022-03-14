@@ -12,6 +12,7 @@
     <hr>
     <spinner v-if="isLoading"/>
     <table-citas v-else-if="citas.length > 0" :citas="citas" @updateTabla="getCitas('wementis/v1/citas/')"/>
+    <h2 v-else-if="isSearchPorCampos" class="text-center mt-5">No se han encontrado citas con tus criterios de búsqueda.</h2>
     <h2 v-else class="text-center mt-5">
       Actualmente no existen citas en la BBDD, <br><br>
       pulsa en el botón <span class="text-success"> <i class="bi bi-plus-circle me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer cita
@@ -43,10 +44,12 @@ export default {
       citas: [],
       showFullBrowser: false,
       isLoading: false,
+      isSearchPorCampos: false
     }
   },
   methods: {
     getCitas(url) {
+      this.isSearchPorCampos = false;
       this.isLoading = true;
       axios
         .get(url)
@@ -65,6 +68,8 @@ export default {
         hora: hora,
         cantidadHoras: cantidadHoras
       };
+
+      this.isSearchPorCampos = true;
       
       axios
         .get("wementis/v1/citas/", { params })
