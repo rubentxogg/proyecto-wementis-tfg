@@ -77,7 +77,7 @@ export default {
       regNombre: /(^[\w|á|é|í|ó|ú]+[\s]?[\w|á|é|í|ó|ú]*[\s]?[\w|á|é|í|ó|ú]*$)?/, // Juan José
       regNumeros: /(\d+)/,
       regTelefono: /^([\d]{9})?$/,
-      regEmail: /(^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$)?/,
+      regEmail: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
       regFechaNacimiento: /^[\d]{2}-[\d]{2}-[\d]{4}$/,
       regEspacios: /^\s+/
     }
@@ -108,8 +108,8 @@ export default {
   },
   computed: {
     generoMasculinoIsChecked() {
-       if(this.paciente.genero === 'M') return true;
-       return false;
+      if(this.paciente.genero === 'M') return true;
+      return false;
     },
     generoFemeninoIsChecked() {
        if(this.paciente.genero === 'F') return true;
@@ -120,7 +120,7 @@ export default {
       return true;
     },
     isCorrectApellidos() {
-      if(!this.regNombre.test(this.apellidos) || this.regNumeros.test(this.apellidos)) return false;
+      if(!this.regNombre.test(this.apellidos) || this.regNumeros.test(this.apellidos) || this.regEspacios.test(this.apellidos)) return false;
       return true;
     },
     isCorrectTelefono() {
@@ -128,15 +128,14 @@ export default {
       return true;
     },
     isCorrectEmail() {
-      if(!this.regEmail.test(this.email)) return false;
-      return true;
+      if(this.email === "" || this.regEmail.test(this.email)) return true;
+      return false;
     },
     isCorrectFechaNacimiento() {
       if(this.regFechaNacimiento.test(this.fechaNacimiento) || this.fechaNacimiento === "") return false;
       return true;
     },
     isCorrectGenero() {
-      console.log(this.genero);
       if(!this.genero === "" || !this.genero === "M" || !this.genero === "F") return false;
       return true;
     },

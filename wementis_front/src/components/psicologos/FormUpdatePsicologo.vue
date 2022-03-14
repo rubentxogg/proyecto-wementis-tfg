@@ -51,7 +51,7 @@ export default {
       regNombre: /(^[\w|á|é|í|ó|ú]+[\s]?[\w|á|é|í|ó|ú]*[\s]?[\w|á|é|í|ó|ú]*$)?/, // Juan José
       regNumeros: /(\d+)/,
       regTelefono: /^([\d]{9})?$/,
-      regEmail: /(^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$)?/,
+      regEmail: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
       regEspacios: /^\s+/
     }
   },
@@ -89,8 +89,8 @@ export default {
       return true;
     },
     isCorrectEmail() {
-      if(!this.regEmail.test(this.email) || this.regEspacios.test(this.email)) return false;
-      return true;
+      if(this.email === "" || this.regEmail.test(this.email)) return true;
+      return false;
     },
     isFormValidationCorrect() {
       if(this.isCorrectNombre && this.isCorrectApellidos && this.isCorrectTelefono && this.isCorrectEmail) return "btn btn-success";
