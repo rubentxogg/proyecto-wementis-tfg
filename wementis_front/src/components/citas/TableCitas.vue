@@ -28,17 +28,22 @@
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-completar-cita @completacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
         </td>
-        <td v-else></td>
 
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-update-cita @updateCita="obtenerCita(cita)" :cita="citaToUpdate" @updateTabla="updateTabla"/>
         </td>
-        <td v-else></td>
 
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-cancelar-cita @cancelacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id" />
         </td>
-        <td v-else></td>
+
+        <td colspan="3" class="text-end" v-if="(cita.estado.idEstado || cita.estado.id) === 3">
+          <modal-delete-cita />
+        </td>
+
+        <td colspan="3" class="text-end" v-if="(cita.estado.idEstado || cita.estado.id) === 2">
+          <modal-delete-cita />
+        </td>
       </tr>
     </tbody>
   </table>
@@ -48,6 +53,7 @@
 import ModalCompletarCita from '@/components/citas/ModalCompletarCita.vue';
 import ModalCancelarCita from '@/components/citas/ModalCancelarCita.vue';
 import ModalUpdateCita from '@/components/citas/ModalUpdateCita.vue';
+import ModalDeleteCita from '@/components/citas/ModalDeleteCita.vue';
 
 export default {
   name: "TableCitas",
@@ -56,7 +62,8 @@ export default {
   components: {
     ModalCompletarCita,
     ModalCancelarCita,
-    ModalUpdateCita
+    ModalUpdateCita,
+    ModalDeleteCita
   },
   data() {
     return {
