@@ -14,7 +14,7 @@
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-start">
             ¿Está seguro de que desea eliminar la cita con el ID {{ id }}?
           </div>
           <div class="modal-footer">
