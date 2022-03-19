@@ -7,12 +7,14 @@ public class Psicologo {
 	private String email;
 	private String telefono;
 	private String fechaCreacion;
+	private Integer activo;
 	
 	public Psicologo() {
 		super();
 	}
 
-	public Psicologo(Integer id, String nombre, String apellidos, String email, String telefono, String fechaCreacion) {
+	public Psicologo(Integer id, String nombre, String apellidos, String email, String telefono, String fechaCreacion,
+			Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -20,6 +22,7 @@ public class Psicologo {
 		this.email = email;
 		this.telefono = telefono;
 		this.fechaCreacion = fechaCreacion;
+		this.activo = activo;
 	}
 
 	public Integer getId() {
@@ -68,5 +71,13 @@ public class Psicologo {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

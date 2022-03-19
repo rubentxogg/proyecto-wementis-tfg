@@ -64,7 +64,8 @@ export default {
           apellidos: this.apellidos || this.psicologo.apellidos,
           telefono: this.telefono || this.psicologo.telefono,
           email: this.email || this.psicologo.email,
-          fechaCreacion: this.psicologo.fechaCreacion})
+          fechaCreacion: this.psicologo.fechaCreacion,
+          activo: 1})
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     },

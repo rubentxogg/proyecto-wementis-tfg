@@ -91,7 +91,8 @@ export default {
           psicologo: this.psicologo || this.cita.psicologo,
           tarifa: this.tarifa || this.cita.tarifa,
           hora: this.hora || this.cita.hora,
-          cantidadHoras: this.cantidadHoras || this.cita.cantidadHoras})
+          cantidadHoras: this.cantidadHoras || this.cita.cantidadHoras,
+          activo: 1})
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     },

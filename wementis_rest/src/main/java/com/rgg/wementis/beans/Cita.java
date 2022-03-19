@@ -9,13 +9,14 @@ public class Cita {
 	private String fecha;
 	private String hora;
 	private Integer cantidadHoras;
+	private Integer activo;
 	
 	public Cita() {
 		super();
 	}
 
 	public Cita(Integer id, Integer idPaciente, Integer idPsicologo, Integer idTarifa, Integer idEstado, String fecha,
-			String hora, Integer cantidadHoras) {
+			String hora, Integer cantidadHoras, Integer activo) {
 		super();
 		this.id = id;
 		this.idPaciente = idPaciente;
@@ -25,6 +26,7 @@ public class Cita {
 		this.fecha = fecha;
 		this.hora = hora;
 		this.cantidadHoras = cantidadHoras;
+		this.activo = activo;
 	}
 
 	public Integer getId() {
@@ -89,5 +91,13 @@ public class Cita {
 
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

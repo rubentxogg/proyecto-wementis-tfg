@@ -19,12 +19,13 @@ public class TarifaEntity {
 		super();
 	}
 	
-	public TarifaEntity(Integer idTarifa, String nombre, Double precioHora, String fechaCreacion) {
+	public TarifaEntity(Integer idTarifa, String nombre, Double precioHora, String fechaCreacion, Integer activo) {
 		super();
 		this.idTarifa = idTarifa;
 		this.nombre = nombre;
 		this.precioHora = precioHora;
 		this.fechaCreacion = fechaCreacion;
+		this.activo = activo;
 	}
 
 	@Id
@@ -40,6 +41,9 @@ public class TarifaEntity {
 	
 	@Column(name = "fecha_creacion")
 	private String fechaCreacion;
+	
+	@Column(name = "activo")
+	private Integer activo;
 	
 	@OneToMany(mappedBy = "tarifa")
 	private List<CitaEntity> citas = new ArrayList<>();
@@ -74,5 +78,13 @@ public class TarifaEntity {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

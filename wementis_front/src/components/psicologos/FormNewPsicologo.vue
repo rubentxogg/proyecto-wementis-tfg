@@ -60,6 +60,7 @@ export default {
         apellidos: this.apellidos,
         telefono: this.telefono,
         email: this.email,
+        activo: 1
       }
       
       axios

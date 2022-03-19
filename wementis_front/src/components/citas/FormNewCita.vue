@@ -84,7 +84,8 @@ export default {
         tarifa: this.tarifa,
         fecha: this.fecha,
         hora: this.hora,
-        cantidadHoras: this.cantidadHoras
+        cantidadHoras: this.cantidadHoras,
+        activo: 1
       }
       
       axios

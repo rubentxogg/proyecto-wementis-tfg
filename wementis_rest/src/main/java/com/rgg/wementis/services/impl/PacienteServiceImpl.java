@@ -19,8 +19,8 @@ public class PacienteServiceImpl implements IPacienteService{
 	private PacienteRepository pacienteRepository;
 
 	@Override
-	public Iterable<PacienteEntity> getPacientes() {
-		return pacienteRepository.findAll();
+	public List<PacienteEntity> getPacientes() {
+		return pacienteRepository.findByActivo(1);
 	}
 
 	@Override
@@ -47,6 +47,8 @@ public class PacienteServiceImpl implements IPacienteService{
 
 	@Override
 	public void borrarPaciente(Integer id) {
-		pacienteRepository.deleteById(id);
+		PacienteEntity paciente = pacienteRepository.findById(id).get();
+		paciente.setActivo(0);
+		pacienteRepository.save(paciente);
 	}
 }

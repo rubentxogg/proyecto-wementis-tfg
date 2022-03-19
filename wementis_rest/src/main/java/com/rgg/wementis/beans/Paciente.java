@@ -9,13 +9,14 @@ public class Paciente {
 	private String fechaNacimiento;
 	private char genero;
 	private String fechaCreacion;
+	private Integer activo;
 	
 	public Paciente() {
 		super();
 	}
 
 	public Paciente(Integer id, String nombre, String apellidos, String email, String telefono, String fechaNacimiento,
-			char genero, String fechaCreacion) {
+			char genero, String fechaCreacion, Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -25,6 +26,7 @@ public class Paciente {
 		this.fechaNacimiento = fechaNacimiento;
 		this.genero = genero;
 		this.fechaCreacion = fechaCreacion;
+		this.activo = activo;
 	}
 
 	public Integer getId() {
@@ -89,5 +91,13 @@ public class Paciente {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

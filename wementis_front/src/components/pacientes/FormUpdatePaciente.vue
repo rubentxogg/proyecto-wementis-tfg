@@ -93,7 +93,8 @@ export default {
           email: this.email || this.paciente.email,
           fechaNacimiento: this.fechaNacimiento || this.paciente.fechaNacimiento,
           genero: this.genero || this.paciente.genero,
-          fechaCreacion: this.paciente.fechaCreacion})
+          fechaCreacion: this.paciente.fechaCreacion,
+          activo: this.paciente.activo})
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     },

@@ -5,17 +5,19 @@ public class Tarifa {
 	private String nombre;
 	private Double precioHora;
 	private String fechaCreacion;
+	private Integer activo;
 	
 	public Tarifa() {
 		super();
 	}
 
-	public Tarifa(Integer id, String nombre, Double precioHora, String fechaCreacion) {
+	public Tarifa(Integer id, String nombre, Double precioHora, String fechaCreacion, Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.precioHora = precioHora;
 		this.fechaCreacion = fechaCreacion;
+		this.activo = activo;
 	}
 
 	public Integer getId() {
@@ -48,5 +50,13 @@ public class Tarifa {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

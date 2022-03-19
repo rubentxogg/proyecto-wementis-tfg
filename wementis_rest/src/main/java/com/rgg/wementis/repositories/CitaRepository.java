@@ -13,7 +13,7 @@ import com.rgg.wementis.entities.CitaEntity;
 @Repository
 public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 	
-	@Query(value = "SELECT new com.rgg.wementis.beans.Cita (id, paciente.idPaciente, psicologo.idPsicologo, tarifa.idTarifa, estado.idEstado, fecha, hora, cantidadHoras) "
+	@Query(value = "SELECT new com.rgg.wementis.beans.Cita (id, paciente.idPaciente, psicologo.idPsicologo, tarifa.idTarifa, estado.idEstado, fecha, hora, cantidadHoras, activo) "
 			+ "FROM com.rgg.wementis.entities.CitaEntity "
 			+ "WHERE (id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
 			+ "AND paciente.nombre LIKE CONCAT('%', :nombrePaciente, '%') "
@@ -22,7 +22,8 @@ public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 			+ "AND (estado.idEstado LIKE CONCAT('%', :idEstado, '%') OR :idEstado is NULL) "
 			+ "AND fecha >= :fecha "
 			+ "AND hora >= :hora "
-			+ "AND cantidadHoras >= :cantidadHoras")
+			+ "AND cantidadHoras >= :cantidadHoras "
+			+ "AND activo = 1")
 	public List<Cita> getCitasPorCampos(
 			@Param("id") String id,
 			@Param("nombrePaciente") String nombrePaciente,
@@ -33,4 +34,6 @@ public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 			@Param("hora") String hora,
 			@Param("cantidadHoras") Integer cantidadHoras
 			);
+	
+	public List<CitaEntity> findByActivo(Integer activo);
 }

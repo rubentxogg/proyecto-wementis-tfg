@@ -88,7 +88,8 @@ export default {
         telefono: this.telefono,
         email: this.email,
         fechaNacimiento: this.fechaNacimiento,
-        genero: this.genero
+        genero: this.genero,
+        activo: 1
       }
       
       axios

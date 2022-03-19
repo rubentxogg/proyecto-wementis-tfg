@@ -39,7 +39,8 @@ export default {
     anadirTarifa() {
       const tarifa = {
         nombre: this.nombre,
-        precioHora: this.precioHora
+        precioHora: this.precioHora,
+        activo: 1
       }
       
       axios

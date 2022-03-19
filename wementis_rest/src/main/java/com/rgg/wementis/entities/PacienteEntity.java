@@ -20,7 +20,7 @@ public class PacienteEntity {
 	}
 
 	public PacienteEntity(Integer idPaciente, String nombre, String apellidos, String email, String telefono,
-			String fechaNacimiento, char genero, String fechaCreacion) {
+			String fechaNacimiento, char genero, String fechaCreacion, Integer activo) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombre = nombre;
@@ -30,6 +30,7 @@ public class PacienteEntity {
 		this.fechaNacimiento = fechaNacimiento;
 		this.genero = genero;
 		this.fechaCreacion = fechaCreacion;
+		this.activo = activo;
 	}
 
 	@Id
@@ -57,6 +58,9 @@ public class PacienteEntity {
 	
 	@Column(name = "fecha_creacion")
 	private String fechaCreacion;
+	
+	@Column(name = "activo")
+	private Integer activo;
 	
 	@OneToMany(mappedBy = "paciente")
 	private List<CitaEntity> citas = new ArrayList<>();
@@ -123,5 +127,13 @@ public class PacienteEntity {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

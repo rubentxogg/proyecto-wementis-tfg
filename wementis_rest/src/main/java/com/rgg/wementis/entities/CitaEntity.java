@@ -19,7 +19,7 @@ public class CitaEntity {
 	}
 	
 	public CitaEntity(Integer id, PacienteEntity paciente, PsicologoEntity psicologo, TarifaEntity tarifa,
-			EstadoEntity estado, String fecha, String hora, Integer cantidadHoras) {
+			EstadoEntity estado, String fecha, String hora, Integer cantidadHoras, Integer activo) {
 		super();
 		this.id = id;
 		this.paciente = paciente;
@@ -29,6 +29,7 @@ public class CitaEntity {
 		this.fecha = fecha;
 		this.hora = hora;
 		this.cantidadHoras = cantidadHoras;
+		this.activo = activo;
 	}
 
 	@Id
@@ -44,6 +45,9 @@ public class CitaEntity {
 	
 	@Column(name = "cantidad_horas")
 	private Integer cantidadHoras;
+	
+	@Column(name = "activo")
+	private Integer activo;
 	
 	@ManyToOne
 	@JoinColumn(name = "idPaciente")
@@ -126,5 +130,13 @@ public class CitaEntity {
 
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

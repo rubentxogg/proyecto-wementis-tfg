@@ -13,14 +13,15 @@ import com.rgg.wementis.entities.PsicologoEntity;
 @Repository
 public interface PsicologoRepository extends CrudRepository<PsicologoEntity, Integer> {
 
-	@Query(value = "SELECT new com.rgg.wementis.beans.Psicologo (id, nombre, apellidos, email, telefono, fechaCreacion) "
+	@Query(value = "SELECT new com.rgg.wementis.beans.Psicologo (id, nombre, apellidos, email, telefono, fechaCreacion, activo) "
 			+ "FROM com.rgg.wementis.entities.PsicologoEntity "
 			+ "WHERE (id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
 			+ "AND nombre LIKE CONCAT('%', :nombre, '%') "
 			+ "AND apellidos LIKE CONCAT('%', :apellidos, '%') "
 			+ "AND email LIKE CONCAT('%', :email, '%') "
 			+ "AND telefono LIKE CONCAT('%', :telefono, '%') "
-			+ "AND fechaCreacion >= :fechaCreacion")
+			+ "AND fechaCreacion >= :fechaCreacion "
+			+ "AND activo = 1")
 	public List<Psicologo> getPsicologosPorCampos(
 			@Param("id") String id,
 			@Param("nombre") String nombre,
@@ -29,4 +30,6 @@ public interface PsicologoRepository extends CrudRepository<PsicologoEntity, Int
 			@Param("telefono") String telefono,
 			@Param("fechaCreacion") String fechaCreacion
 			);
+	
+	public List<PsicologoEntity> findByActivo(Integer activo);
 }

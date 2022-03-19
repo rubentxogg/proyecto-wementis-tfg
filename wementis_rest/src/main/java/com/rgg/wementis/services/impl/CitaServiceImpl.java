@@ -30,7 +30,7 @@ public class CitaServiceImpl implements ICitaService{
 	
 	@Override
 	public Iterable<CitaEntity> getCitas() {
-		return citaRepository.findAll();
+		return citaRepository.findByActivo(1);
 	}
 
 	@Override

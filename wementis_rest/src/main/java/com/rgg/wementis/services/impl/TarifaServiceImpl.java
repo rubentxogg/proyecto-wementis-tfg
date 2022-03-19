@@ -20,7 +20,7 @@ public class TarifaServiceImpl implements ITarifaService{
 	
 	@Override
 	public Iterable<TarifaEntity> getTarifas() {
-		return tarifaRepository.findAll();
+		return tarifaRepository.findByActivo(1);
 	}
 
 	@Override
@@ -46,6 +46,8 @@ public class TarifaServiceImpl implements ITarifaService{
 
 	@Override
 	public void borrarTarifa(Integer id) {
-		tarifaRepository.deleteById(id);
+		TarifaEntity tarifa = tarifaRepository.findById(id).get();
+		tarifa.setActivo(0);
+		tarifaRepository.save(tarifa);
 	}
 }

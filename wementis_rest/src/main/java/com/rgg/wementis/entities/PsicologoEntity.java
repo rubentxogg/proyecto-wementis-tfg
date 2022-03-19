@@ -20,7 +20,7 @@ public class PsicologoEntity {
 	}
 	
 	public PsicologoEntity(Integer idPsicologo, String nombre, String apellidos, String email, String telefono,
-			String fechaCreacion, List<CitaEntity> citas) {
+			String fechaCreacion, List<CitaEntity> citas, Integer activo) {
 		super();
 		this.idPsicologo = idPsicologo;
 		this.nombre = nombre;
@@ -29,6 +29,7 @@ public class PsicologoEntity {
 		this.telefono = telefono;
 		this.fechaCreacion = fechaCreacion;
 		this.citas = citas;
+		this.activo = activo;
 	}
 
 	@Id
@@ -50,6 +51,9 @@ public class PsicologoEntity {
 	
 	@Column(name = "fecha_creacion")
 	private String fechaCreacion;
+	
+	@Column(name = "activo")
+	private Integer activo;
 	
 	@OneToMany(mappedBy = "psicologo")
 	private List<CitaEntity> citas = new ArrayList<>();
@@ -100,5 +104,13 @@ public class PsicologoEntity {
 
 	public void setFechaCreacion(String fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Integer getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Integer activo) {
+		this.activo = activo;
 	}
 }

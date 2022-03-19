@@ -13,7 +13,7 @@ import com.rgg.wementis.entities.PacienteEntity;
 @Repository
 public interface PacienteRepository extends CrudRepository<PacienteEntity, Integer>{
 
-	@Query(value = "SELECT new com.rgg.wementis.beans.Paciente (id, nombre, apellidos, email, telefono, fechaNacimiento, genero, fechaCreacion) "
+	@Query(value = "SELECT new com.rgg.wementis.beans.Paciente (id, nombre, apellidos, email, telefono, fechaNacimiento, genero, fechaCreacion, activo) "
 			+ "FROM com.rgg.wementis.entities.PacienteEntity "
 			+ "WHERE (id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
 			+ "AND nombre LIKE CONCAT('%', :nombre, '%') "
@@ -22,7 +22,8 @@ public interface PacienteRepository extends CrudRepository<PacienteEntity, Integ
 			+ "AND telefono LIKE CONCAT('%', :telefono, '%') "
 			+ "AND fechaNacimiento >= :fechaNacimiento "
 			+ "AND genero LIKE CONCAT('%', :genero, '%') "
-			+ "AND fechaCreacion >= :fechaCreacion")
+			+ "AND fechaCreacion >= :fechaCreacion "
+			+ "AND activo = 1")
 	public List<Paciente> getPacientesPorCampos(
 			@Param("id") String id,
 			@Param("nombre") String nombre,
@@ -33,5 +34,6 @@ public interface PacienteRepository extends CrudRepository<PacienteEntity, Integ
 			@Param("genero") String genero,
 			@Param("fechaCreacion") String fechaCreacion
 			);
-
+	
+	public List<PacienteEntity> findByActivo(Integer activo);
 }

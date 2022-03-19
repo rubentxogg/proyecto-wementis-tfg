@@ -20,7 +20,7 @@ public class PsicologoServiceImpl implements IPsicologoService{
 	
 	@Override
 	public Iterable<PsicologoEntity> getPsicologos() {
-		return psicologoRepository.findAll();
+		return psicologoRepository.findByActivo(1);
 	}
 
 	@Override
@@ -47,7 +47,9 @@ public class PsicologoServiceImpl implements IPsicologoService{
 
 	@Override
 	public void borrarPsicologo(Integer id) {
-		psicologoRepository.deleteById(id);
+		PsicologoEntity psicologo = psicologoRepository.findById(id).get();
+		psicologo.setActivo(0);
+		psicologoRepository.save(psicologo);
 	}
 
 }

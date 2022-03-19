@@ -45,7 +45,8 @@ export default {
           idTarifa: this.tarifa.idTarifa || this.tarifa.id,
           nombre: this.nombre || this.tarifa.nombre,
           precioHora: this.precioHora || this.tarifa.precioHora,
-          fechaCreacion: this.tarifa.fechaCreacion})
+          fechaCreacion: this.tarifa.fechaCreacion,
+          activo: 1})
         .then(() => this.$emit("updateTabla"))
         .catch((err) => console.error(err));
     },
