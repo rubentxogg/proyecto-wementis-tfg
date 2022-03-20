@@ -102,7 +102,7 @@ export default {
         return "btn btn-outline-primary me-4"
       },
       browserIcon() {
-        if(!this.showBrowser) return "bi bi bi-arrows-expand ms-2 fs-5";
+        if(!this.showBrowser) return "bi bi bi-arrows-expand ms-2 fs-5 me-2";
         return "bi bi bi-arrows-collapse fs-5"
       }
     },

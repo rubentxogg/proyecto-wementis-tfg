@@ -27,8 +27,8 @@
     </div>
 
     <div class="input-group mt-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-outline-secondary" @click="buscarPacientes">
-        <i class="bi bi-search me-1"></i>Buscar
+      <button type="button" class="btn btn-outline-secondary m-auto d-flex justify-content-center" @click="buscarPacientes">
+        <i class="bi bi-search me-1 fs-5 align-self-center"></i> <h5 class="">Buscar</h5>
       </button>
     </div>
   </form>
