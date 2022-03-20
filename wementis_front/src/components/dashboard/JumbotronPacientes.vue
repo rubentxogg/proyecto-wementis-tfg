@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron-pacientes mb-4 bg-light rounded-3 border border-3">
+  <div class="jumbotron-pacientes mb-4 bg-light rounded-3 border border-3 border-primary">
     <div class="container-fluid py-5">
       <h3 class="display-6 fw-bold mb-3 text-center">Últimos pacientes</h3>
       <hr class="mb-5">
@@ -17,11 +17,11 @@ export default {
     props: ["pacientes"],
     data() {
         return {
-            ultimosPacientes: []
+          ultimosPacientes: []
         }
     },
     mounted() {
-        this.ultimosPacientes = this.pacientes.slice(Math.max(this.pacientes.length - 5, 0));
+      this.ultimosPacientes = this.pacientes.slice(Math.max(this.pacientes.length - 5, 0));
     }
 }
 </script>

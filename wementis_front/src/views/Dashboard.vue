@@ -84,7 +84,7 @@ export default {
       axios
         .get(url)
         .then((response) => (this.ganancias = response.data))
-        .then(() => this.calcularGananciaTotal())
+        .then(() => { if(this.ganancias.length > 0) this.calcularGananciaTotal()})
         .catch((err) => console.error(err))
         .finally(() => (this.isHeaderLoading = false));
     },
