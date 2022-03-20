@@ -7,24 +7,23 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
 
 @Repository
 public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 	
-	@Query(value = "SELECT new com.rgg.wementis.beans.Cita (id, paciente.idPaciente, psicologo.idPsicologo, tarifa.idTarifa, estado.idEstado, fecha, hora, cantidadHoras, activo) "
-			+ "FROM com.rgg.wementis.entities.CitaEntity "
-			+ "WHERE (id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
-			+ "AND paciente.nombre LIKE CONCAT('%', :nombrePaciente, '%') "
-			+ "AND psicologo.nombre LIKE CONCAT('%', :nombrePsicologo, '%') "
-			+ "AND tarifa.nombre LIKE CONCAT('%', :nombreTarifa, '%') "
-			+ "AND (estado.idEstado LIKE CONCAT('%', :idEstado, '%') OR :idEstado is NULL) "
-			+ "AND fecha >= :fecha "
-			+ "AND hora >= :hora "
-			+ "AND cantidadHoras >= :cantidadHoras "
-			+ "AND activo = 1")
-	public List<Cita> getCitasPorCampos(
+	@Query(value = "SELECT new com.rgg.wementis.entities.CitaEntity (c.id, c.paciente, c.psicologo, c.tarifa, c.estado, c.fecha, c.hora, c.cantidadHoras, c.activo) "
+			+ "FROM CitaEntity c "
+			+ "WHERE (c.id LIKE CONCAT('%', :id, '%') OR :id is NULL) "
+			+ "AND c.paciente.nombre LIKE CONCAT('%', :nombrePaciente, '%') "
+			+ "AND c.psicologo.nombre LIKE CONCAT('%', :nombrePsicologo, '%') "
+			+ "AND c.tarifa.nombre LIKE CONCAT('%', :nombreTarifa, '%') "
+			+ "AND (c.estado.idEstado LIKE CONCAT('%', :idEstado, '%') OR :idEstado is NULL) "
+			+ "AND c.fecha >= :fecha "
+			+ "AND c.hora >= :hora "
+			+ "AND c.cantidadHoras >= :cantidadHoras "
+			+ "AND c.activo = 1")
+	public List<CitaEntity> getCitasPorCampos(
 			@Param("id") String id,
 			@Param("nombrePaciente") String nombrePaciente,
 			@Param("nombrePsicologo") String nombrePsicologo,

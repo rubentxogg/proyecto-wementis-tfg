@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
 import com.rgg.wementis.services.interfaces.ICitaService;
 
@@ -38,7 +37,7 @@ public class CitaController {
 	}
 	
 	@GetMapping(value = "/citas", params = {"id", "nombrePaciente", "nombrePsicologo", "nombreTarifa", "idEstado", "fecha", "hora", "cantidadHoras"})
-	public List<Cita> getCitasPorCampos(
+	public List<CitaEntity> getCitasPorCampos(
 			@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "nombrePaciente", required = false) String nombrePaciente,
 			@RequestParam(value = "nombrePsicologo", required = false) String nombrePsicologo,

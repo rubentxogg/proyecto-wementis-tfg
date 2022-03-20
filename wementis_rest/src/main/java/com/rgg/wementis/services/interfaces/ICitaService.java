@@ -3,7 +3,6 @@ package com.rgg.wementis.services.interfaces;
 import java.util.List;
 import java.util.Optional;
 
-import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
 
 public interface ICitaService {
@@ -12,7 +11,7 @@ public interface ICitaService {
 
 	public Optional<CitaEntity> getCitaPorId(Integer id);
 
-	public List<Cita> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
+	public List<CitaEntity> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
 			String idEstado, String fecha, String hora, Integer cantidadHoras);
 	
 	public void actualizarCita(CitaEntity cita);

@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rgg.wementis.beans.Cita;
 import com.rgg.wementis.entities.CitaEntity;
 import com.rgg.wementis.entities.EstadoEntity;
 import com.rgg.wementis.entities.GananciaEntity;
@@ -39,7 +38,7 @@ public class CitaServiceImpl implements ICitaService{
 	}
 
 	@Override
-	public List<Cita> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
+	public List<CitaEntity> getCitasPorCampos(String id, String nombrePaciente, String nombrePsicologo, String nombreTarifa,
 			String idEstado, String fecha, String hora, Integer cantidadHoras) {
 		return citaRepository.getCitasPorCampos(id, nombrePaciente, nombrePsicologo, nombreTarifa, idEstado, fecha, hora, cantidadHoras);
 	}
