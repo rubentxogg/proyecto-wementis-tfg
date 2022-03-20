@@ -53,4 +53,8 @@ li {
 .bg-teal {
   background-color: #20c997;
 }
+
+.accordion-button::after {
+  display: none;
+}
 </style>

@@ -2,10 +2,22 @@
   <div class="pacientes d-flex flex-column min-vh-100">
     <p class="text-muted fs-6">Pacientes</p>
     <div class="d-flex justify-content-between">
-      <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
-        <i :class="browserIcon"></i> {{ buttonBrowserText }}
-      </button>
-      <browser-pacientes @buscarPacientes="getPacientesPorCampos" v-if="showBrowser"/>
+      <div class="accordion me-3" id="accordionPacientes">
+        <div class="accordion-item">
+        
+          <button class="accordion-button accordion-header d-flex justify-content-between" id="headingOne" :class="buttonBrowserStyles" @click="openCloseBrowser" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <span>{{ buttonBrowserText }}</span> <i :class="browserIcon"></i> 
+          </button>
+          
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionPacientes">
+            <div class="accordion-body">
+              <browser-pacientes @buscarPacientes="getPacientesPorCampos"/>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
       <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
     </div>
     
@@ -86,12 +98,12 @@ export default {
         return "Cerrar buscador"
       },
       buttonBrowserStyles() {
-        if(!this.showBrowser) return "btn btn-primary";
+        if(!this.showBrowser) return "bg-primary text-light p-1 ps-3";
         return "btn btn-outline-primary me-4"
       },
       browserIcon() {
-        if(!this.showBrowser) return "bi bi-arrows-angle-expand me-1";
-        return "bi bi-arrows-angle-contract me-1"
+        if(!this.showBrowser) return "bi bi bi-arrows-expand ms-2 fs-5";
+        return "bi bi bi-arrows-collapse fs-5"
       }
     },
     mounted() {
@@ -101,4 +113,5 @@ export default {
 </script>
 
 <style>
+
 </style>
