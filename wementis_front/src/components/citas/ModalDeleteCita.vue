@@ -19,7 +19,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deletePaciente">Borrar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deleteCita">Borrar</button>
           </div>
         </div>
       </div>
@@ -35,14 +35,14 @@ export default {
     props: ["id"],
     events: ["borradoCita", "updateTabla"],
     methods: {
-      deletePaciente() {
+      deleteCita() {
         axios
-          .delete("wementis/v1/citas/"+this.id)
+          .delete("wementis/v1/citas/delete/"+this.id)
           .then(() => this.$emit("updateTabla"))
           .catch((err) => console.error(err));
       },
-      borradoPaciente() {
-        this.$emit("borradoPaciente");
+      borradoCita() {
+        this.$emit("borradoCita");
       }
     }
 }

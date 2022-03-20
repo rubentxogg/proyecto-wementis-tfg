@@ -22,4 +22,6 @@ public interface ICitaService {
 	public void cancelarCita(Integer id);
 	
 	public void completarCita(Integer id);
+	
+	public void borrarCita(Integer id);
 }

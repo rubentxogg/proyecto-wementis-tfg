@@ -56,9 +56,8 @@ public class CitaServiceImpl implements ICitaService{
 		if (estadoRepository.findById(1).isPresent()) {
 			estadoActiva = estadoRepository.findById(1).get();
 			cita.setEstado(estadoActiva);
+			citaRepository.save(cita);
 		}
-		
-		citaRepository.save(cita);
 	}
 
 	@Override
@@ -69,9 +68,8 @@ public class CitaServiceImpl implements ICitaService{
 		if (estadoRepository.findById(3).isPresent()) {
 			estadoCancelada = estadoRepository.findById(3).get();
 			cita.setEstado(estadoCancelada);
+			citaRepository.save(cita);
 		}
-		
-		citaRepository.save(cita);
 	}
 
 	@Override
@@ -85,10 +83,19 @@ public class CitaServiceImpl implements ICitaService{
 			estadoCompletada = estadoRepository.findById(2).get();
 			cita.setEstado(estadoCompletada);
 			cantidad = cita.getCantidadHoras() * cita.getTarifa().getPrecioHora();
-			ganancia = new GananciaEntity(cantidad, Utils.currentDate(), cita);
+			ganancia = new GananciaEntity(cantidad, Utils.currentDate(), cita);	
 			gananciaRepository.save(ganancia);
+			citaRepository.save(cita);
 		}
+	}
+
+	@Override
+	public void borrarCita(Integer id) {
+		CitaEntity cita = citaRepository.findById(id).get();
 		
-		citaRepository.save(cita);
+		if(cita.getEstado().getIdEstado() == 2 || cita.getEstado().getIdEstado() == 3) {
+			cita.setActivo(0);
+			citaRepository.save(cita);
+		}
 	}
 }

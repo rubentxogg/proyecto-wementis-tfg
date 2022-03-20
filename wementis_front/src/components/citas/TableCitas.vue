@@ -38,11 +38,11 @@
         </td>
 
         <td colspan="3" class="text-end" v-if="(cita.estado.idEstado || cita.estado.id) === 3">
-          <modal-delete-cita />
+          <modal-delete-cita @borradoCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
         </td>
 
         <td colspan="3" class="text-end" v-if="(cita.estado.idEstado || cita.estado.id) === 2">
-          <modal-delete-cita />
+          <modal-delete-cita @borradoCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
         </td>
       </tr>
     </tbody>

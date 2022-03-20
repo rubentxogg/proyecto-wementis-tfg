@@ -4,7 +4,7 @@
     <div>
         <h1 class="display-5 fw-bold text-primary">WeMentis</h1>
         <p class="fs-4">
-          Tu herramienta de gestión de citas para psicología favorita.
+          Tu herramienta de gestión de citas favorita para psicología.
         </p>
     </div>
   </div>
