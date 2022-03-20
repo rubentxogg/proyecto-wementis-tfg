@@ -1,7 +1,7 @@
 <template>
   <div class="modal-cancelar-cita">
       
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelarCita" title="Cancelar cita" @click="cancelacionCita">
+    <button type="button" class="btn btn-danger border border-2" data-bs-toggle="modal" data-bs-target="#cancelarCita" title="Cancelar cita" @click="cancelacionCita">
       <i class="bi bi-x-circle"></i>
     </button>
 

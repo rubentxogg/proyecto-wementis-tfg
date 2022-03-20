@@ -1,7 +1,7 @@
 <template>
   <div class="modal-update-paciente">
       
-    <button type="button" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#updatePaciente" @click="updatePaciente" title="Modificar paciente">
+    <button type="button" class="btn btn-warning rounded-circle border border-2" data-bs-toggle="modal" data-bs-target="#updatePaciente" @click="updatePaciente" title="Modificar paciente">
       <i class="bi bi-pen text-light"></i>
     </button>
 

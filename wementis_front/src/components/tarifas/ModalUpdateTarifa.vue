@@ -1,7 +1,7 @@
 <template>
   <div class="modal-update-tarifa">
       
-    <button type="button" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#updateTarifa" @click="updateTarifa" title="Modificar tarifa">
+    <button type="button" class="btn btn-warning rounded-circle border border-2" data-bs-toggle="modal" data-bs-target="#updateTarifa" @click="updateTarifa" title="Modificar tarifa">
       <i class="bi bi-pen text-light"></i>
     </button>
 
