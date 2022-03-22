@@ -1,12 +1,23 @@
 <template>
   <div class="psicologos d-flex flex-column min-vh-100">
     <p class="text-muted fs-6">Psicólogos</p>
-
     <div class="d-flex justify-content-between">
-      <button type="button" :class="buttonBrowserStyles" @click="openCloseBrowser">
-        <i :class="browserIcon"></i> {{ buttonBrowserText }}
-      </button>
-      <browser-psicologos @buscarPsicologos="getPsicologosPorCampos" v-if="showBrowser"/>
+      <div class="accordion me-3" id="accordionPsicologos">
+        <div class="accordion-item">
+
+         <button class="accordion-button accordion-header d-flex justify-content-between" id="headingOne" :class="buttonBrowserStyles" @click="openCloseBrowser" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           <span>{{ buttonBrowserText }}</span> <i :class="browserIcon"></i> 
+         </button>
+
+         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionPsicologos">
+            <div class="accordion-body">
+              <browser-psicologos @buscarPsicologos="getPsicologosPorCampos"/>
+            </div>
+         </div>
+
+        </div>
+      </div>
+
       <modal-new-psicologo @updateTabla="getPsicologos('wementis/v1/psicologos/')"/>
     </div>
 
@@ -85,12 +96,12 @@ export default {
       return "Cerrar buscador"
     },
     buttonBrowserStyles() {
-      if(!this.showBrowser) return "btn btn-primary";
-      return "btn btn-outline-primary me-4"
+      if(!this.showBrowser) return "bg-primary text-light p-1 ps-3";
+      return "btn btn-outline-primary p-1 ps-3 me-4"
     },
     browserIcon() {
-      if(!this.showBrowser) return "bi bi-arrows-angle-expand me-1";
-      return "bi bi-arrows-angle-contract me-1"
+      if(!this.showBrowser) return "bi bi bi-arrows-expand ms-2 fs-5 me-2";
+      return "bi bi bi-arrows-collapse fs-5"
     }
   },
   mounted() {
