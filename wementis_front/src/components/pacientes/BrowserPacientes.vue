@@ -11,8 +11,6 @@
     <div class="input-group">
       <span class="input-group-text form-control-browser m-1">Fecha nac.</span>
       <input type="date" class="form-control form-control-browser m-1" name="fechaNac" v-model="fechaNacimiento" placeholder="Fecha nac.">
-      
-      
     </div>
 
     <div class="input-group">
