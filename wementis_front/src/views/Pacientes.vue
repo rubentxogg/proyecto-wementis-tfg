@@ -99,7 +99,7 @@ export default {
       },
       buttonBrowserStyles() {
         if(!this.showBrowser) return "bg-primary text-light p-1 ps-3";
-        return "btn btn-outline-primary me-4"
+        return "btn btn-outline-primary p-1 ps-3 me-4"
       },
       browserIcon() {
         if(!this.showBrowser) return "bi bi bi-arrows-expand ms-2 fs-5 me-2";

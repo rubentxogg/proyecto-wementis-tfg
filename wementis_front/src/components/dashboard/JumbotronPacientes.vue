@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron-pacientes mb-4 bg-light rounded-3 border border-3 border-primary">
+  <div class="jumbotron-pacientes mb-4 bg-light rounded-3 border border-3">
     <div class="container-fluid py-5">
       <h3 class="display-6 fw-bold mb-3 text-center">Últimos pacientes</h3>
       <hr class="mb-5">

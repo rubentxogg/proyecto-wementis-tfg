@@ -1,19 +1,19 @@
 <template>
   <form class="browser-pacientes">
     <div class="input-group">
-      <input type="number" class="form-control m-1" name="id" v-model="idPaciente" placeholder="ID">
-      <input type="text" class="form-control m-1" name="nombre" v-model="nombre" placeholder="Nombre">
-      <input type="text" class="form-control m-1" name="apellidos" v-model="apellidos" placeholder="Apellidos">
-      <input type="text" class="form-control m-1" name="telefono" v-model="telefono" placeholder="Teléfono">
-      <input type="text" class="form-control m-1" name="email" v-model="email" placeholder="Email">
+      <input type="number" class="form-control form-control-browser m-1" name="id" v-model="idPaciente" placeholder="ID">
+      <input type="text" class="form-control form-control-browser m-1" name="nombre" v-model="nombre" placeholder="Nombre">
+      <input type="text" class="form-control form-control-browser m-1" name="apellidos" v-model="apellidos" placeholder="Apellidos">
+      <input type="text" class="form-control form-control-browser m-1" name="telefono" v-model="telefono" placeholder="Teléfono">
+      <input type="text" class="form-control form-control-browser m-1" name="email" v-model="email" placeholder="Email">
     </div>
 
     <div class="input-group">
       <label for="fechaNac" class="d-flex align-self-center m-1">Fecha nac.</label>
-      <input type="date" class="form-control m-1" name="fechaNac" v-model="fechaNacimiento" placeholder="Fecha nac.">
+      <input type="date" class="form-control form-control-browser m-1" name="fechaNac" v-model="fechaNacimiento" placeholder="Fecha nac.">
       
       <label for="fechaCrea" class="d-flex align-self-center m-1">Fecha crea.</label>
-      <input type="date" class="form-control m-1" name="fechaCrea" v-model="fechaCreacion" placeholder="Fecha crea.">
+      <input type="date" class="form-control form-control-browser m-1" name="fechaCrea" v-model="fechaCreacion" placeholder="Fecha crea.">
       
       <div class="form-check form-check-inline align-self-center m-1 w-md-50">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="masculino" value="M" v-model="genero">
@@ -27,8 +27,8 @@
     </div>
 
     <div class="input-group mt-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-outline-secondary m-auto d-flex justify-content-center" @click="buscarPacientes">
-        <i class="bi bi-search me-1 fs-5 align-self-center"></i> <h5 class="">Buscar</h5>
+      <button type="button" class="btn btn-browser m-auto d-flex align-items-center" @click="buscarPacientes">
+        <i class="bi bi-search me-1"></i> <span class="fw-bold">Buscar</span>
       </button>
     </div>
   </form>
@@ -68,7 +68,21 @@ export default {
 </script>
 
 <style scoped>
-.form-control {
+.form-control:focus {
+  transform: scale(1.2, 1.2);
+  transition: 0.1s;
+}
+
+.btn-browser {
+  background:#e7f1ff;
+  color: rgba(0, 0, 0, 0.74);
+}
+
+.btn-browser:hover {
+  color: #0d6efd;
+}
+
+.form-control-browser {
   border: 2px solid rgba(0, 0, 0, 0.103);
   text-align: center;
   border-radius: 9px !important;

@@ -58,4 +58,12 @@ li {
 .accordion-button::after {
   display: none;
 }
+
+table {
+  text-align: center;
+}
+
+.table {
+  border-radius: 10px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-citas bg-primary">
+  <table class="table table-citas bg-primary align-middle">
     <thead>
       <tr class="text-light">
         <th>ID</th>
@@ -8,7 +8,7 @@
         <th>Tarifa</th>
         <th>Fecha</th>
         <th>Hora</th>
-        <th>Cantidad/h</th>
+        <th>Duración/h</th>
         <th>Estado</th>
       </tr>
     </thead>
@@ -22,8 +22,8 @@
         <td>{{ cita.fecha }}</td>
         <td>{{ cita.hora.substring(0,5) }}</td>
         <td>{{ cita.cantidadHoras }}</td>
-        <td>
-          <span :class="circuloEstado(cita.estado.idEstado)"></span>{{ cita.estado.nombre }}
+        <td class="text-start">
+          <span :class="circuloEstado(cita.estado.idEstado)"></span> {{ cita.estado.nombre }}
         </td>
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-completar-cita @completacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>

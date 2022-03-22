@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-psicologos bg-primary">
+  <table class="table table-psicologos bg-primary align-middle">
     <thead>
       <tr class="text-light">
         <th>ID</th>
