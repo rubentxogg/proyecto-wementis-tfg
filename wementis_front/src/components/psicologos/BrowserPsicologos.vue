@@ -8,7 +8,7 @@
       <input type="text" class="form-control form-control-browser m-1" name="email" v-model="email" placeholder="Email">
     </div>
 
-    <div class="input-group ">
+    <div class="input-group w-50">
       <span class="input-group-text form-control-browser m-1">Fecha crea.</span>
       <input type="date" class="form-control form-control-browser m-1" name="fechaCrea" v-model="fechaCreacion">
     </div>

@@ -2,10 +2,22 @@
   <div class="citas d-flex flex-column min-vh-100">
     <p class="text-muted fs-6">Citas</p>
     <div class="d-flex justify-content-between">
-      <button type="button" :class="buttonBrowserStyles" @click="openCloseFullBrowser">
-        <i :class="browserIcon"></i> {{ buttonBrowserText }}
-      </button>
-      <full-browser-citas @buscarCitas="getCitasPorCampos" v-if="showFullBrowser"/>
+      <div class="accordion me-3" id="accordionCitas">
+        <div class="accordion-item">
+
+          <button class="accordion-button accordion-header d-flex justify-content-between" id="headingOne" :class="buttonBrowserStyles" @click="openCloseFullBrowser" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           <span>{{ buttonBrowserText }}</span> <i :class="browserIcon"></i> 
+          </button>
+
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionCitas">
+             <div class="accordion-body">
+               <full-browser-citas @buscarCitas="getCitasPorCampos"/>
+             </div>
+          </div>
+
+        </div>
+      </div>
+
       <modal-new-cita @updateTabla="getCitas('wementis/v1/citas/')"/>
     </div>
 
@@ -81,22 +93,22 @@ export default {
     }
   },
   computed: {
-      buttonBrowserText() {
-        if(!this.showFullBrowser) return "Abrir buscador";
-        return "Cerrar buscador"
-      },
-      buttonBrowserStyles() {
-        if(!this.showFullBrowser) return "btn btn-primary";
-        return "btn btn-outline-primary me-4"
-      },
-      browserIcon() {
-        if(!this.showFullBrowser) return "bi bi-arrows-angle-expand me-1";
-        return "bi bi-arrows-angle-contract me-1"
-      }
+    buttonBrowserText() {
+      if(!this.showFullBrowser) return "Abrir buscador";
+      return "Cerrar buscador"
     },
-    mounted() {
-      this.getCitas("wementis/v1/citas/");
+    buttonBrowserStyles() {
+      if(!this.showFullBrowser) return "bg-primary text-light p-1 ps-3";
+      return "btn btn-outline-primary p-1 ps-3 me-4"
+    },
+    browserIcon() {
+      if(!this.showFullBrowser) return "bi bi bi-arrows-expand ms-2 fs-5 me-2";
+      return "bi bi bi-arrows-collapse fs-5"
     }
+  },
+  mounted() {
+    this.getCitas("wementis/v1/citas/");
+  }
 }
 </script>
 

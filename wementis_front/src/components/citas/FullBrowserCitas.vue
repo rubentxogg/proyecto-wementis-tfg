@@ -1,45 +1,24 @@
 <template>
   <form class="full-browser-citas d-flex flex-wrap">
-    <h4 class="w-100">Buscador</h4>
-
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">ID</span>
-      <input type="number" class="form-control" name="id" v-model="id" title="ID de la cita">
+    <div class="input-group">
+      <input type="number" class="form-control form-control-browser m-1" name="id" v-model="id" placeholder="ID" title="ID de la cita">
+      <input type="text" class="form-control form-control-browser m-1" name="pacienteNombre" placeholder="Paciente" v-model="pacienteNombre" title="Nombre del paciente">
+      <input type="text" class="form-control form-control-browser m-1" name="psicologoNombre" placeholder="Psicólogo" v-model="psicologoNombre" title="Nombre del psicólogo">
+      <input type="text" class="form-control form-control-browser m-1" name="tarifaNombre" placeholder="Tarifa" v-model="tarifaNombre" title="Nombre de la tarifa">
     </div>
 
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Paciente</span>
-      <input type="text" class="form-control" name="pacienteNombre" placeholder="Nombre" v-model="pacienteNombre" title="Nombre del paciente">
+    <div class="input-group">
+      <span class="input-group-text form-control-browser m-1">Fecha</span>
+      <input type="date" class="form-control form-control-browser m-1" name="email" v-model="fecha" title="Fecha de la cita">
+   
+      <span class="input-group-text form-control-browser m-1">Hora</span>
+      <input type="time" class="form-control form-control-browser m-1" name="fechaNac" placeholder="hh:mm" v-model="hora" title="Hora de la cita">
+    
+      <span class="input-group-text form-control-browser m-1">Duración/h</span>
+      <input type="number" class="form-control form-control-browser m-1" name="fechaCrea" v-model="cantidadHoras" title="Nº horas de duración">
     </div>
 
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Psicólogo</span>
-      <input type="text" class="form-control" name="psicologoNombre" placeholder="Nombre" v-model="psicologoNombre" title="Nombre del psicólogo">
-    </div>
-
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Tarifa</span>
-      <input type="text" class="form-control" name="tarifaNombre" placeholder="Nombre" v-model="tarifaNombre" title="Nombre de la tarifa">
-    </div>
-
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Fecha</span>
-      <input type="date" class="form-control" name="email" v-model="fecha" title="Fecha de la cita">
-    </div>
-
-    <div class="input-group mb-3 w-25 m-1">
-      <span class="input-group-text">Hora</span>
-      <input type="time" class="form-control" name="fechaNac" placeholder="hh:mm" v-model="hora" title="Hora de la cita">
-    </div>
-
-    <div class="input-group mb-3 w-25 m-1 h-fix">
-      <span class="input-group-text">Duración/h</span>
-      <input type="number" class="form-control" name="fechaCrea" v-model="cantidadHoras" title="Nº horas de duración">
-    </div>
-
-    <div class="input-group w-50 mb-3 m-1 h-fix">
-      <span class="input-group-text ">Estado</span>
-
+    <div class="input-group d-flex justify-content-center mt-3">
       <div class="form-check form-check-inline align-self-center">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="activa" value="1" v-model="estado">
         <label class="form-check-label text-warning" for="activa">Activa</label>
@@ -56,9 +35,11 @@
       </div>
     </div>
 
-    <button type="button" class="btn btn-outline-secondary mb-3" @click="buscarCitas">
-      <i class="bi bi-search me-1"></i>Buscar
-    </button>
+    <div class="input-group mt-3 d-flex justify-content-end">
+      <button type="button" class="btn btn-browser m-auto d-flex align-items-center" @click="buscarCitas">
+        <i class="bi bi-search me-1"></i> <span class="fw-bold">Buscar</span>
+      </button>
+    </div>
   </form>
 </template>
 
@@ -97,14 +78,23 @@ export default {
 </script>
 
 <style scoped>
-button {
-  position: relative;
-  left: 4%;
-  bottom: 72%;
-  height: 100%;
+.form-control:focus {
+  transform: scale(1.2, 1.2);
+  transition: 0.1s;
 }
 
-.h-fix {
-  height: 1rem;
+.btn-browser {
+  background:#e7f1ff;
+  color: rgba(0, 0, 0, 0.74);
+}
+
+.btn-browser:hover {
+  color: #0d6efd;
+}
+
+.form-control-browser {
+  border: 2px solid rgba(0, 0, 0, 0.103);
+  text-align: center;
+  border-radius: 9px !important;
 }
 </style>

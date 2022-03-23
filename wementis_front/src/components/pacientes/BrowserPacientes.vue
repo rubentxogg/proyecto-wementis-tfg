@@ -11,14 +11,10 @@
     <div class="input-group">
       <span class="input-group-text form-control-browser m-1">Fecha nac.</span>
       <input type="date" class="form-control form-control-browser m-1" name="fechaNac" v-model="fechaNacimiento" placeholder="Fecha nac.">
-    </div>
 
-    <div class="input-group">
-      <span class="input-group-text form-control-browser m-1">Fecha crea.</span>
+       <span class="input-group-text form-control-browser m-1">Fecha crea.</span>
       <input type="date" class="form-control form-control-browser m-1" name="fechaCrea" v-model="fechaCreacion" placeholder="Fecha crea.">
-    </div>
 
-    <div class="input-group">
       <div class="form-check form-check-inline align-self-center m-1 w-md-50">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="masculino" value="M" v-model="genero">
         <label class="form-check-label" for="masculino">Masculino</label>
@@ -28,6 +24,10 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femenino" value="F" v-model="genero">
         <label class="form-check-label" for="femenino">Femenino</label>
       </div>
+    </div>
+
+    <div class="input-group">
+      
     </div>
 
     <div class="input-group mt-3 d-flex justify-content-end">

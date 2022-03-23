@@ -4,10 +4,8 @@
       <input type="number" class="form-control form-control-browser m-1" name="id" v-model="idTarifa" placeholder="ID">
       <input type="text" class="form-control form-control-browser m-1" name="nombre" v-model="nombre" placeholder="Nombre">
       <input type="text" class="form-control form-control-browser m-1" name="precioHora" v-model="precioHora" placeholder="Precio/h">
-    </div>
 
-    <div class="input-group">
-      <span class="input-group-text form-control-browser m-1">Fecha crea.</span>
+       <span class="input-group-text form-control-browser m-1">Fecha crea.</span>
       <input type="date" class="form-control form-control-browser m-1" name="fechaCrea" v-model="fechaCreacion">
     </div>
 
