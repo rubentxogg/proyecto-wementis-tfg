@@ -13,8 +13,12 @@
       <input type="date" class="form-control form-control-browser m-1" name="fechaCrea" v-model="fechaCreacion">
     </div>
 
-    <div class="input-group mt-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-browser m-auto d-flex align-items-center" @click="buscarPsicologos">
+    <div class="input-group mt-3 d-flex justify-content-center gap-2">
+      <button type="button" class="btn btn-browser" @click="resetFields">
+        <i class="bi bi-arrow-clockwise me-1 text-muted"></i> <span class="fw-bold text-muted">Limpiar</span>
+      </button>
+
+      <button type="button" class="btn btn-browser" @click="buscarPsicologos">
         <i class="bi bi-search me-1"></i> <span class="fw-bold">Buscar</span>
       </button>
     </div>
@@ -38,7 +42,9 @@ export default {
   methods: {
     buscarPsicologos() {
       this.$emit("buscarPsicologos", this.idPsicologo, this.nombre, this.apellidos, this.telefono, this.email, this.fechaCreacion);
-      
+      this.resetFields();
+    },
+    resetFields() {
       this.idPsicologo = "",
       this.nombre = "";
       this.apellidos = "",
@@ -62,6 +68,10 @@ export default {
 }
 
 .btn-browser:hover {
+  color: #0d6efd;
+}
+
+.btn-browser:hover .text-muted {
   color: #0d6efd;
 }
 

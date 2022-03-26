@@ -35,8 +35,12 @@
       </div>
     </div>
 
-    <div class="input-group mt-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-browser m-auto d-flex align-items-center" @click="buscarCitas">
+    <div class="input-group mt-3 d-flex justify-content-center gap-2">
+      <button type="button" class="btn btn-browser" @click="resetFields">
+        <i class="bi bi-arrow-clockwise me-1 text-muted"></i> <span class="fw-bold text-muted">Limpiar</span>
+      </button>
+
+      <button type="button" class="btn btn-browser" @click="buscarCitas">
         <i class="bi bi-search me-1"></i> <span class="fw-bold">Buscar</span>
       </button>
     </div>
@@ -63,7 +67,9 @@ export default {
     buscarCitas() {
       this.$emit("buscarCitas", this.id, this.pacienteNombre, this.psicologoNombre, this.tarifaNombre, this.estado,
         this.fecha, this.hora, this.cantidadHoras);
-      
+        this.resetFields();
+    },
+    resetFields() {
       this.id = "",
       this.pacienteNombre = "";
       this.psicologoNombre = "",
@@ -89,6 +95,10 @@ export default {
 }
 
 .btn-browser:hover {
+  color: #0d6efd;
+}
+
+.btn-browser:hover .text-muted {
   color: #0d6efd;
 }
 

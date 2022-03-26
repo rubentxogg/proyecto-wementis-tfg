@@ -30,8 +30,12 @@
       
     </div>
 
-    <div class="input-group mt-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-browser m-auto d-flex align-items-center" @click="buscarPacientes">
+    <div class="input-group mt-3 d-flex justify-content-center gap-2">
+      <button type="button" class="btn btn-browser" @click="resetFields">
+        <i class="bi bi-arrow-clockwise me-1 text-muted"></i> <span class="fw-bold text-muted">Limpiar</span>
+      </button>
+
+      <button type="button" class="btn btn-browser" @click="buscarPacientes">
         <i class="bi bi-search me-1"></i> <span class="fw-bold">Buscar</span>
       </button>
     </div>
@@ -57,7 +61,9 @@ export default {
   methods: {
     buscarPacientes() {
       this.$emit("buscarPacientes", this.idPaciente, this.nombre, this.apellidos, this.telefono, this.email, this.fechaNacimiento, this.genero, this.fechaCreacion);
-      
+      this.resetFields();
+    },
+    resetFields() {
       this.idPaciente = "",
       this.nombre = "";
       this.apellidos = "",
@@ -83,6 +89,10 @@ export default {
 }
 
 .btn-browser:hover {
+  color: #0d6efd;
+}
+
+.btn-browser:hover .text-muted {
   color: #0d6efd;
 }
 
