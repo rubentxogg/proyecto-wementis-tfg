@@ -35,4 +35,14 @@ public interface CitaRepository extends CrudRepository<CitaEntity, Integer>{
 			);
 	
 	public List<CitaEntity> findByActivo(Integer activo);
+	
+	@Query(value = "SELECT new com.rgg.wementis.entities.CitaEntity (c.id, c.paciente, c.psicologo, c.tarifa, c.estado, c.fecha, c.hora, c.cantidadHoras, c.activo) "
+			+ "FROM CitaEntity c "
+			+ "WHERE (c.estado.idEstado LIKE CONCAT('%', :idEstado, '%') OR :idEstado is NULL) "
+			+ "AND c.fecha = :fecha "
+			+ "AND c.activo = 1")
+	public List<CitaEntity> getCitasPorFechaYEstado(
+			@Param("fecha") String fecha,
+			@Param("idEstado") String idEstado
+			);
 }

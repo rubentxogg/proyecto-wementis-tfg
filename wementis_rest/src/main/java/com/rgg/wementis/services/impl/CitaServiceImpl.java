@@ -97,4 +97,9 @@ public class CitaServiceImpl implements ICitaService{
 			citaRepository.save(cita);
 		}
 	}
+
+	@Override
+	public List<CitaEntity> getCitasPorFechaYEstado(String fecha, String idEstado) {
+		return citaRepository.getCitasPorFechaYEstado(fecha, idEstado);
+	}
 }

@@ -87,4 +87,11 @@ public class CitaController {
 		
 		return new ResponseEntity<>("Cita borrada con éxito", HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/citas", params = {"fecha", "idEstado"})
+	public List<CitaEntity> getCitasPorFechaYEstado(
+			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "idEstado", required = false) String idEstado) {
+		return citaService.getCitasPorFechaYEstado(fecha, idEstado);
+	}
 }

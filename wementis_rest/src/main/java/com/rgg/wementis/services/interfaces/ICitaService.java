@@ -23,4 +23,6 @@ public interface ICitaService {
 	public void completarCita(Integer id);
 	
 	public void borrarCita(Integer id);
+	
+	public List<CitaEntity> getCitasPorFechaYEstado(String fecha, String idEstado);
 }
