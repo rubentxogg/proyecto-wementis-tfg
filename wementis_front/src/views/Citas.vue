@@ -14,12 +14,13 @@
                <full-browser-citas @buscarCitas="getCitasPorCampos"/>
              </div>
           </div>
-
         </div>
       </div>
 
       <modal-new-cita @updateTabla="getCitas('wementis/v1/citas/')"/>
     </div>
+
+    <browser-citas-por-fecha-y-id-estado v-if="!showFullBrowser" @buscarCitas="getCitasPorFechaYIdEstado"/>
 
     <hr>
     <spinner v-if="isLoading"/>
@@ -40,6 +41,7 @@ import FullBrowserCitas from '@/components/citas/FullBrowserCitas.vue';
 import ModalNewCita from '@/components/citas/ModalNewCita.vue';
 import Spinner from '@/components/Spinner.vue';
 import FooterWementis from '@/components/FooterWementis.vue';
+import BrowserCitasPorFechaYIdEstado from '@/components/citas/BrowserCitasPorFechaYIdEstado.vue';
 import axios from 'axios';
 
 export default {
@@ -49,7 +51,8 @@ export default {
     FullBrowserCitas,
     ModalNewCita,
     Spinner,
-    FooterWementis
+    FooterWementis,
+    BrowserCitasPorFechaYIdEstado
   },
   data() {
     return {
@@ -83,6 +86,19 @@ export default {
 
       this.isSearchPorCampos = true;
       
+      axios
+        .get("wementis/v1/citas/", { params })
+        .then((response) => this.citas = response.data)
+        .catch((err) => console.error(err));
+    },
+    getCitasPorFechaYIdEstado(fecha, idEstado) {
+      const params = {
+        fecha: fecha,
+        idEstado: idEstado
+      }
+
+      this.isSearchPorCampos = true;
+
       axios
         .get("wementis/v1/citas/", { params })
         .then((response) => this.citas = response.data)

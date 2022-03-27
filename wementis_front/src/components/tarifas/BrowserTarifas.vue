@@ -64,7 +64,7 @@ export default {
 }
 
 .btn-browser:hover .text-muted {
-  color: #0d6efd;
+  color: #0d6efd !important;
 }
 
 .form-control-browser {
