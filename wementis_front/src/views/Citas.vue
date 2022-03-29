@@ -1,6 +1,7 @@
 <template>
   <div class="citas d-flex flex-column min-vh-100">
     <p class="text-muted fs-6">Citas</p>
+
     <div class="d-flex justify-content-between">
       <div class="accordion me-3" id="accordionCitas">
         <div class="accordion-item">
@@ -20,7 +21,9 @@
       <modal-new-cita @updateTabla="getCitas('wementis/v1/citas/')"/>
     </div>
 
-    <browser-citas-por-fecha-y-id-estado v-if="!showFullBrowser" @buscarCitas="getCitasPorFechaYIdEstado"/>
+    <div class="d-flex mt-3">
+      <browser-citas-por-fecha-y-id-estado v-if="!showFullBrowser" @buscarCitas="getCitasPorFechaYIdEstado"/>
+    </div>
 
     <hr>
     <spinner v-if="isLoading"/>
