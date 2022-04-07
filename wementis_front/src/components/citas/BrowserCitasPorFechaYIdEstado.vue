@@ -10,7 +10,7 @@
     <button type="button" :class="buttonCompletadasSelectedStyles" @click="buscarCitas(2)" :disabled="isFechaEmpty">Completas</button>
     <button type="button" :class="buttonCanceladasSelectedStyles" @click="buscarCitas(3)" :disabled="isFechaEmpty">Canceladas</button>
 
-    <h4 class="text-center mt-3 border border-3 p-2" v-if="!isFechaEmpty">{{ displayFechaEnNombres }}</h4>
+    <h3 class="text-center mt-3 p-2 text-decoration-underline" v-if="!isFechaEmpty">{{ displayFechaEnNombres }}</h3>
   </div>
 </template>
 

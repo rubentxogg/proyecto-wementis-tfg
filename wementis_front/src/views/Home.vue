@@ -2,6 +2,7 @@
   <div>
     <header-home class="mb-fix"/>
 
+    <h5 v-if="!isLoginError" class="text-danger text-center mb-4">Email o contraseña incorrectos. {{ this.$route.params[0] }}</h5>
     <div class="p-fix row row-cols-2 mb-4">
       <jumbotron-wementis/>
       <form-login />
@@ -25,6 +26,14 @@ export default {
     FormLogin,
     IconGrid
   },
+  data() {
+    return {
+      isLoginError: false
+    }
+  },
+  created() {
+    console.log(this.$route.params.error);
+  }
 };
 </script>
 

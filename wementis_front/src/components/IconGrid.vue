@@ -63,7 +63,7 @@
         <div>
           <h4 class="fw-bold mb-0">Informe</h4>
           <p>
-            Crea un informe personalizada para cada uno de tus pacientes y descárgalo en pdf.
+            Crea un informe personalizado para cada uno de tus pacientes y descárgalo en pdf.
           </p>
         </div>
       </div>

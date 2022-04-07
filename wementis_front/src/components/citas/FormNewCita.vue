@@ -36,7 +36,7 @@
     </div>
 
     <div class="input-group mb-3">
-     <span class="input-group-text">Cantidad/h</span>
+     <span class="input-group-text">Duración/h</span>
      <input type="text" class="form-control" name="email" v-model="cantidadHoras">
      <i v-if="isCorrectCantidadHoras" class="bi bi-check2-circle fs-3 text-success"></i>
      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
