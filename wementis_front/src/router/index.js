@@ -9,6 +9,11 @@ const routes = [
     component: () => import('../views/Home.vue'),
   },
   {
+    path: '/:error',
+    name: 'HomeLoginError',
+    component: () => import('../views/Home.vue'),
+  },
+  {
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../views/Dashboard.vue'),

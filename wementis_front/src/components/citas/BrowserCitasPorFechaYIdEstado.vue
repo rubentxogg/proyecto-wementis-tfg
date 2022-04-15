@@ -1,16 +1,21 @@
 <template>
-  <div class="browser-citas-por-fecha-y-estado m-auto mb-2">
-
+  <div class="browser-citas-por-fecha-y-estado mb-2 m-auto">
+    <hr>
     <div class="d-flex mb-2">
-        <span class="input-group-text me-1"><i class="bi bi-calendar-event me-2"></i>Selección fecha</span>
-        <input type="date" class="form-control text-center" v-model="fecha" @change="resetSelectedButtons" title="Elegir fecha">
+        <span class="me-1 align-self-center fs-5"><i class="bi bi-calendar-event me-2"></i>Selección de fecha</span>
+        <input type="date" class="text-center m-auto border-0" v-model="fecha" @change="resetSelectedButtons" title="Elegir fecha">
     </div>
     
-    <button type="button" :class="buttonActivasSelectedStyles" @click="buscarCitas(1)" :disabled="isFechaEmpty">Activas</button>
-    <button type="button" :class="buttonCompletadasSelectedStyles" @click="buscarCitas(2)" :disabled="isFechaEmpty">Completas</button>
-    <button type="button" :class="buttonCanceladasSelectedStyles" @click="buscarCitas(3)" :disabled="isFechaEmpty">Canceladas</button>
+    <div class="d-flex">
+        <span class="me-1 align-self-center fs-5"><i class="bi bi-activity me-2"></i>Selección de estado: </span>
+        <button type="button" :class="buttonActivasSelectedStyles" @click="buscarCitas(1)" :disabled="isFechaEmpty">Activas</button>
+        <button type="button" :class="buttonCompletadasSelectedStyles" @click="buscarCitas(2)" :disabled="isFechaEmpty">Completas</button>
+        <button type="button" :class="buttonCanceladasSelectedStyles" @click="buscarCitas(3)" :disabled="isFechaEmpty">Canceladas</button>
+    </div>
 
-    <h3 class="text-center mt-3 p-2 text-decoration-underline" v-if="!isFechaEmpty">{{ displayFechaEnNombres }}</h3>
+    <hr>
+    <h3 class="text-center mt-3 p-2 m-auto" v-if="!isFechaEmpty && (isButtonActivasSelected || isButtonCanceladasSelected 
+        || isButtonCompletadasSelected)">{{ displayFechaEnNombres }}</h3>
   </div>
 </template>
 
@@ -59,15 +64,15 @@ export default {
             return false;
         },
         buttonActivasSelectedStyles() {
-            if(this.isButtonActivasSelected) return "btn btn-lg btn-outline-warning active m-2";
+            if(this.isButtonActivasSelected) return "btn btn-outline-warning active m-2";
             return "btn btn-lg btn-outline-warning m-2";
         },
         buttonCompletadasSelectedStyles() {
-            if(this.isButtonCompletadasSelected) return "btn btn-lg btn-outline-success active m-2";
+            if(this.isButtonCompletadasSelected) return "btn btn-outline-success active m-2";
             return "btn btn-lg btn-outline-success m-2";
         },
         buttonCanceladasSelectedStyles() {
-            if(this.isButtonCanceladasSelected) return "btn btn-lg btn-outline-danger active m-2";
+            if(this.isButtonCanceladasSelected) return "btn btn-outline-danger active m-2";
             return "btn btn-lg btn-outline-danger m-2";
         },
         displayFechaEnNombres() {
@@ -80,4 +85,8 @@ export default {
 </script>
 
 <style scoped>
+input:focus {
+  transform: scale(1.2, 1.2);
+  transition: 0.1s;
+}
 </style>
