@@ -65,15 +65,15 @@ export default {
         },
         buttonActivasSelectedStyles() {
             if(this.isButtonActivasSelected) return "btn btn-outline-warning active m-2";
-            return "btn btn-lg btn-outline-warning m-2";
+            return "btn btn-outline-warning m-2";
         },
         buttonCompletadasSelectedStyles() {
             if(this.isButtonCompletadasSelected) return "btn btn-outline-success active m-2";
-            return "btn btn-lg btn-outline-success m-2";
+            return "btn btn-outline-success m-2";
         },
         buttonCanceladasSelectedStyles() {
             if(this.isButtonCanceladasSelected) return "btn btn-outline-danger active m-2";
-            return "btn btn-lg btn-outline-danger m-2";
+            return "btn btn-outline-danger m-2";
         },
         displayFechaEnNombres() {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
