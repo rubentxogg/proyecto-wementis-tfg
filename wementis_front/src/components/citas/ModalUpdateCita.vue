@@ -1,7 +1,7 @@
 <template>
   <div class="modal-update-cita">
       
-    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateCita" @click="updateCita" title="Modificar cita">
+    <button type="button" class="btn btn-warning rounded-circle" data-bs-toggle="modal" data-bs-target="#updateCita" @click="updateCita" title="Modificar cita">
       <i class="bi bi-pen text-light"></i>
     </button>
 

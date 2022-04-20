@@ -23,7 +23,7 @@
         <td>{{ cita.hora.substring(0,5) }}</td>
         <td>{{ cita.cantidadHoras }}</td>
         <td class="text-start">
-          <span :class="circuloEstado(cita.estado.idEstado)"></span> {{ cita.estado.nombre }}
+          <span :class="circuloEstado(cita.estado.idEstado)"></span> {{ capitalizeFirstLetter(cita.estado.nombre) }}
         </td>
         <td v-if="(cita.estado.idEstado || cita.estado.id) === 1">
           <modal-completar-cita @completacionCita="obtenerIdCita(cita.id)" @updateTabla="updateTabla" :id="id"/>
@@ -85,6 +85,9 @@ export default {
       if(estadoId === 1) return "d-inline-block bg-warning rounded-circle me-1";
       if(estadoId === 2) return "d-inline-block bg-success rounded-circle me-1";
       if(estadoId === 3) return "d-inline-block bg-danger rounded-circle me-1";
+    },
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     }
   },
 };
