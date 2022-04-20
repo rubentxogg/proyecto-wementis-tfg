@@ -36,7 +36,6 @@ export default {
   methods: {
     buscarTarifas() {
       this.$emit("buscarTarifas", this.idTarifa, this.nombre, this.precioHora, this.fechaCreacion);
-      this.resetFields();
     },
     resetFields() {
       this.idTarifa = "",

@@ -42,7 +42,6 @@ export default {
   methods: {
     buscarPsicologos() {
       this.$emit("buscarPsicologos", this.idPsicologo, this.nombre, this.apellidos, this.telefono, this.email, this.fechaCreacion);
-      this.resetFields();
     },
     resetFields() {
       this.idPsicologo = "",

@@ -67,7 +67,6 @@ export default {
     buscarCitas() {
       this.$emit("buscarCitas", this.id, this.pacienteNombre, this.psicologoNombre, this.tarifaNombre, this.estado,
         this.fecha, this.hora, this.cantidadHoras);
-        this.resetFields();
     },
     resetFields() {
       this.id = "",

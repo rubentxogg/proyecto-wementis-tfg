@@ -61,7 +61,6 @@ export default {
   methods: {
     buscarPacientes() {
       this.$emit("buscarPacientes", this.idPaciente, this.nombre, this.apellidos, this.telefono, this.email, this.fechaNacimiento, this.genero, this.fechaCreacion);
-      this.resetFields();
     },
     resetFields() {
       this.idPaciente = "",
