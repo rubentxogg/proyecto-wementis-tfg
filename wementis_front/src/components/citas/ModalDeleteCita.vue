@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-cita">
       
-    <button type="button" class="btn btn-secondary border border-2" data-bs-toggle="modal" data-bs-target="#deleteCita" title="Borrar cita" @click="borradoCita">
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteCita" title="Borrar cita" @click="borradoCita">
       <i class="bi bi-trash"></i>
     </button>
 

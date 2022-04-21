@@ -7,7 +7,8 @@
         <h4>INFORME PSICOLÓGICO CLÍNICO</h4>
 
         <div class="d-flex">
-          <h4>Fecha:</h4>
+          <h4>Fecha</h4>
+          <p class="fw-bold">:</p>
           <input type="date" class="form-control">
         </div>
       </div>
@@ -19,38 +20,16 @@
         <dropdown-pacientes/>
       </div>
 
-      <div class="d-flex">
-        <p class="fw-bold me-3">Nombre y apellidos:</p>
-        <p>nombre</p>
-      </div>
-      
-      <div class="d-flex">
-        <p class="fw-bold me-3">Fecha de nacimiento:</p>
-        <p>dsfjsdkfjsdf</p>
-      </div>
-      
-      <div class="d-flex">
-        <p class="fw-bold me-3">Sexo:</p>
-        <p>M</p>
-      </div>
-     
-      <div class="d-flex">
-        <p class="fw-bold me-3">Referente:</p>
-        <p>A petición del propio examinado.</p>
-      </div>
-      
-      <div class="d-flex">
-        <p class="fw-bold me-3">Motivo de evaluación:</p>
-        <p>Determinar la salud mental (área emocional y área de personalidad) con la finalidad de descartar la presencia de algún trastorno de personalidad (moderados a graves) o trastornos psiquiátricos.</p>
-      </div>
-      
-    
-      <div class="d-flex justify-content-between">
-        <div class="d-flex">
-          <p class="fw-bold me-3" >Examinador (psicólogo):</p>
-          <p>Pepito</p>
+      <div class="d-flex flex-column">
+        <p class="fw-bold me-3">Nombre y apellidos</p>
+        <p class="fw-bold me-3">Fecha de nacimiento</p>
+        <p class="fw-bold me-3">Sexo</p>
+        <p class="fw-bold me-3">Referente</p>
+        <p class="fw-bold me-3">Motivo de evaluación</p>
+        <div class="d-flex justify-content-between">
+          <p class="fw-bold me-3" >Examinador (psicólogo)</p>
+          <dropdown-psicologos/>
         </div>
-        <dropdown-psicologos/>
       </div>
       
       <div class="mb-1">

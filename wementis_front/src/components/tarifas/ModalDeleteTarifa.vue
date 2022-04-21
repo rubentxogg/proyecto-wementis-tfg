@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-tarifa">
       
-    <button type="button" class="btn btn-danger rounded-circle border border-2" data-bs-toggle="modal" data-bs-target="#deleteTarifa" title="Borrar tarifa" @click="borradoTarifa">
+    <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteTarifa" title="Borrar tarifa" @click="borradoTarifa">
       <i class="bi bi-trash"></i>
     </button>
 

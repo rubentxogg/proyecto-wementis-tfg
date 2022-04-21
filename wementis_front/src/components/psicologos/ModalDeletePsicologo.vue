@@ -1,7 +1,7 @@
 <template>
   <div class="modal-delete-psicologo">
       
-    <button type="button" class="btn btn-danger rounded-circle border border-2" data-bs-toggle="modal" data-bs-target="#deletePsicologo" title="Borrar psicólogo" @click="borradoPsicologo">
+    <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deletePsicologo" title="Borrar psicólogo" @click="borradoPsicologo">
       <i class="bi bi-person-x"></i>
     </button>
 

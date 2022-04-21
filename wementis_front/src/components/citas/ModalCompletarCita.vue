@@ -1,7 +1,7 @@
 <template>
   <div class="modal-completar-cita">
       
-    <button type="button" class="btn btn-success border border-2 rounded-circle" data-bs-toggle="modal" data-bs-target="#completarCita" title="Completar cita" @click="completacionCita">
+    <button type="button" class="btn btn-success rounded-circle" data-bs-toggle="modal" data-bs-target="#completarCita" title="Completar cita" @click="completacionCita">
       <i class="bi bi-check2-circle"></i>
     </button>
 
