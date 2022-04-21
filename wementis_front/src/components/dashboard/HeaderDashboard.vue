@@ -14,7 +14,7 @@
         </div>
         <div class="d-flex align-items-center">
           <span class="bg-pink rounded-circle me-1 d-flex justify-content-center align-items-center text-light">
-            <i class="bi bi-bandaid fs-5"></i>
+            <i class="bi bi-heart-pulse fs-5"></i>
           </span>
           <h6 class="mt-1">Psicólogos: {{ psicologos.length }}</h6>
         </div>

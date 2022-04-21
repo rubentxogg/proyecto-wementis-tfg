@@ -14,14 +14,43 @@
 
       <hr>
 
-      <div>
-        <h5>I.DATOS DE FILIACIÓN                            dropdown pacientes</h5>
-        <p>Nombre y apellidos:</p>
-        <p>Fecha de nacimiento:</p>
-        <p>Sexo:</p>
-        <p>Referente: A petición del propio examinado.</p>
-        <p>Motivo de evaluación: Determinar la salud mental (área emocional y área de personalidad) con la finalidad de descartar la presencia de algún trastorno de personalidad (moderados a graves) o trastornos psiquiátricos.</p>
-        <p>Examinador (psicólogo):                            dropdown psícologos</p>
+      <div class="d-flex justify-content-between">
+        <h5>I.DATOS DE FILIACIÓN</h5>
+        <dropdown-pacientes/>
+      </div>
+
+      <div class="d-flex">
+        <p class="fw-bold me-3">Nombre y apellidos:</p>
+        <p>nombre</p>
+      </div>
+      
+      <div class="d-flex">
+        <p class="fw-bold me-3">Fecha de nacimiento:</p>
+        <p>dsfjsdkfjsdf</p>
+      </div>
+      
+      <div class="d-flex">
+        <p class="fw-bold me-3">Sexo:</p>
+        <p>M</p>
+      </div>
+     
+      <div class="d-flex">
+        <p class="fw-bold me-3">Referente:</p>
+        <p>A petición del propio examinado.</p>
+      </div>
+      
+      <div class="d-flex">
+        <p class="fw-bold me-3">Motivo de evaluación:</p>
+        <p>Determinar la salud mental (área emocional y área de personalidad) con la finalidad de descartar la presencia de algún trastorno de personalidad (moderados a graves) o trastornos psiquiátricos.</p>
+      </div>
+      
+    
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <p class="fw-bold me-3" >Examinador (psicólogo):</p>
+          <p>Pepito</p>
+        </div>
+        <dropdown-psicologos/>
       </div>
       
       <div class="mb-1">
@@ -53,7 +82,7 @@
 
       <div class="d-flex mb-3 justify-content-center">
         <button type="button" class="btn btn-danger me-3"><i class="bi bi-arrow-clockwise me-1"></i>Restablecer</button>
-        <a href="wementis/v1/pdf/generate" class="btn btn-success " target="_blank"><i class="bi bi-file-earmark-arrow-down me-1"></i>Descargar PDF</a>
+        <a href="wementis/v1/pdf/generate" class="btn btn-success " target="_blank"><i class="bi bi-download me-1"></i>Descargar PDF</a>
       </div>
       
     </div>
@@ -63,11 +92,15 @@
 </template>
 
 <script>
+import DropdownPacientes from '@/components/citas/DropdownPacientes.vue';
+import DropdownPsicologos from '@/components/citas/DropdownPsicologos.vue';
 import FooterWementis from '@/components/FooterWementis.vue';
 
 export default {
     name: "Informe",
     components: {
+      DropdownPacientes,
+      DropdownPsicologos,
       FooterWementis
     },
 }

@@ -25,7 +25,7 @@ public class PDFExportController {
 	public void generatePDF(HttpServletResponse response) {
 		response.setContentType("application/pdf");
 		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=pdf_" + Utils.currentDate() + ".pdf";
+		String headerValue = "attachment; filename=informe_" + Utils.currentDate() + ".pdf";
 		response.setHeader(headerKey, headerValue);
 		
 		pdfGeneratorService.export(response);

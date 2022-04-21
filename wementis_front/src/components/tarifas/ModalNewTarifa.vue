@@ -11,7 +11,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="newTarifa">
-              <i class="bi bi-wallet2 me-1"></i>Nueva tarifa
+              <i class="bi bi-cash-coin me-1"></i>Nueva tarifa
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown-psicologos btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-       <i class="bi bi-bandaid me-1"></i> Psicólogos
+       <i class="bi bi-heart-pulse me-1"></i> Psicólogos
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
       <li v-for="psicologo in psicologos" :key="psicologo.idPsicologo || psicologo.id">

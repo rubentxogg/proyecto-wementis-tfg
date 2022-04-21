@@ -16,11 +16,11 @@
       </router-link>
 
       <router-link to="/psicologos" class="p-2 text-dark rounded">
-        <i class="bi bi-bandaid me-2"></i>Psicólogos
+        <i class="bi bi-heart-pulse me-2"></i>Psicólogos
       </router-link>
 
       <router-link to="/tarifas" class="p-2 text-dark rounded">
-        <i class="bi bi-wallet2 me-2"></i>Tarifas
+        <i class="bi bi-cash-coin me-2"></i>Tarifas
       </router-link>
 
       <router-link to="/citas" class="p-2 text-dark rounded">
