@@ -15,24 +15,49 @@
 
       <hr>
 
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mb-2">
         <h5>I.DATOS DE FILIACIÓN</h5>
         <dropdown-pacientes/>
       </div>
 
-      <div class="d-flex flex-column">
-        <p class="fw-bold me-3">Nombre y apellidos</p>
-        <p class="fw-bold me-3">Fecha de nacimiento</p>
-        <p class="fw-bold me-3">Sexo</p>
-        <p class="fw-bold me-3">Referente</p>
-        <p class="fw-bold me-3">Motivo de evaluación</p>
-        <div class="d-flex justify-content-between">
-          <p class="fw-bold me-3" >Examinador (psicólogo)</p>
-          <dropdown-psicologos/>
-        </div>
+      <div class="row">
+        <p class="fw-bold col-4">Nombre y apellidos</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">Respuesta</p>
+      </div>
+
+      <div class="row">
+        <p class="fw-bold col-4">Fecha de nacimiento</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">Respuesta</p>
+      </div>
+
+      <div class="row">
+        <p class="fw-bold col-4">Sexo</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">Respuesta</p>
+      </div>
+
+      <div class="row">
+        <p class="fw-bold col-4">Referente</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">A petición del propio examinado.</p>
+      </div>
+
+      <div class="row">
+        <p class="fw-bold col-4">Motivo de evaluación</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">Respuesta</p>
       </div>
       
-      <div class="mb-1">
+      <div class="row">
+        <p class="fw-bold col-4" >Examinador (psicólogo)</p>
+        <p class="fw-bold col-1">:</p>
+        <p class="col">Respuesta</p>
+        <dropdown-psicologos class="col-2"/>
+      </div>
+      
+      <div class="mt-2 mb-1">
         <h5>II.MOTIVO DE CONSULTA</h5>
         <textarea class="m-auto form-control" name="motivo" cols="35" rows="3"></textarea>
       </div>
@@ -63,7 +88,6 @@
         <button type="button" class="btn btn-danger me-3"><i class="bi bi-arrow-clockwise me-1"></i>Restablecer</button>
         <a href="wementis/v1/pdf/generate" class="btn btn-success " target="_blank"><i class="bi bi-download me-1"></i>Descargar PDF</a>
       </div>
-      
     </div>
   
     <footer-wementis />
