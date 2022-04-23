@@ -26,7 +26,7 @@
       </div>
 
       <div class="col d-flex align-items-start">
-        <i class="bi bi-bandaid me-1 ms-3 fs-4 text-muted"></i>
+        <i class="bi bi-heart-pulse me-1 ms-3 fs-4 text-muted"></i>
         <div>
           <h4 class="fw-bold mb-0">Psicólogos</h4>
           <p>
@@ -37,7 +37,7 @@
       </div>
 
       <div class="col d-flex align-items-start">
-        <i class="bi bi-wallet2 me-1 ms-3 fs-4 text-muted"></i>
+        <i class="bi bi-cash-coin me-1 ms-3 fs-4 text-muted"></i>
         <div>
           <h4 class="fw-bold mb-0">Tarifas</h4>
           <p>

@@ -11,7 +11,7 @@
 
     <div class="jumbo-container container d-flex justify-content-between">
       <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes" v-if="pacientes.length > 0"/>
-      <h4 class="text-center m-auto" v-else>¡Bienvenido a WeMentis!, <br><br> crea tu primer paciente en la sección del menú 'Pacientes'</h4>
+      <h4 class="text-center m-auto" v-else>¡Bienvenido a WeMentis! <br><br> <span class="fs-5">crea tu primer paciente en la sección del menú 'Pacientes'</span></h4>
 
       <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-if="ganancias.length > 0"/>
       <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-else-if="pacientes.length > 0"/>

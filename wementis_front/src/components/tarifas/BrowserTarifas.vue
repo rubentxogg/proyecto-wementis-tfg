@@ -1,7 +1,7 @@
 <template>
   <form class="browser-tarifas d-flex flex-wrap">
     <div class="input-group">
-      <input type="number" class="form-control form-control-browser m-1" name="id" v-model="idTarifa" placeholder="ID">
+      <input type="text" class="form-control form-control-browser m-1" name="id" v-model="idTarifa" placeholder="ID">
       <input type="text" class="form-control form-control-browser m-1" name="nombre" v-model="nombre" placeholder="Nombre">
       <input type="text" class="form-control form-control-browser m-1" name="precioHora" v-model="precioHora" placeholder="Precio/h">
 

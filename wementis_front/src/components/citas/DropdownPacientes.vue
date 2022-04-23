@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown-pacientes btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <button type="button" :class="checkPacientesIsEmpty" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-people me-1"></i> Pacientes
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
@@ -32,6 +32,12 @@ export default {
     },
     seleccionarPaciente(paciente) {
       this.$emit("seleccionPaciente", paciente);
+    }
+  },
+  computed: {
+    checkPacientesIsEmpty() {
+      if(this.pacientes.length > 0) return "btn btn-primary dropdown-toggle";
+      return "btn btn-primary dropdown-toggle disabled";
     }
   },
   mounted() {

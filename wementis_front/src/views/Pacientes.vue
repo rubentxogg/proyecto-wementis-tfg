@@ -25,10 +25,10 @@
     <spinner v-if="isLoading"/>
     <table-pacientes v-else-if="pacientes.length > 0" :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado pacientes con tus criterios de búsqueda.</h2>
-    <h2 v-else class="text-center mt-5">
+    <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen pacientes en la BBDD, <br><br>
-      pulsa en el botón <span class="text-success"> <i class="bi bi-person-plus me-1"></i>Añadir</span> situado en la parte superior derecha de la página para añadir tu primer paciente
-    </h2>
+      pulsa en el botón <span class="text-success">[<i class="bi bi-person-plus me-1"></i>Añadir]</span> situado en la parte superior derecha de la página para añadir tu primer paciente
+    </h3>
 
     <footer-wementis />
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown-psicologos btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <button type="button" :class="checkPsicologosIsEmpty" data-bs-toggle="dropdown" aria-expanded="false">
        <i class="bi bi-heart-pulse me-1"></i> Psicólogos
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
@@ -32,6 +32,12 @@ export default {
     },
     seleccionarPsicologo(psicologo) {
       this.$emit("seleccionPsicologo", psicologo);
+    }
+  },
+  computed: {
+    checkPsicologosIsEmpty() {
+      if(this.psicologos.length > 0) return "btn btn-primary dropdown-toggle";
+      return "btn btn-primary dropdown-toggle disabled";
     }
   },
   mounted() {

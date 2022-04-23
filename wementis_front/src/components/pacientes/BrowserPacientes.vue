@@ -1,7 +1,7 @@
 <template>
   <form class="browser-pacientes">
     <div class="input-group">
-      <input type="number" class="form-control form-control-browser m-1" name="id" v-model="idPaciente" placeholder="ID">
+      <input type="text" class="form-control form-control-browser m-1" name="id" v-model="idPaciente" placeholder="ID">
       <input type="text" class="form-control form-control-browser m-1" name="nombre" v-model="nombre" placeholder="Nombre">
       <input type="text" class="form-control form-control-browser m-1" name="apellidos" v-model="apellidos" placeholder="Apellidos">
       <input type="text" class="form-control form-control-browser m-1" name="telefono" v-model="telefono" placeholder="Teléfono">
