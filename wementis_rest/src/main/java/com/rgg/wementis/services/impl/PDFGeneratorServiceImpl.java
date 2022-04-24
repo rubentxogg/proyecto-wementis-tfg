@@ -1,12 +1,12 @@
 package com.rgg.wementis.services.impl;
 
-import java.awt.Color;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
@@ -14,6 +14,8 @@ import com.lowagie.text.FontFactory;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.draw.LineSeparator;
+import com.lowagie.text.pdf.draw.VerticalPositionMark;
 import com.rgg.wementis.services.interfaces.IPDFGeneratorService;
 
 @Service
@@ -30,49 +32,107 @@ public class PDFGeneratorServiceImpl implements IPDFGeneratorService{
 			Font fontTittle = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 			fontTittle.setSize(18);
 			
-			Paragraph paragraph = new Paragraph("INFORME PSICOLÓGICO CLÍNICO", fontTittle);
-			paragraph.setAlignment(Element.ALIGN_LEFT);
+			Font fontTittle2 = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			fontTittle2.setSize(14);
 			
-			Font fontParagraph = FontFactory.getFont(FontFactory.HELVETICA);
-			fontParagraph.setSize(12);
+			Font fontParagraphBold = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			fontParagraphBold.setSize(12);
 			
-			Paragraph paragraph2 = new Paragraph(paciente);
-			paragraph2.setAlignment(Element.ALIGN_LEFT);
+			Font fontParagraphRegular = FontFactory.getFont(FontFactory.HELVETICA);
+			fontParagraphRegular.setSize(12);
 			
-			Paragraph paragraph3 = new Paragraph(fechaNacimiento);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph tittle = new Paragraph("INFORME PSICOLÓGICO CLÍNICO", fontTittle);
+			tittle.setAlignment(Element.ALIGN_LEFT);
+			tittle.add(new Chunk(new VerticalPositionMark()));
+			tittle.add(fechaInforme);
 			
-			Paragraph paragraph4 = new Paragraph(genero);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			LineSeparator lineSeparator = new LineSeparator();
+			lineSeparator.setOffset(6);
+			Chunk lineBreak = new Chunk(lineSeparator);
 			
-			Paragraph paragraph5 = new Paragraph(psicologo);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph datosFiliacionTittle = new Paragraph("I.DATOS DE FILIACIÓN", fontTittle2);
+			datosFiliacionTittle.setSpacingAfter(10f);
 			
-			Paragraph paragraph6 = new Paragraph(motivoConsulta);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph nombreYApellidosParagraph = new Paragraph("Nombre y apellidos:", fontParagraphBold);
+			nombreYApellidosParagraph.add(new Chunk(paciente, fontParagraphRegular));
+			nombreYApellidosParagraph.setSpacingAfter(10f);
 			
-			Paragraph paragraph7 = new Paragraph(observacionesGenerales);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
 			
-			Paragraph paragraph8 = new Paragraph(analisisResultados);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph fechaNacimientoParagraph = new Paragraph("Fecha de nacimiento:", fontParagraphBold);
+			fechaNacimientoParagraph.add(new Chunk(fechaNacimiento, fontParagraphRegular));
+			fechaNacimientoParagraph.setSpacingAfter(10f);
 			
-			Paragraph paragraph9 = new Paragraph(conclusiones);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph sexoParagraph = new Paragraph("Sexo:", fontParagraphBold);
+			sexoParagraph.add(new Chunk(genero, fontParagraphRegular));
+			sexoParagraph.setSpacingAfter(10f);
 			
-			Paragraph paragraph10 = new Paragraph(recomendaciones);
-			paragraph3.setAlignment(Element.ALIGN_LEFT);
+			Paragraph referenteParagraph = new Paragraph("Referente:", fontParagraphBold);
+			referenteParagraph.add(new Chunk("A petición del propio examinado.", fontParagraphRegular));
+			referenteParagraph.setSpacingAfter(10f);
 			
-			document.add(paragraph);
-			document.add(paragraph2);
-			document.add(paragraph3);
-			document.add(paragraph4);
-			document.add(paragraph5);
-			document.add(paragraph6);
-			document.add(paragraph7);
-			document.add(paragraph8);
-			document.add(paragraph9);
-			document.add(paragraph10);
+			Paragraph motivoEvaluacionParagraph = new Paragraph("Motivo de evaluación:", fontParagraphBold);
+			motivoEvaluacionParagraph.add(new Chunk("Determinar la salud mental(área emocional y área de personalidad) con la finalidad de descartar la presencia de algún trastorno de personalidad(moderados a graves) o trastornos psiquiátricos.", fontParagraphRegular));
+			motivoEvaluacionParagraph.setSpacingAfter(10f);
+			
+			Paragraph examinadorParagraph = new Paragraph("Examinador (psicólogo):", fontParagraphBold);
+			examinadorParagraph.add(new Chunk(psicologo, fontParagraphRegular));
+			examinadorParagraph.setSpacingAfter(10f);
+
+			Paragraph motivoConsultaTittle = new Paragraph("II.MOTIVO DE CONSULTA", fontTittle2);
+			motivoConsultaTittle.setSpacingAfter(10f);
+			
+			Paragraph motivoConsultaParagraph = new Paragraph(motivoConsulta, fontParagraphRegular);
+			motivoConsultaParagraph.setSpacingAfter(10f);
+			
+			Paragraph observacionesGeneralesTittle = new Paragraph("III.OBSERVACIONES GENERALES", fontTittle2);
+			observacionesGeneralesTittle.setSpacingAfter(10f);
+			
+			Paragraph observacionesGeneralesParagraph = new Paragraph(observacionesGenerales, fontParagraphRegular);
+			observacionesGeneralesParagraph.setSpacingAfter(10f);
+			
+			Paragraph analisisResultadosTittle = new Paragraph("IV.ANÁLISIS DE LOS RESULTADOS", fontTittle2);
+			analisisResultadosTittle.setSpacingAfter(10f);
+			
+			Paragraph analisisResultadosParagraph = new Paragraph(analisisResultados, fontParagraphRegular);
+			analisisResultadosParagraph.setSpacingAfter(10f);
+			
+			Paragraph conclusionesTittle = new Paragraph("V.CONCLUSIONES", fontTittle2);
+			conclusionesTittle.setSpacingAfter(10f);
+			
+			Paragraph conclusionesParagraph = new Paragraph(conclusiones, fontParagraphRegular);
+			conclusionesParagraph.setSpacingAfter(10f);
+			
+			Paragraph recomendacionesTittle = new Paragraph("VI.RECOMENDACIONES", fontTittle2);
+			recomendacionesTittle.setSpacingAfter(10f);
+			
+			Paragraph recomendacionesParagraph = new Paragraph(recomendaciones, fontParagraphRegular);
+			recomendacionesParagraph.setSpacingAfter(10f);
+			
+			document.add(tittle);
+			document.add(lineBreak);
+			
+			document.add(datosFiliacionTittle);
+			document.add(nombreYApellidosParagraph);
+			document.add(fechaNacimientoParagraph);
+			document.add(sexoParagraph);
+			document.add(referenteParagraph);
+			document.add(motivoEvaluacionParagraph);
+			document.add(examinadorParagraph);
+			
+			document.add(motivoConsultaTittle);
+			document.add(motivoConsultaParagraph);
+			
+			document.add(observacionesGeneralesTittle);
+			document.add(observacionesGeneralesParagraph);
+			
+			document.add(analisisResultadosTittle);
+			document.add(analisisResultadosParagraph);
+			
+			document.add(conclusionesTittle);
+			document.add(conclusionesParagraph);
+			
+			document.add(recomendacionesTittle);
+			document.add(recomendacionesParagraph);
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
