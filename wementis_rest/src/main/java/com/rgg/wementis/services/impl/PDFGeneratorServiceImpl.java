@@ -11,9 +11,11 @@ import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
+import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.draw.DottedLineSeparator;
 import com.lowagie.text.pdf.draw.LineSeparator;
 import com.lowagie.text.pdf.draw.VerticalPositionMark;
 import com.rgg.wementis.services.interfaces.IPDFGeneratorService;
@@ -29,11 +31,19 @@ public class PDFGeneratorServiceImpl implements IPDFGeneratorService{
 			
 			document.open();
 			
-			Font fontTittle = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-			fontTittle.setSize(18);
+			Image logo = Image.getInstance(getClass().getClassLoader().getResource("logo.png"));
+			logo.scaleAbsolute(40f, 40f);
+			logo.setAlignment(Element.ALIGN_TOP);
 			
-			Font fontTittle2 = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-			fontTittle2.setSize(14);
+			DottedLineSeparator dottedline = new DottedLineSeparator();
+	        dottedline.setOffset(-2);
+	        dottedline.setGap(2f);
+			
+			Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			fontTitle.setSize(18);
+			
+			Font fontTitle2 = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			fontTitle2.setSize(14);
 			
 			Font fontParagraphBold = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 			fontParagraphBold.setSize(12);
@@ -41,77 +51,84 @@ public class PDFGeneratorServiceImpl implements IPDFGeneratorService{
 			Font fontParagraphRegular = FontFactory.getFont(FontFactory.HELVETICA);
 			fontParagraphRegular.setSize(12);
 			
-			Paragraph tittle = new Paragraph("INFORME PSICOLÓGICO CLÍNICO", fontTittle);
-			tittle.setAlignment(Element.ALIGN_LEFT);
-			tittle.add(new Chunk(new VerticalPositionMark()));
-			tittle.add(fechaInforme);
+			Paragraph title = new Paragraph("INFORME PSICOLÓGICO CLÍNICO", fontTitle);
+			title.setAlignment(Element.ALIGN_LEFT);
+			title.add(new Chunk(new VerticalPositionMark()));
+			title.add(fechaInforme);
 			
 			LineSeparator lineSeparator = new LineSeparator();
-			lineSeparator.setOffset(6);
+			lineSeparator.setOffset(15f);
 			Chunk lineBreak = new Chunk(lineSeparator);
 			
-			Paragraph datosFiliacionTittle = new Paragraph("I.DATOS DE FILIACIÓN", fontTittle2);
-			datosFiliacionTittle.setSpacingAfter(10f);
+			Paragraph datosFiliacionTitle = new Paragraph("I.DATOS DE FILIACIÓN", fontTitle2);
+			datosFiliacionTitle.setSpacingAfter(10f);
+			datosFiliacionTitle.add(dottedline);
 			
-			Paragraph nombreYApellidosParagraph = new Paragraph("Nombre y apellidos:", fontParagraphBold);
+			Paragraph nombreYApellidosParagraph = new Paragraph("Nombre y apellidos         :     ", fontParagraphBold);
 			nombreYApellidosParagraph.add(new Chunk(paciente, fontParagraphRegular));
 			nombreYApellidosParagraph.setSpacingAfter(10f);
 			
 			
-			Paragraph fechaNacimientoParagraph = new Paragraph("Fecha de nacimiento:", fontParagraphBold);
+			Paragraph fechaNacimientoParagraph = new Paragraph("Fecha de nacimiento       :     ", fontParagraphBold);
 			fechaNacimientoParagraph.add(new Chunk(fechaNacimiento, fontParagraphRegular));
 			fechaNacimientoParagraph.setSpacingAfter(10f);
 			
-			Paragraph sexoParagraph = new Paragraph("Sexo:", fontParagraphBold);
+			Paragraph sexoParagraph = new Paragraph("Sexo                                  :     ", fontParagraphBold);
 			sexoParagraph.add(new Chunk(genero, fontParagraphRegular));
 			sexoParagraph.setSpacingAfter(10f);
 			
-			Paragraph referenteParagraph = new Paragraph("Referente:", fontParagraphBold);
+			Paragraph referenteParagraph = new Paragraph("Referente                          :     ", fontParagraphBold);
 			referenteParagraph.add(new Chunk("A petición del propio examinado.", fontParagraphRegular));
 			referenteParagraph.setSpacingAfter(10f);
 			
-			Paragraph motivoEvaluacionParagraph = new Paragraph("Motivo de evaluación:", fontParagraphBold);
+			Paragraph motivoEvaluacionParagraph = new Paragraph("Motivo de evaluación      :     ", fontParagraphBold);
 			motivoEvaluacionParagraph.add(new Chunk("Determinar la salud mental(área emocional y área de personalidad) con la finalidad de descartar la presencia de algún trastorno de personalidad(moderados a graves) o trastornos psiquiátricos.", fontParagraphRegular));
 			motivoEvaluacionParagraph.setSpacingAfter(10f);
 			
-			Paragraph examinadorParagraph = new Paragraph("Examinador (psicólogo):", fontParagraphBold);
+			Paragraph examinadorParagraph = new Paragraph("Examinador (psicólogo) :     ", fontParagraphBold);
 			examinadorParagraph.add(new Chunk(psicologo, fontParagraphRegular));
 			examinadorParagraph.setSpacingAfter(10f);
 
-			Paragraph motivoConsultaTittle = new Paragraph("II.MOTIVO DE CONSULTA", fontTittle2);
-			motivoConsultaTittle.setSpacingAfter(10f);
+			Paragraph motivoConsultaTitle = new Paragraph("II.MOTIVO DE CONSULTA", fontTitle2);
+			motivoConsultaTitle.setSpacingAfter(10f);
+			motivoConsultaTitle.add(dottedline);
 			
 			Paragraph motivoConsultaParagraph = new Paragraph(motivoConsulta, fontParagraphRegular);
 			motivoConsultaParagraph.setSpacingAfter(10f);
 			
-			Paragraph observacionesGeneralesTittle = new Paragraph("III.OBSERVACIONES GENERALES", fontTittle2);
-			observacionesGeneralesTittle.setSpacingAfter(10f);
+			Paragraph observacionesGeneralesTitle = new Paragraph("III.OBSERVACIONES GENERALES", fontTitle2);
+			observacionesGeneralesTitle.setSpacingAfter(10f);
+			observacionesGeneralesTitle.add(dottedline);
 			
 			Paragraph observacionesGeneralesParagraph = new Paragraph(observacionesGenerales, fontParagraphRegular);
 			observacionesGeneralesParagraph.setSpacingAfter(10f);
 			
-			Paragraph analisisResultadosTittle = new Paragraph("IV.ANÁLISIS DE LOS RESULTADOS", fontTittle2);
-			analisisResultadosTittle.setSpacingAfter(10f);
+			Paragraph analisisResultadosTitle = new Paragraph("IV.ANÁLISIS DE LOS RESULTADOS", fontTitle2);
+			analisisResultadosTitle.setSpacingAfter(10f);
+			analisisResultadosTitle.add(dottedline);
 			
 			Paragraph analisisResultadosParagraph = new Paragraph(analisisResultados, fontParagraphRegular);
 			analisisResultadosParagraph.setSpacingAfter(10f);
 			
-			Paragraph conclusionesTittle = new Paragraph("V.CONCLUSIONES", fontTittle2);
-			conclusionesTittle.setSpacingAfter(10f);
+			Paragraph conclusionesTitle = new Paragraph("V.CONCLUSIONES", fontTitle2);
+			conclusionesTitle.setSpacingAfter(10f);
+			conclusionesTitle.add(dottedline);
 			
 			Paragraph conclusionesParagraph = new Paragraph(conclusiones, fontParagraphRegular);
 			conclusionesParagraph.setSpacingAfter(10f);
 			
-			Paragraph recomendacionesTittle = new Paragraph("VI.RECOMENDACIONES", fontTittle2);
-			recomendacionesTittle.setSpacingAfter(10f);
+			Paragraph recomendacionesTitle = new Paragraph("VI.RECOMENDACIONES", fontTitle2);
+			recomendacionesTitle.setSpacingAfter(10f);
+			recomendacionesTitle.add(dottedline);
 			
 			Paragraph recomendacionesParagraph = new Paragraph(recomendaciones, fontParagraphRegular);
 			recomendacionesParagraph.setSpacingAfter(10f);
 			
-			document.add(tittle);
+			document.add(logo);
+			document.add(title);
 			document.add(lineBreak);
 			
-			document.add(datosFiliacionTittle);
+			document.add(datosFiliacionTitle);
 			document.add(nombreYApellidosParagraph);
 			document.add(fechaNacimientoParagraph);
 			document.add(sexoParagraph);
@@ -119,19 +136,19 @@ public class PDFGeneratorServiceImpl implements IPDFGeneratorService{
 			document.add(motivoEvaluacionParagraph);
 			document.add(examinadorParagraph);
 			
-			document.add(motivoConsultaTittle);
+			document.add(motivoConsultaTitle);
 			document.add(motivoConsultaParagraph);
 			
-			document.add(observacionesGeneralesTittle);
+			document.add(observacionesGeneralesTitle);
 			document.add(observacionesGeneralesParagraph);
 			
-			document.add(analisisResultadosTittle);
+			document.add(analisisResultadosTitle);
 			document.add(analisisResultadosParagraph);
 			
-			document.add(conclusionesTittle);
+			document.add(conclusionesTitle);
 			document.add(conclusionesParagraph);
 			
-			document.add(recomendacionesTittle);
+			document.add(recomendacionesTitle);
 			document.add(recomendacionesParagraph);
 		} catch(IOException e) {
 			e.printStackTrace();
