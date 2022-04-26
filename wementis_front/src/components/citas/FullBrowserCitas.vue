@@ -1,7 +1,7 @@
 <template>
   <form class="full-browser-citas d-flex flex-wrap">
     <div class="input-group">
-      <input type="number" class="form-control form-control-browser m-1" name="id" v-model="id" placeholder="ID" title="ID de la cita">
+      <input type="text" class="form-control form-control-browser m-1" name="id" v-model="id" placeholder="ID" title="ID de la cita">
       <input type="text" class="form-control form-control-browser m-1" name="pacienteNombre" placeholder="Paciente" v-model="pacienteNombre" title="Nombre del paciente">
       <input type="text" class="form-control form-control-browser m-1" name="psicologoNombre" placeholder="Psicólogo" v-model="psicologoNombre" title="Nombre del psicólogo">
       <input type="text" class="form-control form-control-browser m-1" name="tarifaNombre" placeholder="Tarifa" v-model="tarifaNombre" title="Nombre de la tarifa">

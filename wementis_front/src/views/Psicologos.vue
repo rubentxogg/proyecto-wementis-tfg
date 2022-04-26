@@ -25,7 +25,7 @@
     <spinner v-if="isLoading"/>
     <table-psicologos v-else-if="psicologos.length > 0" :psicologos="psicologos" @updateTabla="getPsicologos('wementis/v1/psicologos/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado psicólogos con tus criterios de búsqueda.</h2>
-    <h3 v-else class="text-center mt-5">
+    <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen psicólogos en la BBDD, <br><br>
       pulsa en el botón <span class="text-success">[<i class="bi bi-person-plus me-1"></i>Añadir]</span> situado en la parte superior derecha de la página para añadir tu primer psicólogo
     </h3>

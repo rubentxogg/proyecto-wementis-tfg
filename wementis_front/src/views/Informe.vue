@@ -86,7 +86,7 @@
 
       <div class="d-flex mb-3 justify-content-center">
         <button type="button" class="btn btn-danger me-3" @click="resetFields"><i class="bi bi-arrow-clockwise me-1"></i>Restablecer</button>
-        <a :href="getPDF" class="btn btn-success " target="_blank"><i class="bi bi-download me-1"></i>Descargar PDF</a>
+        <a :href="getPDF" :class="botonDescargarStyles" target="_blank"><i class="bi bi-download me-1"></i>Descargar PDF</a>
       </div>
     </div>
   
@@ -148,6 +148,11 @@ export default {
       },
       getPDF() {
         return `wementis/v1/pdf/generate?fechaInforme=${this.fechaInforme}&paciente=${this.nombreApellidosPaciente}&fechaNacimiento=${this.paciente.fechaNacimiento}&genero=${this.generoPaciente}&psicologo=${this.psicologo.nombre}&motivoConsulta=${this.motivoConsulta}&observacionesGenerales=${this.observacionesGenerales}&analisisResultados=${this.analisisResultados}&conclusiones=${this.conclusiones}&recomendaciones=${this.recomendaciones}`;
+      },
+      botonDescargarStyles() {
+        if(this.fechaInforme === "" || this.paciente === "" || this.psicologo === "" || this.motivoConsulta === "" || this.observacionesGenerales === "" ||
+          this.analisisResultados === "" || this.conclusiones === "" || this.recomendaciones === "") return "btn btn-success disabled";
+        return "btn btn-success";
       }
     }
 }
