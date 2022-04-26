@@ -23,7 +23,7 @@
             <i class="bi bi-piggy-bank fs-4"></i>
           </span>
           <h6 class="mt-1">
-            Ganancia total: {{ gananciaTotal }}<i class="bi bi-currency-euro"></i>
+            Ganancia total: {{ new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(gananciaTotal) }}
           </h6>
         </div>
         </div>

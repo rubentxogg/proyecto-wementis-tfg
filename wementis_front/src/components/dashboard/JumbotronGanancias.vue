@@ -7,7 +7,7 @@
         <h5 v-for="ganancia in ultimasGanancias" :key="ganancia.idPaciente || ganancia.id" class="mb-3">
           <span class="d-inline-block bg-teal rounded-circle me-1"></span> {{ ganancia.fechaCreacion }} 
           <i class="bi bi-caret-right"></i> ID Cita: {{ ganancia.cita.id }} 
-          <i class="bi bi-caret-right"></i> {{ ganancia.cantidad }} €
+          <i class="bi bi-caret-right"></i> {{ new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(ganancia.cantidad) }}
         </h5>
       </div>
       
