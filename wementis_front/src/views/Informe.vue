@@ -134,7 +134,15 @@ export default {
         this.analisisResultados = "",
         this.conclusiones = "",
         this.recomendaciones = ""
-      }
+      },
+      downloadReadyAlert() { // TODO
+        this.$toast.open({
+        message: "PDF listo para descargar",
+        type: "info",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     },
     computed: {
       nombreApellidosPaciente() {
@@ -151,7 +159,7 @@ export default {
       },
       botonDescargarStyles() {
         if(this.fechaInforme === "" || this.paciente === "" || this.psicologo === "" || this.motivoConsulta === "" || this.observacionesGenerales === "" ||
-          this.analisisResultados === "" || this.conclusiones === "" || this.recomendaciones === "") return "btn btn-success disabled";
+            this.analisisResultados === "" || this.conclusiones === "" || this.recomendaciones === "") return "btn btn-success disabled";
         return "btn btn-success";
       }
     }

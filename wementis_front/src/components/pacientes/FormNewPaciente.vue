@@ -95,8 +95,11 @@ export default {
       axios
         .post("wementis/v1/pacientes/", paciente)
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "", this.fechaNacimiento = "", this.genero = "")
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
@@ -105,7 +108,23 @@ export default {
       this.telefono = ""
       this.fechaNacimiento = "",
       this.genero = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Paciente añadido con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido añadir el paciente",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     isCorrectNombre() {

@@ -95,8 +95,11 @@ export default {
           genero: this.genero || this.paciente.genero,
           fechaCreacion: this.paciente.fechaCreacion,
           activo: this.paciente.activo})
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
@@ -105,7 +108,23 @@ export default {
       this.telefono = "",
       this.fechaNacimiento = ""
       this.genero = this.generoMasculinoIsChecked ? "M" : "F";
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Paciente actualizado con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido actualizar el paciente",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     generoMasculinoIsChecked() {

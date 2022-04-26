@@ -38,12 +38,31 @@ export default {
       deletePaciente() {
         axios
           .delete("wementis/v1/pacientes/"+this.id)
-          .then(() => this.$emit("updateTabla"))
-          .catch((err) => console.error(err));
+          .then(() => {
+            this.$emit("updateTabla");
+            this.successAlert();
+          })
+          .catch(() => this.errorAlert());
       },
       borradoPaciente() {
         this.$emit("borradoPaciente");
-      }
+      },
+      successAlert() {
+        this.$toast.open({
+        message: "Paciente borrado con éxito",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
+      errorAlert() {
+        this.$toast.open({
+        message: "No se ha podido borrar el paciente",
+        type: "error",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     }
 }
 </script>
