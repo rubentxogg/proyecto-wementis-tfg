@@ -38,12 +38,31 @@ export default {
       deleteTarifa() {
         axios
           .delete("wementis/v1/tarifas/"+this.id)
-          .then(() => this.$emit("updateTabla"))
-          .catch((err) => console.error(err));
+          .then(() => {
+            this.$emit("updateTabla");
+            this.successAlert();
+          })
+          .catch(() => this.errorAlert());
       },
       borradoTarifa() {
         this.$emit("borradoTarifa");
-      }
+      },
+      successAlert() {
+        this.$toast.open({
+        message: "Tarifa borrada con éxito",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
+      errorAlert() {
+        this.$toast.open({
+        message: "No se ha podido borrar la tarifa",
+        type: "error",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     }
 }
 </script>

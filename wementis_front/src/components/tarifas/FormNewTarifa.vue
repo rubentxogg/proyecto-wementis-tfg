@@ -46,13 +46,32 @@ export default {
       axios
         .post("wementis/v1/tarifas/", tarifa)
         .then(() => this.nombre = "", this.precioHora = "")
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
       this.precioHora = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Tarifa añadida con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido añadir la tarifa",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     isCorrectNombre() {

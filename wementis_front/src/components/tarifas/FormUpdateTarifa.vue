@@ -47,13 +47,32 @@ export default {
           precioHora: this.precioHora || this.tarifa.precioHora,
           fechaCreacion: this.tarifa.fechaCreacion,
           activo: 1})
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
       this.precioHora = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Tarifa actualizada con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido actualizar la tarifa",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     isCorrectNombre() {
