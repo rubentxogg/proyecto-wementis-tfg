@@ -2,7 +2,6 @@
   <div>
     <header-home class="mb-fix"/>
 
-    <h5 v-if="isLoginError" class="text-danger text-center mb-4">Email o contraseña incorrectos. {{ this.$route.params[0] }}</h5>
     <div class="p-fix row row-cols-2 mb-4">
       <jumbotron-wementis/>
       <form-login />
@@ -26,16 +25,19 @@ export default {
     FormLogin,
     IconGrid
   },
-  data() {
-    return {
-      isLoginError: false
-    }
-  },
   methods: {
     checkIsLoginError() {
-      if(this.$route.query.error) return this.isLoginError = true;
-      return this.isLoginError  = false;
-    }
+      if(this.$route.query.error) return this.errorAlert();
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "Email o contraseña incorrectos",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      position: "top"
+      });
+    },
   },
   mounted() {
     this.checkIsLoginError();
