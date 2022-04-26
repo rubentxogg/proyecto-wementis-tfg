@@ -1,22 +1,26 @@
 <template>
   <div class="dashboard d-flex flex-column min-vh-100">
-    <p class="text-muted fs-6">Dashboard</p>
-    <hr>
-    <spinner v-if="isHeaderLoading"/>
-    <header-dashboard  v-else :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
-    <hr class="mt-4">
+    <spinner v-if="isLoading" />
 
-    <spinner v-if="isSectionLoading"/>
-    <section-citas-estados v-else :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
+    <div v-else>
+      <p class="text-muted fs-6">Dashboard</p>
+      <hr>
 
-    <div class="jumbo-container container d-flex justify-content-between">
-      <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes" v-if="pacientes.length > 0"/>
-      <h4 class="text-center m-auto" v-else>¡Bienvenido a WeMentis! <br><br> <span class="fs-5">crea tu primer paciente en la sección del menú 'Pacientes'</span></h4>
+      <header-dashboard :citas="citas" :pacientes="pacientes" :psicologos="psicologos" :gananciaTotal="gananciaTotal"/>
+      <hr class="mt-4">
 
-      <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-if="ganancias.length > 0"/>
-      <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-else-if="pacientes.length > 0"/>
+
+      <section-citas-estados :citasActivas="citasActivas" :citasCompletadas="citasCompletadas" :citasCanceladas="citasCanceladas"/>
+
+      <div class="jumbo-container container d-flex justify-content-between">
+        <jumbotron-pacientes class="w-75 me-5"  :pacientes="pacientes" v-if="pacientes.length > 0"/>
+        <h4 class="text-center m-auto" v-else>¡Bienvenido a WeMentis! <br><br> <span class="fs-5">crea tu primer paciente en la sección del menú 'Pacientes'</span></h4>
+
+        <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-if="ganancias.length > 0"/>
+        <jumbotron-ganancias class="w-75" :ganancias="ganancias" v-else-if="pacientes.length > 0"/>
+      </div>
     </div>
-
+    
     <footer-wementis />
   </div>
 </template>
@@ -50,8 +54,7 @@ export default {
       citasCanceladas: [],
       citasActivas: [],
       gananciaTotal: 0,
-      isHeaderLoading: false,
-      isSectionLoading: false
+      isLoading: false,
     };
   },
   methods: {
@@ -123,7 +126,11 @@ export default {
     this.citasCompletadas = await this.getCitasPorEstado(2);
     this.citasActivas = await this.getCitasPorEstado(1);
     this.citasCanceladas = await this.getCitasPorEstado(3);
+    this.isLoading = false;
   },
+  beforeMount() {
+    this.isLoading = true;
+  }
 };
 </script>
 
