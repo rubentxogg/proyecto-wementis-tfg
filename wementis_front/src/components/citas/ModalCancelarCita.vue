@@ -1,6 +1,6 @@
 <template>
   <div class="modal-cancelar-cita">
-      
+     
     <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#cancelarCita" title="Cancelar cita" @click="cancelacionCita">
       <i class="bi bi-x-circle"></i>
     </button>
@@ -38,12 +38,31 @@ export default {
       cancelarCita() {
         axios
           .delete("wementis/v1/citas/"+this.id)
-          .then(() => this.$emit("updateTabla"))
-          .catch((err) => console.error(err));
+          .then(() => {
+            this.$emit("updateTabla");
+            this.successAlert();
+          })
+          .catch(() => this.errorAlert());
       },
       cancelacionCita() {
         this.$emit("cancelacionCita");
-      }
+      },
+      successAlert() {
+        this.$toast.open({
+        message: "Cita cancelada con éxito",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
+      errorAlert() {
+        this.$toast.open({
+        message: "No se ha podido cancelar la cita",
+        type: "error",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     }
 }
 </script>

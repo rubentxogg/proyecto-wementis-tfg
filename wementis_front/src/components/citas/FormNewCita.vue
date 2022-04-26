@@ -91,8 +91,11 @@ export default {
       axios
         .post("wementis/v1/citas/", cita)
         .then(() => this.paciente = "", this.psicologo = "", this.tarifa = "", this.fecha = "", this.hora = "", this.cantidadHoras = "")
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     pacienteSeleccionado(paciente) {
       this.paciente = paciente;
@@ -110,7 +113,23 @@ export default {
       this.fecha = "",
       this.hora = "",
       this.cantidadHoras = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Cita añadida con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido añadir la cita",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     idYNombrePaciente() {

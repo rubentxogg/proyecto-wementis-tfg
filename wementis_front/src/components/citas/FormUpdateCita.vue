@@ -93,8 +93,11 @@ export default {
           hora: this.hora || this.cita.hora,
           cantidadHoras: this.cantidadHoras || this.cita.cantidadHoras,
           activo: 1})
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     pacienteSeleccionado(paciente) {
       this.paciente = paciente;
@@ -112,7 +115,23 @@ export default {
       this.fecha = "",
       this.hora = "",
       this.cantidadHoras = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Cita actualizada con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido actualizar la cita",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     idYNombrePaciente() {

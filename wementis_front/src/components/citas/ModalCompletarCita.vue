@@ -38,12 +38,31 @@ export default {
       completarCita() {
         axios
           .put("wementis/v1/citas/"+this.id)
-          .then(() => this.$emit("updateTabla"))
-          .catch((err) => console.error(err));
+          .then(() => {
+            this.$emit("updateTabla");
+            this.successAlert();
+          })
+          .catch(() => this.errorAlert());
       },
       completacionCita() {
         this.$emit("completacionCita");
-      }
+      },
+      successAlert() {
+        this.$toast.open({
+        message: "Cita completada con éxito",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
+      errorAlert() {
+        this.$toast.open({
+        message: "No se ha podido completar la cita",
+        type: "error",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     }
 }
 </script>
