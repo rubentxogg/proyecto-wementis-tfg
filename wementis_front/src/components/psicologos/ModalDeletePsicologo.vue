@@ -38,12 +38,31 @@ export default {
       deletePaciente() {
         axios
           .delete("wementis/v1/psicologos/"+this.id)
-          .then(() => this.$emit("updateTabla"))
-          .catch((err) => console.error(err));
+          .then(() => {
+            this.$emit("updateTabla");
+            this.successAlert();
+          })
+          .catch(() => this.errorAlert());
       },
       borradoPsicologo() {
         this.$emit("borradoPsicologo");
-      }
+      },
+      successAlert() {
+        this.$toast.open({
+        message: "Psicólogo borrado con éxito",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
+      errorAlert() {
+        this.$toast.open({
+        message: "No se ha podido borrar el psicólogo",
+        type: "error",
+        duration: 5000,
+        dismissible: true,
+        });
+      },
     }
 }
 </script>

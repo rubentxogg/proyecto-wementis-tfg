@@ -66,15 +66,34 @@ export default {
       axios
         .post("wementis/v1/psicologos/", psicologo)
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "")
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
       this.apellidos = "",
       this.email = "",
       this.telefono = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Psicólogo añadido con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido añadir el psicólogo",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     isCorrectNombre() {

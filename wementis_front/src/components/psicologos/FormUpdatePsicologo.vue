@@ -66,15 +66,34 @@ export default {
           email: this.email || this.psicologo.email,
           fechaCreacion: this.psicologo.fechaCreacion,
           activo: 1})
-        .then(() => this.$emit("updateTabla"))
-        .catch((err) => console.error(err));
+        .then(() => {
+          this.$emit("updateTabla");
+          this.successAlert();
+        })
+        .catch(() => this.errorAlert());
     },
     resetForm() {
       this.nombre = "",
       this.apellidos = "",
       this.email = "",
       this.telefono = ""
-    }
+    },
+    successAlert() {
+      this.$toast.open({
+      message: "Psicólogo actualizado con éxito",
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert() {
+      this.$toast.open({
+      message: "No se ha podido actualizar el psicólogo",
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
   },
   computed: {
     isCorrectNombre() {
