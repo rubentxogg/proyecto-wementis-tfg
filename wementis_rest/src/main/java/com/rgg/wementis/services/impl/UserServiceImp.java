@@ -1,6 +1,7 @@
 package com.rgg.wementis.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.rgg.wementis.entities.AuthorityEntity;
@@ -17,6 +18,9 @@ public class UserServiceImp implements IUserService {
 	
 	@Autowired
 	private AuthorityRepository authorityRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public Iterable<UserEntity> getUsers() {
@@ -38,6 +42,7 @@ public class UserServiceImp implements IUserService {
 
 	@Override
 	public void insertarUsuario(UserEntity user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		
 		AuthorityEntity authority = new AuthorityEntity(user.getUsername(), "ROLE_USUARIO");

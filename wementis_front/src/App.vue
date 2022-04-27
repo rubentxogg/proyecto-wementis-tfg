@@ -66,4 +66,8 @@ table {
 .table {
   border-radius: 7px;
 }
+
+.input-group i{
+  z-index: 100000;
+}
 </style>
