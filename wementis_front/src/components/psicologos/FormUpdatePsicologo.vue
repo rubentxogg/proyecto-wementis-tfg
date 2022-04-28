@@ -3,29 +3,29 @@
     <div class="input-group mb-3">
      <span class="input-group-text">Nombre</span>
      <input type="text" class="form-control" name="nombre" maxlength="25" :placeholder="psicologo.nombre" v-model="nombre">
-     <i v-if="isCorrectNombre" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectNombre" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Apellidos</span>
      <input type="text" class="form-control" name="apellidos" maxlength="25" :placeholder="psicologo.apellidos" v-model="apellidos">
-     <i v-if="isCorrectApellidos" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectApellidos" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Teléfono</span>
      <input type="tel" class="form-control" name="telefono" maxlength="9" :placeholder="psicologo.telefono" v-model="telefono">
-     <i v-if="isCorrectTelefono" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectTelefono" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Email</span>
      <input type="email" class="form-control" name="email" :placeholder="psicologo.email" v-model="email">
-     <i v-if="isCorrectEmail" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectEmail" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="modal-footer w-100">

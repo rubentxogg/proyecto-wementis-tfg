@@ -51,8 +51,16 @@ li {
   background-color: #6610f2;
 }
 
+.text-indigo {
+  color: #6610f2;
+}
+
 .bg-teal {
   background-color: #20c997;
+}
+
+.text-teal {
+  color: #20c997;
 }
 
 .accordion-button::after {

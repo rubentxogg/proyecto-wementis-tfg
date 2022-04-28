@@ -1,7 +1,8 @@
 <template>
   <div class="jumbotron-pacientes mb-4 bg-light rounded-3 border border-3">
     <div class="container-fluid py-5">
-      <h3 class="display-6 fw-bold text-center">Últimas ganancias</h3>
+      
+      <h3 class="display-6 fw-bold text-center"><i class="bi bi-graph-up-arrow me-2 fs-3 text-teal"></i>Últimas ganancias</h3>
       <hr class="mb-5">
       <div v-if="ultimasGanancias.length > 0">
         <h5 v-for="ganancia in ultimasGanancias" :key="ganancia.idPaciente || ganancia.id" class="mb-3">

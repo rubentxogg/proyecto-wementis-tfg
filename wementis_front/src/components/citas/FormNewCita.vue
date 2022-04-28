@@ -3,43 +3,43 @@
     <div class="input-group mb-3">
      <dropdown-pacientes @seleccionPaciente="pacienteSeleccionado"/>
      <input type="text" class="form-control" name="paciente" :value="idYNombrePaciente" readonly>
-     <i v-if="isCorrectPaciente" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectPaciente" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <dropdown-psicologos @seleccionPsicologo="psicologoSeleccionado"/>
      <input type="text" class="form-control" name="psicologo" :value="idYNombrePsicologo" readonly>
-     <i v-if="isCorrectPsicologo" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectPsicologo" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <dropdown-tarifas @seleccionTarifa="tarifaSeleccionada"/>
      <input type="text" class="form-control" name="tarifa" :value="idYNombreTarifa" readonly>
-     <i v-if="isCorrectTarifa" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectTarifa" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Hora</span>
      <input type="time" class="form-control" name="hora" placeholder="hh:mm" v-model="hora">
-     <i v-if="isCorrectHora" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectHora" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Fecha</span>
      <input type="date" class="form-control" name="fecha" v-model="fecha">
-     <i v-if="isCorrectFecha" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectFecha" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Duración/h</span>
      <input type="text" class="form-control" name="email" v-model="cantidadHoras">
-     <i v-if="isCorrectCantidadHoras" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectCantidadHoras" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
      <div class="modal-footer w-100">

@@ -3,36 +3,36 @@
     <div class="input-group mb-3">
      <span class="input-group-text">Nombre</span>
      <input type="text" class="form-control" name="nombre" maxlength="25" placeholder="Ej. Rubén" v-model="nombre">
-     <i v-if="isCorrectNombre" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectNombre" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Apellidos</span>
      <input type="text" class="form-control" name="apellidos" maxlength="25" placeholder="Ej. García" v-model="apellidos">
-     <i v-if="isCorrectApellidos" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectApellidos" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Teléfono</span>
      <input type="tel" class="form-control" name="telefono" maxlength="9" placeholder="9 Dígitos" v-model="telefono">
-     <i v-if="isCorrectTelefono" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectTelefono" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Email</span>
      <input type="email" class="form-control" name="email" v-model="email" placeholder="example@hotmail.com">
-     <i v-if="isCorrectEmail" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectEmail" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Fecha nac.</span>
      <input type="date" class="form-control" name="fechaNac" v-model="fechaNacimiento">
-     <i v-if="isCorrectFechaNacimiento" class="bi bi-check2-circle fs-3 text-success"></i>
-     <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+     <i v-if="isCorrectFechaNacimiento" class="bi bi-check fs-3 text-success"></i>
+     <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3 m-1">
@@ -48,8 +48,8 @@
         <label class="form-check-label" for="femenino">Femenino</label>
       </div>
 
-      <i v-if="isCorrectGenero" class="bi bi-check2-circle fs-3 text-success"></i>
-      <i v-else class="bi bi-backspace fs-3 text-danger"></i>
+      <i v-if="isCorrectGenero" class="bi bi-check fs-3 text-success"></i>
+      <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
      <div class="modal-footer w-100">
