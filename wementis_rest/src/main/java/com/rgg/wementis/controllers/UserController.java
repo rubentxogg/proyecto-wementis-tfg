@@ -14,7 +14,7 @@ import com.rgg.wementis.entities.UserEntity;
 import com.rgg.wementis.services.interfaces.IUserService;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/auth")
 public class UserController {
 
 	@Autowired
