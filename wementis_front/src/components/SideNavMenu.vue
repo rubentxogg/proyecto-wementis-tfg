@@ -1,6 +1,6 @@
 <template>
   <aside class="sideNavMenu border-end border-2">
-    <nav class="d-flex flex-column">
+    <nav class="d-flex flex-column min-vh-100">
       <div class="header d-flex justify-content-center align-items-center mt-3">
         <img src="../assets/logo.png" width="70" height="70" alt="logo">
         <h2 class="mt-3 text-primary">WeMentis</h2>
@@ -31,11 +31,15 @@
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
-      <div class="mt-5 d-flex flex-column justify-content-center">
-        <hr>
-        <a href="http://localhost:8080/wementis/logout" class="text-center rounded">LOGOUT
-          <i class="bi bi-caret-down ms-0"></i>
-        </a>
+      <div class="btn-group dropend mt-auto mb-3">
+        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropup
+        </button>
+        <ul class="dropdown-menu text-center me-fix">
+          <a class="dropdown-item" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
+          <a class="dropdown-item" href="#">Cambiar contraseña</a>
+          <a class="dropdown-item text-danger" href="#"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
+        </ul>
       </div>
     </nav>
   </aside>
