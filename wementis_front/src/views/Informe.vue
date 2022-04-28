@@ -135,12 +135,13 @@ export default {
         this.conclusiones = "",
         this.recomendaciones = ""
       },
-      downloadReadyAlert() { // TODO
+      downloadReadyAlert() { //TODO
         this.$toast.open({
         message: "PDF listo para descargar",
         type: "info",
-        duration: 5000,
-        dismissible: true,
+        duration: 0,
+        dismissible: false,
+        queue: true,
         });
       },
     },
@@ -157,17 +158,25 @@ export default {
       getPDF() {
         return `wementis/v1/pdf/generate?fechaInforme=${this.fechaInforme}&paciente=${this.nombreApellidosPaciente}&fechaNacimiento=${this.paciente.fechaNacimiento}&genero=${this.generoPaciente}&psicologo=${this.psicologo.nombre}&motivoConsulta=${this.motivoConsulta}&observacionesGenerales=${this.observacionesGenerales}&analisisResultados=${this.analisisResultados}&conclusiones=${this.conclusiones}&recomendaciones=${this.recomendaciones}`;
       },
-      botonDescargarStyles() {
+      isReportReady() {
         if(this.fechaInforme === "" || this.paciente === "" || this.psicologo === "" || this.motivoConsulta === "" || this.observacionesGenerales === "" ||
-            this.analisisResultados === "" || this.conclusiones === "" || this.recomendaciones === "") return "btn btn-success disabled";
+            this.analisisResultados === "" || this.conclusiones === "" || this.recomendaciones === "") return false;
+        return true;
+      },
+      botonDescargarStyles() {
+        if(!this.isReportReady) return "btn btn-success disabled";
         return "btn btn-success";
       }
-    }
+    },
 }
 </script>
 
 <style scoped>
 textarea {
   border-radius: 10px;
+}
+
+.v-toast__item {
+  display: none;
 }
 </style>
