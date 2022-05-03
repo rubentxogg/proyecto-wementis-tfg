@@ -1,6 +1,7 @@
 package com.rgg.wementis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +39,10 @@ public class UserController {
 	@DeleteMapping(value = "/users/{username}")
 	public void borrarUsuario(@RequestParam(value = "username", required = true) String username) {
 		userService.borrarUsuario(username);
+	}
+	
+	@GetMapping(value = "/username")
+	public String currUsername(Authentication authentication) {
+		return authentication.getName();
 	}
 }

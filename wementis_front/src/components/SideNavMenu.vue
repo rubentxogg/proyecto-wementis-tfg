@@ -33,7 +33,7 @@
 
       <div class="btn-group dropend mt-auto mb-3 rounded">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-gear me-1"></i> Opciones
+          <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
         </button>
         <ul class="dropdown-menu text-center me-fix">
           <a class="dropdown-item text-primary" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
@@ -124,6 +124,9 @@ export default {
       regPassword: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
     }
   },
+  mounted() {
+    this.getCurrentUsername();
+  },
   methods: {
     borrarUsuario() {
       axios.delete("wementis/auth/users/", this.userName)
@@ -161,6 +164,10 @@ export default {
       dismissible: true,
       });
     },
+    getCurrentUsername() {
+      axios.get("wementis/auth/username/")
+        .then((response) => this.username = response.data);
+    }
   },
   computed: {
     isCorrectPasswordActual() {
@@ -179,6 +186,9 @@ export default {
       if(this.isCorrectPasswordActual && this.isCorrectPasswordNueva && this.isCorrectPasswordAgain) return "btn btn-success";
       return "btn btn-success disabled";
     },
+    usernameWithoutEmail() {
+      return this.username.split("@")[0];
+    }
   }
 };
 </script>
@@ -233,7 +243,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 .menu-option i {
-  margin-left: 5.3rem;
+  margin-left: 5.8rem;
 }
 
 .input-group i{
