@@ -30,7 +30,7 @@
         <div>
           <h4 class="fw-bold mb-0">Psicólogos</h4>
           <p>
-            Gestiona tus citas asignándo a los pacientes un psicólogo que crearás 
+            Gestiona tus citas asignando a los pacientes un psicólogo que crearás 
             en esta sección. 
           </p>
         </div>

@@ -37,17 +37,149 @@
         </button>
         <ul class="dropdown-menu text-center me-fix">
           <a class="dropdown-item text-primary" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
-          <a class="dropdown-item" href="#">Cambiar contraseña</a>
-          <a class="dropdown-item text-danger" href="#"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
+          <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#cambiarPassModal">Cambiar contraseña</a>
+          <a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>
       </div>
     </nav>
+
+    <!-- Cambiar contraseña modal -->
+    <div class="modal fade" id="cambiarPassModal" tabindex="-1" aria-labelledby="cambiarPassModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cambiarPassModal"><i class="bi bi-at me-1 p-0"></i>Cambiar contraseña</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="input-group mb-3 pass">
+              <span class="input-group-text">Contraseña actual</span>
+              <input type="password" class="form-control" name="email" v-model="passwordActual">
+              <i v-if="isCorrectPasswordActual" class="bi bi-check fs-5 text-success"></i>
+              <i v-else class="bi bi-x fs-5 text-danger"></i>
+            </div>
+
+            <div class="input-group mb-3 pass">
+              <span class="input-group-text">Nueva contraseña</span>
+              <input type="password" class="form-control" name="email" v-model="passwordNueva">
+              <i v-if="isCorrectPasswordNueva" class="bi bi-check fs-5 text-success"></i>
+              <i v-else class="bi bi-x fs-5 text-danger"></i>
+            </div>
+
+            <div class="input-group mb-3 pass">
+              <span class="input-group-text">Rep. nueva contraseña</span>
+              <input type="password" class="form-control" name="email" v-model="passwordAgain">
+              <i v-if="isCorrectPasswordAgain" class="bi bi-check-all fs-5 text-success"></i>
+              <i v-else class="bi bi-x fs-5 text-danger"></i>
+            </div>
+            
+            <span class="circle d-inline-block bg-teal rounded-circle ms-fix"></span> Un número
+            <span class="circle d-inline-block bg-teal rounded-circle ms-fix2"></span> Una minúscula
+            <br>
+
+            <span class="circle d-inline-block bg-teal rounded-circle"></span> Una mayúscula
+            <span class="circle d-inline-block bg-teal rounded-circle ms-5"></span> Mínimo 8 caracteres
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" :class="isFormValidationCorrect" @click="cambiarContrasena">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Darse de baja modal -->
+    <div class="modal fade" id="bajaModal" tabindex="-1" aria-labelledby="bajaModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            ¿Está seguro de que quiere darse de baja en la aplicación? <br>Esta decisión es irrevocable.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" @click="borrarUsuario">Sí, estoy seguro</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </aside>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "SideNavMenu",
+  data() {
+    return {
+      username: "",
+      passwordActual: "",
+      passwordNueva: "",
+      passwordAgain: "",
+      regPassword: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    }
+  },
+  methods: {
+    borrarUsuario() {
+      axios.delete("wementis/auth/users/", this.userName)
+        .then(() => { 
+          this.successAlert("Se ha dado de baja con éxito")
+        })
+        .catch(() => this.errorAlert("Ha ocurrido un error al intentar darse de baja"));
+    },
+    cambiarContrasena() {
+      const user = {
+        username: this.username,
+        password: this.password,
+        enabled: true
+      }
+
+      axios.put("wementis/auth/users/", user)
+        .then(() => { 
+          this.successAlert("Se ha cambiado la contraseña con éxito")
+        })
+        .catch(() => this.errorAlert("Ha ocurrido un error al intentar cambiar la contraseña"));
+    },
+    successAlert(msg) {
+      this.$toast.open({
+      message: msg,
+      type: "success",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+    errorAlert(msg) {
+      this.$toast.open({
+      message: msg,
+      type: "error",
+      duration: 5000,
+      dismissible: true,
+      });
+    },
+  },
+  computed: {
+    isCorrectPasswordActual() {
+      if(this.regPassword.test(this.passwordActual)) return true;
+      return false;
+    },
+    isCorrectPasswordNueva() {
+      if(this.regPassword.test(this.passwordNueva)) return true;
+      return false;
+    },
+    isCorrectPasswordAgain() {
+      if(this.passwordAgain === this.passwordNueva && this.passwordAgain !== "") return true;
+      return false;
+    },
+    isFormValidationCorrect() {
+      if(this.isCorrectPasswordActual && this.isCorrectPasswordNueva && this.isCorrectPasswordAgain) return "btn btn-success";
+      return "btn btn-success disabled";
+    },
+  }
 };
 </script>
 
@@ -102,5 +234,24 @@ a:hover, .show.btn-group:hover, .btn:hover {
 
 .menu-option i {
   margin-left: 5.3rem;
+}
+
+.input-group i{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.3rem;
+}
+
+.circle {
+  width: .5em; 
+  height: .5em;
+}
+
+.ms-fix {
+  margin-left: -2.5rem;
+}
+
+.ms-fix2 {
+  margin-left: 4.7rem;
 }
 </style>

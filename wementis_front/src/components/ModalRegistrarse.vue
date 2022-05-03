@@ -151,7 +151,7 @@ export default {
 }
 
 .ms-fix {
-  margin-left: 3.6rem;
+  margin-left: 4rem;
 }
 
 .ms-fix2 {
