@@ -33,7 +33,7 @@
 
       <div class="btn-group dropend mt-auto mb-3 rounded">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-gear"></i> Opciones
+          <i class="bi bi-gear me-1"></i> Opciones
         </button>
         <ul class="dropdown-menu text-center me-fix">
           <a class="dropdown-item text-primary" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
@@ -93,14 +93,14 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 .text-danger:hover {
-  color: #dc3545 !important;
+  background-color: #dc3545 !important;
 }
 
 .text-primary:hover {
-  color: #0d6efd !important;
+  background-color: #0d6efd !important;
 }
 
 .menu-option i {
-  margin-left: 5.4rem;
+  margin-left: 5.3rem;
 }
 </style>
