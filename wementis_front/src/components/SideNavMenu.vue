@@ -7,36 +7,36 @@
       </div>
       <hr>
 
-      <router-link to="/dashboard" class="p-2 text-dark rounded">
+      <router-link to="/dashboard" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-speedometer2 me-2"></i>Dashboard
       </router-link>
 
-      <router-link to="/pacientes" class="p-2 text-dark rounded">
+      <router-link to="/pacientes" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-people me-2"></i>Pacientes
       </router-link>
 
-      <router-link to="/psicologos" class="p-2 text-dark rounded">
+      <router-link to="/psicologos" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-heart-pulse me-2"></i>Psicólogos
       </router-link>
 
-      <router-link to="/tarifas" class="p-2 text-dark rounded">
+      <router-link to="/tarifas" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-cash-coin me-2"></i>Tarifas
       </router-link>
 
-      <router-link to="/citas" class="p-2 text-dark rounded">
+      <router-link to="/citas" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-calendar-week me-2"></i>Citas
       </router-link>
 
-      <router-link to="/informe" class="p-2 text-dark rounded">
+      <router-link to="/informe" class="p-2 text-dark rounded menu-option">
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
-      <div class="btn-group dropend mt-auto mb-3">
+      <div class="btn-group dropend mt-auto mb-3 rounded">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropup
+          <i class="bi bi-gear"></i> Opciones
         </button>
         <ul class="dropdown-menu text-center me-fix">
-          <a class="dropdown-item" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
+          <a class="dropdown-item text-primary" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
           <a class="dropdown-item" href="#">Cambiar contraseña</a>
           <a class="dropdown-item text-danger" href="#"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>
@@ -82,12 +82,25 @@ a.router-link-exact-active {
   background-color: #0d6efd;
 }
 
-a:hover {
+a:hover, .show.btn-group:hover, .btn:hover {
   color: #ffffff !important;
-  background-color: #00000041;
+  background-color: #00000041 !important;
 }
 
-i {
-  margin-left: 4.5rem;
+.show.btn {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+.text-danger:hover {
+  color: #dc3545 !important;
+}
+
+.text-primary:hover {
+  color: #0d6efd !important;
+}
+
+.menu-option i {
+  margin-left: 5.4rem;
 }
 </style>
