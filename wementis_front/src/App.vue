@@ -1,9 +1,9 @@
 <template>
   <div class="app container-fluid">
-    <spinner v-if="this.isLoading"/>
-    <div class="row" v-else>
+    <div class="row">
       <side-nav-menu v-if="this.isAuthenticated" class="col-3" />
-      <router-view class="col bg-standard" />
+      <spinner v-if="this.isLoading"/>
+      <router-view v-else class="col bg-standard" />
     </div>
   </div>
 </template>
