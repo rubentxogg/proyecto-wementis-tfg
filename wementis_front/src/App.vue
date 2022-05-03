@@ -1,19 +1,49 @@
 <template>
   <div class="app container-fluid">
-    <div class="row">
-      <side-nav-menu v-if="this.$route.name !== 'Home'" class="col-3" />
+    <spinner v-if="this.isLoading"/>
+    <div class="row" v-else>
+      <side-nav-menu v-if="this.isAuthenticated" class="col-3" />
       <router-view class="col bg-standard" />
     </div>
   </div>
 </template>
 
 <script>
-import SideNavMenu from "@/components/SideNavMenu.vue";
+import SideNavMenu from '@/components/SideNavMenu.vue';
+import Spinner from '@/components/Spinner.vue';
+import axios from 'axios';
 
 export default {
   name: "App",
+  data() {
+    return {
+      isAuthenticated: false,
+      isLoading: false
+    }
+  },
   components: {
     SideNavMenu,
+    Spinner
+  },
+  methods: {
+    checkIsAuthenticated() {
+      this.$router.beforeEach(async (to, from) => {
+        console.log(from);
+        this.isLoading = true;
+
+        await axios.get("wementis/auth/isauthenticated")
+          .then((response) =>  this.isAuthenticated = response.data )
+          .catch(() => this.isAuthenticated = false)
+          .finally(() => this.isLoading = false);
+
+        if (!this.isAuthenticated && to.name !== 'Home') {
+          return { name: 'Home' }
+        }
+      })
+    }
+  },
+  mounted() {
+    this.checkIsAuthenticated();
   }
 };
 </script>
