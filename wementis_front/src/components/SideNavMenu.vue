@@ -32,13 +32,13 @@
       </router-link>
 
       <div class="btn-group dropend mt-auto mb-3 rounded">
-        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
         </button>
         <ul class="dropdown-menu text-center me-fix">
           <a class="dropdown-item text-primary" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
           <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#cambiarPassModal">Cambiar contraseña</a>
-          <a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
+          <a class="dropdown-item text-danger text-danger-hover" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>
       </div>
     </nav>
@@ -234,7 +234,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
   color: #ffffff;
 }
 
-.text-danger:hover {
+.text-danger-hover:hover {
   background-color: #dc3545 !important;
 }
 
@@ -243,7 +243,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 .menu-option i {
-  margin-left: 5.8rem;
+  margin-left: 5.2rem;
 }
 
 .input-group i{
