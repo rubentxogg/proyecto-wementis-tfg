@@ -45,4 +45,9 @@ public class UserController {
 	public String currUsername(Authentication authentication) {
 		return authentication.getName();
 	}
+	
+	@GetMapping(value = "/isauthenticated")
+	public boolean isAuthenticated(Authentication authentication) {
+		return authentication.isAuthenticated();
+	}
 }
