@@ -48,4 +48,9 @@ public class UserServiceImp implements IUserService {
 		AuthorityEntity authority = new AuthorityEntity(user.getUsername(), "ROLE_USUARIO");
 		authorityRepository.save(authority);
 	}
+
+	@Override
+	public UserEntity getUserByUsername(String username) {
+		return userRepository.findById(username).get();
+	}
 }

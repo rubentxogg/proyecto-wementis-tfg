@@ -6,6 +6,8 @@ public interface IUserService {
 
 	public Iterable<UserEntity> getUsers();
 	
+	public UserEntity getUserByUsername(String username);
+	
 	public void actualizarUsuario(UserEntity user);
 	
 	public void borrarUsuario(String username);

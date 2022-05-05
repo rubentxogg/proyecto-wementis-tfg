@@ -26,6 +26,11 @@ public class UserController {
 		return userService.getUsers();
 	}
 	
+	@GetMapping(value = "/users", params = {"username"})
+	public UserEntity getUser(@RequestParam String username) {
+		return userService.getUserByUsername(username);
+	}
+	
 	@PostMapping(value = "/users")
 	public void insertarUsuario(@RequestBody UserEntity user) {
 		userService.insertarUsuario(user);

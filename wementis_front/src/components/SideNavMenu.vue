@@ -118,6 +118,7 @@ export default {
   data() {
     return {
       username: "",
+      currentUser: "",
       passwordActual: "",
       passwordNueva: "",
       passwordAgain: "",
@@ -170,6 +171,14 @@ export default {
     getCurrentUsername() {
       axios.get("wementis/auth/username/")
         .then((response) => this.username = response.data)
+        .then(() => {
+          this.getCurrentUser();
+        })
+        .catch((error) => console.error(error));
+    },
+    getCurrentUser() {
+      axios.get("wementis/auth/users?username=" + this.username)
+        .then((response) => this.currentUser = response.data)
         .catch((error) => console.error(error));
     }
   },
