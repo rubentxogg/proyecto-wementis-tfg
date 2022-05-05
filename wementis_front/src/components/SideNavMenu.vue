@@ -131,7 +131,10 @@ export default {
     borrarUsuario() {
       axios.delete("wementis/auth/delete?username=" + this.username)
         .then(() => { 
-          this.successAlert("Se ha dado de baja con éxito")
+          this.successAlert("Se ha dado de baja con éxito");
+          setTimeout(() => {
+            window.location.href = 'http://localhost:8080/wementis/logout';
+          }, 1500);
         })
         .catch(() => this.errorAlert("Ha ocurrido un error al intentar darse de baja"));
     },
