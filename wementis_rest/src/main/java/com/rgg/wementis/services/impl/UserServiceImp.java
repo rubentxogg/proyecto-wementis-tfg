@@ -29,15 +29,11 @@ public class UserServiceImp implements IUserService {
 
 	@Override
 	public void actualizarPasswordUsuario(UserEntity user, String password) {
-		String encryptedPassword = passwordEncoder.encode(password);
+		String oldPassword = getUserByUsername(user.getUsername()).getPassword();
 		
-		System.err.println("Contraseña nueva: " + user.getPassword());
-		System.err.println("Contraseña actual: " + password);
-		
-		if(user.getPassword().equals(encryptedPassword)) {
-			user = userRepository.findById(user.getUsername()).get();
+		if(passwordEncoder.matches(password, oldPassword)) {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userRepository.save(user);
-			System.err.println("Contraseña cambiada");
 		}
 	}
 
