@@ -129,7 +129,7 @@ export default {
   },
   methods: {
     borrarUsuario() {
-      axios.delete("wementis/auth/users/", this.userName)
+      axios.delete("wementis/auth/delete?username=" + this.username)
         .then(() => { 
           this.successAlert("Se ha dado de baja con éxito")
         })

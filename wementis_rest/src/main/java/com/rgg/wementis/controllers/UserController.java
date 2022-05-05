@@ -36,8 +36,8 @@ public class UserController {
 		userService.actualizarUsuario(user);
 	}
 	
-	@DeleteMapping(value = "/users/{username}")
-	public void borrarUsuario(@RequestParam(value = "username", required = true) String username) {
+	@DeleteMapping(value = "/delete", params = {"username"})
+	public void borrarUsuario(@RequestParam String username) {
 		userService.borrarUsuario(username);
 	}
 	

@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 .spinner {
-    width: 100%;
+  width: 100%;
+  margin-top: 1rem;
 }
 </style>
