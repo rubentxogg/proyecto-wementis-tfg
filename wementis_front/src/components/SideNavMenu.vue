@@ -118,7 +118,6 @@ export default {
   data() {
     return {
       username: "",
-      currentUser: "",
       passwordActual: "",
       passwordNueva: "",
       passwordAgain: "",
@@ -142,11 +141,11 @@ export default {
     cambiarContrasena() {
       const user = {
         username: this.username,
-        password: this.password,
+        password: this.passwordNueva,
         enabled: true
       }
 
-      axios.put("wementis/auth/users/", user)
+      axios.put("wementis/auth/users/?password=" + this.passwordActual, user)
         .then(() => { 
           this.successAlert("Se ha cambiado la contraseña con éxito")
         })
@@ -171,21 +170,12 @@ export default {
     getCurrentUsername() {
       axios.get("wementis/auth/username/")
         .then((response) => this.username = response.data)
-        .then(() => {
-          this.getCurrentUser();
-        })
         .catch((error) => console.error(error));
     },
-    getCurrentUser() {
-      axios.get("wementis/auth/users?username=" + this.username)
-        .then((response) => this.currentUser = response.data)
-        .catch((error) => console.error(error));
-    }
   },
   computed: {
-    isCorrectPasswordActual() {
-      if(this.regPassword.test(this.passwordActual)) return true;
-      return false;
+    isCorrectPasswordActual() { // TODO
+      return true;
     },
     isCorrectPasswordNueva() {
       if(this.regPassword.test(this.passwordNueva)) return true;

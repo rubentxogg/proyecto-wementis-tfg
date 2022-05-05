@@ -8,7 +8,7 @@ public interface IUserService {
 	
 	public UserEntity getUserByUsername(String username);
 	
-	public void actualizarUsuario(UserEntity user);
+	public void actualizarPasswordUsuario(UserEntity user, String password);
 	
 	public void borrarUsuario(String username);
 	

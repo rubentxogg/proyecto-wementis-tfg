@@ -28,8 +28,17 @@ public class UserServiceImp implements IUserService {
 	}
 
 	@Override
-	public void actualizarUsuario(UserEntity user) {
-		userRepository.save(user);
+	public void actualizarPasswordUsuario(UserEntity user, String password) {
+		String encryptedPassword = passwordEncoder.encode(password);
+		
+		System.err.println("Contraseña nueva: " + user.getPassword());
+		System.err.println("Contraseña actual: " + password);
+		
+		if(user.getPassword().equals(encryptedPassword)) {
+			user = userRepository.findById(user.getUsername()).get();
+			userRepository.save(user);
+			System.err.println("Contraseña cambiada");
+		}
 	}
 
 	@Override

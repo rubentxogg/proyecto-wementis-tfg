@@ -36,9 +36,9 @@ public class UserController {
 		userService.insertarUsuario(user);
 	}
 	
-	@PutMapping(value = "/users")
-	public void actualizarUsuario(@RequestBody UserEntity user) {
-		userService.actualizarUsuario(user);
+	@PutMapping(value = "/users", params = {"password"})
+	public void actualizarPasswordUsuario(@RequestBody UserEntity user, @RequestParam String password) {
+		userService.actualizarPasswordUsuario(user, password);
 	}
 	
 	@DeleteMapping(value = "/delete", params = {"username"})
