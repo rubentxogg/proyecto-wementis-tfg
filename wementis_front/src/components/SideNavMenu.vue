@@ -54,9 +54,9 @@
           <div class="modal-body text-center">
             <div class="input-group mb-3 pass">
               <span class="input-group-text">Contraseña actual</span>
-              <input type="password" class="form-control" name="email" v-model="passwordActual">
-              <i v-if="isCorrectPasswordActual" class="bi bi-check fs-5 text-success"></i>
-              <i v-else class="bi bi-x fs-5 text-danger"></i>
+              <input :type="showHidePassword" class="form-control" name="email" v-model="passwordActual">
+              <i v-if="isPasswordHidden" @click="isPasswordHidden = false" class="bi bi-eye fs-5"></i>
+              <i v-else class="bi bi-eye-slash fs-5" @click="isPasswordHidden = true"></i>
             </div>
 
             <div class="input-group mb-3 pass">
@@ -83,7 +83,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" :class="isFormValidationCorrect" @click="cambiarContrasena">Guardar</button>
+            <button type="button" :class="isFormValidationCorrect" data-bs-dismiss="modal" @click="cambiarContrasena">Guardar</button>
           </div>
         </div>
       </div>
@@ -121,7 +121,8 @@ export default {
       passwordActual: "",
       passwordNueva: "",
       passwordAgain: "",
-      regPassword: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+      regPassword: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+      isPasswordHidden: true
     }
   },
   mounted() {
@@ -174,9 +175,6 @@ export default {
     },
   },
   computed: {
-    isCorrectPasswordActual() { // TODO
-      return true;
-    },
     isCorrectPasswordNueva() {
       if(this.regPassword.test(this.passwordNueva)) return true;
       return false;
@@ -186,12 +184,16 @@ export default {
       return false;
     },
     isFormValidationCorrect() {
-      if(this.isCorrectPasswordActual && this.isCorrectPasswordNueva && this.isCorrectPasswordAgain) return "btn btn-success";
+      if(this.isCorrectPasswordNueva && this.isCorrectPasswordAgain) return "btn btn-success";
       return "btn btn-success disabled";
     },
     usernameWithoutEmail() {
       return this.username.split("@")[0];
-    }
+    },
+    showHidePassword() {
+      if(this.isPasswordHidden) return "password";
+      return "text";
+    },
   }
 };
 </script>
@@ -266,5 +268,13 @@ a:hover, .show.btn-group:hover, .btn:hover {
 
 .ms-fix2 {
   margin-left: 4.7rem;
+}
+
+.pass i{
+  cursor: pointer;
+}
+
+.pass i:hover {
+  opacity: 70%;
 }
 </style>
