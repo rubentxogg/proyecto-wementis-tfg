@@ -31,7 +31,8 @@
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
-      <div class="btn-group dropend mt-auto mb-3 rounded">
+      <div class="btn-group dropend mt-auto mb-3 rounded d-flex flex-wrap">
+        <hr class="w-100">
         <button type="button" class="btn dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
         </button>
