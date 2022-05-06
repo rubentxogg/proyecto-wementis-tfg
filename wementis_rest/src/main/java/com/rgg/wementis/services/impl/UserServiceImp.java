@@ -28,13 +28,15 @@ public class UserServiceImp implements IUserService {
 	}
 
 	@Override
-	public void actualizarPasswordUsuario(UserEntity user, String password) {
+	public Integer actualizarPasswordUsuario(UserEntity user, String password) {
 		String oldPassword = getUserByUsername(user.getUsername()).getPassword();
 		
 		if(passwordEncoder.matches(password, oldPassword)) {
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userRepository.save(user);
+			return 1;
 		}
+		return 0;
 	}
 
 	@Override

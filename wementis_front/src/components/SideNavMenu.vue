@@ -147,8 +147,15 @@ export default {
       }
 
       axios.put("wementis/auth/users/?password=" + this.passwordActual, user)
-        .then(() => { 
-          this.successAlert("Se ha cambiado la contraseña con éxito")
+        .then((response) => { 
+          if(response.data === 1) {
+            this.successAlert("Se ha cambiado la contraseña con éxito");
+          } else {
+            this.errorAlert("La contraseña actual no es correcta");
+          }
+          this.passwordActual = "";
+          this.passwordNueva = "";
+          this.passwordAgain = "";
         })
         .catch(() => this.errorAlert("Ha ocurrido un error al intentar cambiar la contraseña"));
     },
