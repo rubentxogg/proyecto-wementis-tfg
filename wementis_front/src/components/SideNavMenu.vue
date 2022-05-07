@@ -294,7 +294,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 /** Responsive */
-@media (max-width: 1170px) {
+@media (max-width: 1172px) {
   .sideNavMenu {
     width: 15rem;
   }
