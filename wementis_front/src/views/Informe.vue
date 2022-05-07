@@ -54,7 +54,7 @@
         <p class="fw-bold col-4" >Examinador (psicólogo)</p>
         <p class="fw-bold col-1">:</p>
         <p class="col">{{ psicologo.nombre }}</p>
-        <dropdown-psicologos class="col-2" @seleccionPsicologo="psicologoSeleccionado"/>
+        <dropdown-psicologos class="col-2 me-sm-5 me-md-5 me-lg-5 me-xl-1" @seleccionPsicologo="psicologoSeleccionado"/>
       </div>
       
       <div class="mt-2 mb-1">

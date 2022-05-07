@@ -7,27 +7,27 @@
       </div>
       <hr>
 
-      <router-link to="/dashboard" class="p-2 text-dark rounded menu-option">
+      <router-link to="/dashboard" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-speedometer2 me-2"></i>Dashboard
       </router-link>
 
-      <router-link to="/pacientes" class="p-2 text-dark rounded menu-option">
+      <router-link to="/pacientes" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-people me-2"></i>Pacientes
       </router-link>
 
-      <router-link to="/psicologos" class="p-2 text-dark rounded menu-option">
+      <router-link to="/psicologos" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-heart-pulse me-2"></i>Psicólogos
       </router-link>
 
-      <router-link to="/tarifas" class="p-2 text-dark rounded menu-option">
+      <router-link to="/tarifas" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-cash-coin me-2"></i>Tarifas
       </router-link>
 
-      <router-link to="/citas" class="p-2 text-dark rounded menu-option">
+      <router-link to="/citas" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-calendar-week me-2"></i>Citas
       </router-link>
 
-      <router-link to="/informe" class="p-2 text-dark rounded menu-option">
+      <router-link to="/informe" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
@@ -291,5 +291,45 @@ a:hover, .show.btn-group:hover, .btn:hover {
 
 * {
   transition: 0.1s;
+}
+
+/** Responsive */
+@media (max-width: 1170px) {
+  .sideNavMenu {
+    width: 15rem;
+  }
+
+  hr{
+    height: 0.1rem !important;
+  }
+
+  nav{
+    position: fixed;
+    width: 13.3rem;
+  }
+
+  .menu-option i {
+    margin-left: 3.2rem;
+  }
+}
+
+/** Responsive */
+@media (max-width: 1092px) {
+  .sideNavMenu {
+    width: 100%;
+    min-height: auto !important;
+    height: 7rem !important;
+  }
+
+  nav {
+    flex-direction: row !important;
+    min-height: auto !important;
+    width: 100%;
+    z-index: 1;
+  }
+
+  aside {
+    min-height: auto !important;
+  }
 }
 </style>

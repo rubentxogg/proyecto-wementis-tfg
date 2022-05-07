@@ -1,6 +1,6 @@
 <template>
   <div class="browser-citas-por-fecha-y-estado mb-2 m-auto">
-    <hr>
+    <hr class="text-primary">
     <div class="d-flex mb-2">
         <span class="me-1 align-self-center fs-5"><i class="bi bi-calendar-event me-2"></i>Selección de fecha</span>
         <input type="date" class="text-center m-auto border-0" v-model="fecha" @change="resetSelectedButtons" title="Elegir fecha">
@@ -13,7 +13,7 @@
         <button type="button" :class="buttonCanceladasSelectedStyles" @click="buscarCitas(3)" :disabled="isFechaEmpty">Canceladas</button>
     </div>
 
-    <hr>
+    <hr class="text-primary">
     <h3 class="text-center mt-3 p-2 m-auto" v-if="!isFechaEmpty && (isButtonActivasSelected || isButtonCanceladasSelected 
         || isButtonCompletadasSelected)">{{ displayFechaEnNombres }}</h3>
   </div>
