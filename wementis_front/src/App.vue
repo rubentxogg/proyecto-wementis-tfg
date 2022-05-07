@@ -53,7 +53,6 @@ export default {
 
 * {
   font-family: 'Ubuntu', sans-serif;
-  transition: 0.1s;
 }
 
 .bg-standard {

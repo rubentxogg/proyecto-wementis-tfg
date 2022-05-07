@@ -83,7 +83,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetFields">Cancelar</button>
             <button type="button" :class="isFormValidationCorrect" data-bs-dismiss="modal" @click="cambiarContrasena">Guardar</button>
           </div>
         </div>
@@ -154,11 +154,14 @@ export default {
           } else {
             this.errorAlert("La contraseña actual no es correcta");
           }
-          this.passwordActual = "";
-          this.passwordNueva = "";
-          this.passwordAgain = "";
+          this.resetFields();
         })
         .catch(() => this.errorAlert("Ha ocurrido un error al intentar cambiar la contraseña"));
+    },
+    resetFields() {
+      this.passwordActual = "";
+      this.passwordNueva = "";
+      this.passwordAgain = "";
     },
     successAlert(msg) {
       this.$toast.open({
@@ -284,5 +287,9 @@ a:hover, .show.btn-group:hover, .btn:hover {
 
 .pass i:hover {
   opacity: 70%;
+}
+
+* {
+  transition: 0.1s;
 }
 </style>
