@@ -135,7 +135,7 @@ export default {
         this.conclusiones = "",
         this.recomendaciones = ""
       },
-      downloadReadyAlert() { //TODO
+      downloadReadyAlert() { 
         this.$toast.open({
         message: "PDF listo para descargar",
         type: "info",
@@ -168,6 +168,19 @@ export default {
         return "btn btn-success";
       }
     },
+    updated() {
+      this.$toast.clear();
+      if(this.isReportReady) {
+        setTimeout(() => {
+          this.downloadReadyAlert();
+        },1460)
+      } else {
+        this.$toast.clear();
+      }
+    },
+    beforeUnmount() {
+      this.$toast.clear();
+    }
 }
 </script>
 
