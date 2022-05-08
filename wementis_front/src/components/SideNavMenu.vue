@@ -6,7 +6,7 @@
         <h2 class="mt-3 text-primary">WeMentis</h2>
       </div>
       <hr>
-
+      
       <router-link to="/dashboard" class="router-link p-2 text-dark rounded menu-option">
         <i class="bi bi-speedometer2 me-2"></i>Dashboard
       </router-link>
@@ -31,7 +31,7 @@
         <i class="bi bi-file-earmark-pdf me-2"></i>Informe
       </router-link>
 
-      <div class="btn-group dropend mt-auto mb-3 rounded d-flex flex-wrap">
+      <div class="btn-group dropend mt-auto mb-3 rounded d-flex flex-wrap user-opt">
         <hr class="w-100">
         <button type="button" class="btn dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
@@ -42,6 +42,7 @@
           <a class="dropdown-item text-danger text-danger-hover" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>
       </div>
+      <hr class="router-link-separator">
     </nav>
 
     <!-- Cambiar contraseña modal -->
@@ -293,6 +294,10 @@ a:hover, .show.btn-group:hover, .btn:hover {
   transition: 0.1s;
 }
 
+.router-link-separator {
+  display: none;
+}
+
 /** Responsive */
 @media (max-width: 1172px) {
   .sideNavMenu {
@@ -318,7 +323,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
   .sideNavMenu {
     width: 100%;
     min-height: auto !important;
-    height: 7rem !important;
+    height: 11rem !important;
   }
 
   nav {
@@ -326,10 +331,47 @@ a:hover, .show.btn-group:hover, .btn:hover {
     min-height: auto !important;
     width: 100%;
     z-index: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   aside {
     min-height: auto !important;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .header {
+    margin: auto;
+    width: 100%;
+    margin-bottom: -1rem;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    margin: auto;
+  }
+
+  .router-link-separator {
+    width: 100%;
+    display: block !important;
+    color: #000000;
+    display: block;
+    margin-top: -0.6rem;
+  }
+
+  .menu-option i {
+    margin-left: auto;
+  }
+
+  .user-opt {
+    margin: auto;
+    margin-top: 1rem !important;
   }
 }
 </style>
