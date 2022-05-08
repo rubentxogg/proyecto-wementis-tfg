@@ -21,11 +21,6 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@GetMapping(value = "/users")
-	public Iterable<UserEntity> getUsers() {
-		return userService.getUsers();
-	}
-	
 	@PostMapping(value = "/users")
 	public void insertarUsuario(@RequestBody UserEntity user) {
 		userService.insertarUsuario(user);

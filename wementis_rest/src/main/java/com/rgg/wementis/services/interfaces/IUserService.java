@@ -3,8 +3,6 @@ package com.rgg.wementis.services.interfaces;
 import com.rgg.wementis.entities.UserEntity;
 
 public interface IUserService {
-
-	public Iterable<UserEntity> getUsers();
 	
 	public UserEntity getUserByUsername(String username);
 	

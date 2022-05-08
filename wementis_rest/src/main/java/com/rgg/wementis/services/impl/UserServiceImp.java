@@ -23,11 +23,6 @@ public class UserServiceImp implements IUserService {
 	private PasswordEncoder passwordEncoder;
 	
 	@Override
-	public Iterable<UserEntity> getUsers() {
-		return userRepository.findAll();
-	}
-
-	@Override
 	public Integer actualizarPasswordUsuario(UserEntity user, String password) {
 		String oldPassword = getUserByUsername(user.getUsername()).getPassword();
 		
