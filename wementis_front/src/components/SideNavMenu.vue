@@ -323,7 +323,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
   .sideNavMenu {
     width: 100%;
     min-height: auto !important;
-    height: 11rem !important;
+    height: 9.8rem !important;
   }
 
   nav {
@@ -333,6 +333,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
     z-index: 1;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #fffbfb;
   }
 
   aside {
