@@ -23,14 +23,16 @@
 
     <div class="input-group mb-3">
      <span class="input-group-text">Hora</span>
-     <input type="time" class="form-control" name="hora" placeholder="hh:mm" v-model="hora">
+     <input :type="checkIsTimeOnFocus" class="form-control date" name="hora" :placeholder="getHourAndMins" v-model="hora" 
+      @focus="isTimeOnFocus = true" @blur="isTimeOnFocus = false">
      <i v-if="isCorrectHora" class="bi bi-check fs-3 text-success"></i>
      <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
 
     <div class="input-group mb-3">
      <span class="input-group-text">Fecha</span>
-     <input type="date" class="form-control" name="fecha" v-model="fecha">
+     <input :type="checkIsDateOnFocus" class="form-control date" name="fecha" :placeholder="cita.fecha"
+      v-model="fecha" @focus="isDateOnFocus = true" @blur="isDateOnFocus = false">
      <i v-if="isCorrectFecha" class="bi bi-check fs-3 text-success"></i>
      <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
@@ -72,12 +74,14 @@ export default {
         fecha: "",
         hora: "",
         cantidadHoras: "",
-        regFecha: /^[\d]{2}-[\d]{2}-[\d]{4}$/,
+        regFecha: /^[\d]{2,4}-[\d]{2}-[\d]{2,4}$/,
         regHora: /^[\d]{2}:[\d]{2}/,
         regNum: /^[\d]+$/,
         pacientePlaceholder: "",
         psicologoPlaceholder: "",
-        tarifaPlaceholder: ""
+        tarifaPlaceholder: "",
+        isDateOnFocus: false,
+        isTimeOnFocus: false
       }
   },
   methods: {
@@ -156,12 +160,12 @@ export default {
       return true;
     },
     isCorrectHora() {
-      if(!this.regHora.test(this.hora)) return false;
-      return true;
+      if(this.regHora.test(this.hora) || this.hora === "") return true;
+      return false;
     },
     isCorrectFecha() {
-      if(this.regFecha.test(this.fecha) || this.fecha === "") return false;
-      return true;
+      if(this.regFecha.test(this.fecha) || this.fecha === "") return true;
+      return false;
     },
     isCorrectCantidadHoras() {
       if(this.regNum.test(this.cantidadHoras) || this.cantidadHoras === "") return true;
@@ -171,6 +175,18 @@ export default {
       if(this.isCorrectPaciente && this.isCorrectPsicologo && this.isCorrectTarifa
         && this.isCorrectHora && this.isCorrectFecha && this.isCorrectCantidadHoras) return "btn btn-success";
       return "btn btn-outline-success disabled";
+    },
+    checkIsDateOnFocus() {
+      if(this.isDateOnFocus) return "date";
+      return "text";
+    },
+    checkIsTimeOnFocus() {
+      if(this.isTimeOnFocus) return "time";
+      return "text";
+    },
+    getHourAndMins() {
+      if(this.cita.hora) return this.cita.hora.substring(0,5);
+      return this.cita.hora;
     }
   },
   updated() {
@@ -191,5 +207,9 @@ input[type="date"] + i,
 input[type="time"] + i {
   position: absolute;
   right: 2rem;
+}
+
+.date {
+  cursor: pointer;
 }
 </style>

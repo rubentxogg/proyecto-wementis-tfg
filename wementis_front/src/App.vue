@@ -27,8 +27,7 @@ export default {
   },
   methods: {
     checkIsAuthenticated() {
-      this.$router.beforeEach(async (to, from) => {
-        console.log(from);
+      this.$router.beforeEach(async (to) => {
         this.isLoading = true;
 
         await axios.get("wementis/auth/isauthenticated")
