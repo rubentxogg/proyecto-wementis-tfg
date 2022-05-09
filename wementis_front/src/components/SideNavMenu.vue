@@ -299,7 +299,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 /** Responsive */
-@media (max-width: 1172px) {
+@media (max-width: 1180px) {
   .sideNavMenu {
     width: 15rem;
   }
@@ -319,7 +319,7 @@ a:hover, .show.btn-group:hover, .btn:hover {
 }
 
 /** Responsive */
-@media (max-width: 1092px) {
+@media (max-width: 1100px) {
   .sideNavMenu {
     width: 100%;
     min-height: auto !important;

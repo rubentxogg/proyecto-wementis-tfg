@@ -17,5 +17,11 @@ export default {
 </script>
 
 <style scoped>
-
+.jumbotron-wementis {
+  position: relative;
+}
+img {
+  position: absolute;
+  left: -4.5rem;
+}
 </style>
