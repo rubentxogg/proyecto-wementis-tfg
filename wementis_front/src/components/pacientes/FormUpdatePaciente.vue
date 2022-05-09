@@ -30,7 +30,8 @@
 
     <div class="input-group mb-3">
      <span class="input-group-text">Fecha nac.</span>
-     <input type="date" class="form-control" name="fechaNac" :placeholder="paciente.fechaNacimiento" v-model="fechaNacimiento">
+     <input :type="checkIsDateOnFocus" class="form-control date" name="fechaNac" :placeholder="paciente.fechaNacimiento" 
+      v-model="fechaNacimiento" @focus="isDateOnFocus = true" @blur="isDateOnFocus = false">
      <i v-if="isCorrectFechaNacimiento" class="bi bi-check fs-3 text-success"></i>
      <i v-else class="bi bi-x fs-3 text-danger"></i>
     </div>
@@ -78,8 +79,9 @@ export default {
       regNumeros: /(\d+)/,
       regTelefono: /^([\d]{9})?$/,
       regEmail: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-      regFechaNacimiento: /^[\d]{2}-[\d]{2}-[\d]{4}$/,
-      regEspacios: /^\s+/
+      regFechaNacimiento: /^[\d]{2,4}-[\d]{2}-[\d]{2,4}$/,
+      regEspacios: /^\s+/,
+      isDateOnFocus: false
     }
   },
   methods: {
@@ -152,8 +154,8 @@ export default {
       return false;
     },
     isCorrectFechaNacimiento() {
-      if(this.regFechaNacimiento.test(this.fechaNacimiento) || this.fechaNacimiento === "") return false;
-      return true;
+      if(this.regFechaNacimiento.test(this.fechaNacimiento) || this.fechaNacimiento === "") return true;
+      return false;
     },
     isCorrectGenero() {
       if(!this.genero === "" || !this.genero === "M" || !this.genero === "F") return false;
@@ -163,6 +165,10 @@ export default {
       if(this.isCorrectNombre && this.isCorrectApellidos && this.isCorrectTelefono && this.isCorrectEmail
         && this.isCorrectFechaNacimiento && this.isCorrectGenero) return "btn btn-success";
       return "btn btn-outline-success disabled";
+    },
+    checkIsDateOnFocus() {
+      if(this.isDateOnFocus) return "date";
+      return "text";
     }
   }
 }
@@ -177,5 +183,9 @@ div i{
 input[type="date"] + i {
   position: absolute;
   right: 2rem;
+}
+
+.date {
+  cursor: pointer;
 }
 </style>
