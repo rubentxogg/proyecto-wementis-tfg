@@ -21,7 +21,6 @@ docker exec -it wementisbbdd mysql -p
 VOLUME ./bbddpersistantdata ~/usr/bbdd
 -------------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------------
 # Backend: https://spring.io/guides/gs/spring-boot-docker/
 
 # 1 Crear la imagen mediante dockerFile
@@ -29,7 +28,13 @@ docker build -t rubentxogg/app1 .
 
 # 3 Crear un contenedor en la red creada en el paso anterior y asignar puertos
 docker run -d --network redwementis --name wementisback -p 8080:8080 rubentxogg/app1
+-------------------------------------------------------------------------------------------------------
 
-# 4 Abrir el bash en el contenedor creado 
-docker exec -it mysql mysql -p
+# Frontend:
+
+# 1 Crear la imagen mediante dockerFile
+docker build -t rubentxogg/front1 .
+
+# 3 Crear un contenedor en la red creada en el paso anterior y asignar puertos
+docker run -d -p 8081:8080 --network redwementis --name wementisfront rubentxogg/front1
 -------------------------------------------------------------------------------------------------------
