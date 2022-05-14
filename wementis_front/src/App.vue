@@ -30,7 +30,7 @@ export default {
       this.$router.beforeEach(async (to) => {
         this.isLoading = true;
 
-        await axios.get("wementis/auth/isauthenticated")
+        await axios.get("http://localhost:8080/wementis/auth/isauthenticated")
           .then((response) =>  this.isAuthenticated = response.data )
           .catch(() => this.isAuthenticated = false)
           .finally(() => this.isLoading = false);

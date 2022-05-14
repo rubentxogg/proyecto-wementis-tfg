@@ -37,7 +37,7 @@ export default {
     methods: {
       deletePaciente() {
         axios
-          .delete("wementis/v1/psicologos/"+this.id)
+          .delete("http://localhost:8080/wementis/v1/psicologos/"+this.id)
           .then(() => {
             this.$emit("updateTabla");
             this.successAlert();

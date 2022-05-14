@@ -58,7 +58,7 @@ export default {
   methods: {
     actualizarPaciente() {
       axios
-        .put("wementis/v1/psicologos/", { 
+        .put("http://localhost:8080/wementis/v1/psicologos/", { 
           idPsicologo: this.psicologo.idPsicologo || this.psicologo.id,
           nombre: this.nombre || this.psicologo.nombre,
           apellidos: this.apellidos || this.psicologo.apellidos,

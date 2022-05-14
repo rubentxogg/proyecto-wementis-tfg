@@ -64,7 +64,7 @@ export default {
       }
       
       axios
-        .post("wementis/v1/psicologos/", psicologo)
+        .post("http://localhost:8080/wementis/v1/psicologos/", psicologo)
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "")
         .then(() => {
           this.$emit("updateTabla");

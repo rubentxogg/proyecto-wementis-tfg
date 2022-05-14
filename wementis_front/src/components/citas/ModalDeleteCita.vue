@@ -37,7 +37,7 @@ export default {
     methods: {
       deleteCita() {
         axios
-          .delete("wementis/v1/citas/delete/"+this.id)
+          .delete("http://localhost:8080/wementis/v1/citas/delete/"+this.id)
           .then(() => {
             this.$emit("updateTabla");
             this.successAlert();

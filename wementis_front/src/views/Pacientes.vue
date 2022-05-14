@@ -18,12 +18,12 @@
         </div>
       </div>
       
-      <modal-new-paciente @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+      <modal-new-paciente @updateTabla="getPacientes('http://localhost:8080//v1/pacientes/')"/>
     </div>
     
     <hr>
     <spinner v-if="isLoading"/>
-    <table-pacientes v-else-if="pacientes.length > 0" :pacientes="pacientes" @updateTabla="getPacientes('wementis/v1/pacientes/')"/>
+    <table-pacientes v-else-if="pacientes.length > 0" :pacientes="pacientes" @updateTabla="getPacientes('http://localhost:8080//v1/pacientes/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado pacientes con tus criterios de búsqueda.</h2>
     <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen pacientes en la BBDD, <br><br>
@@ -84,7 +84,7 @@ export default {
         this.isSearchPorCampos = true;
 
         axios
-          .get("wementis/v1/pacientes/", { params })
+          .get("http://localhost:8080/wementis/v1/pacientes/", { params })
           .then((response) => this.pacientes = response.data)
           .catch((err) => console.error(err));
       },
@@ -107,7 +107,7 @@ export default {
       }
     },
     mounted() {
-      this.getPacientes("wementis/v1/pacientes/");
+      this.getPacientes("http://localhost:8080/wementis/v1/pacientes/");
     }
 }
 </script>

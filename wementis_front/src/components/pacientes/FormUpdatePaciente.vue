@@ -87,7 +87,7 @@ export default {
   methods: {
     actualizarPaciente() {
       axios
-        .put("wementis/v1/pacientes/", { 
+        .put("http://localhost:8080/wementis/v1/pacientes/", { 
           idPaciente: this.paciente.idPaciente || this.paciente.id,
           nombre: this.nombre || this.paciente.nombre,
           apellidos: this.apellidos || this.paciente.apellidos,

@@ -37,7 +37,7 @@ export default {
     methods: {
       deleteTarifa() {
         axios
-          .delete("wementis/v1/tarifas/"+this.id)
+          .delete("http://localhost:8080/wementis/v1/tarifas/"+this.id)
           .then(() => {
             this.$emit("updateTabla");
             this.successAlert();

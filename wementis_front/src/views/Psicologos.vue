@@ -18,12 +18,12 @@
         </div>
       </div>
 
-      <modal-new-psicologo @updateTabla="getPsicologos('wementis/v1/psicologos/')"/>
+      <modal-new-psicologo @updateTabla="getPsicologos('http://localhost:8080//v1/psicologos/')"/>
     </div>
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-psicologos v-else-if="psicologos.length > 0" :psicologos="psicologos" @updateTabla="getPsicologos('wementis/v1/psicologos/')"/>
+    <table-psicologos v-else-if="psicologos.length > 0" :psicologos="psicologos" @updateTabla="getPsicologos('http://localhost:8080//v1/psicologos/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado psicólogos con tus criterios de búsqueda.</h2>
     <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen psicólogos en la BBDD, <br><br>
@@ -82,7 +82,7 @@ export default {
       this.isSearchPorCampos = true;
       
       axios
-        .get("wementis/v1/psicologos/", { params })
+        .get("http://localhost:8080/wementis/v1/psicologos/", { params })
         .then((response) => this.psicologos = response.data)
         .catch((err) => console.error(err));
     },
@@ -105,7 +105,7 @@ export default {
     }
   },
   mounted() {
-    this.getPsicologos("wementis/v1/psicologos/");
+    this.getPsicologos("http://localhost:8080/wementis/v1/psicologos/");
   }
 }
 </script>

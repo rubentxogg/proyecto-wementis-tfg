@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <modal-new-cita @updateTabla="getCitas('wementis/v1/citas/')"/>
+      <modal-new-cita @updateTabla="getCitas('http://localhost:8080//v1/citas/')"/>
     </div>
 
     <div class="d-flex mt-3">
@@ -27,7 +27,7 @@
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-citas v-else-if="citas.length > 0" :citas="citas" @updateTabla="getCitas('wementis/v1/citas/')"/>
+    <table-citas v-else-if="citas.length > 0" :citas="citas" @updateTabla="getCitas('http://localhost:8080//v1/citas/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado citas con tus criterios de búsqueda.</h2>
     <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen citas en la BBDD, <br><br>
@@ -90,7 +90,7 @@ export default {
       this.isSearchPorCampos = true;
       
       axios
-        .get("wementis/v1/citas/", { params })
+        .get("http://localhost:8080/wementis/v1/citas/", { params })
         .then((response) => this.citas = response.data)
         .catch((err) => console.error(err));
     },
@@ -103,7 +103,7 @@ export default {
       this.isSearchPorCampos = true;
 
       axios
-        .get("wementis/v1/citas/", { params })
+        .get("http://localhost:8080/wementis/v1/citas/", { params })
         .then((response) => this.citas = response.data)
         .catch((err) => console.error(err));
     },
@@ -126,7 +126,7 @@ export default {
     }
   },
   mounted() {
-    this.getCitas("wementis/v1/citas/");
+    this.getCitas("http://localhost:8080/wementis/v1/citas/");
   }
 }
 </script>

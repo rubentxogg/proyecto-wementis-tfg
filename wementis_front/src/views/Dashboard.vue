@@ -106,7 +106,7 @@ export default {
       this.isSectionLoading = true;
 
       const response = axios
-        .get("wementis/v1/citas/", { params })
+        .get("http://localhost:8080/wementis/v1/citas/", { params })
         .catch((err) => console.error(err))
         .finally(() => this.isSectionLoading = false);
         
@@ -119,10 +119,10 @@ export default {
     }
   },
   async mounted() {
-    this.getPacientes("wementis/v1/pacientes/");
-    this.getPsicologos("wementis/v1/psicologos/");
-    this.getCitas("wementis/v1/citas/");
-    this.getGanancias("wementis/v1/ganancias/");
+    this.getPacientes("http://localhost:8080/wementis/v1/pacientes/");
+    this.getPsicologos("http://localhost:8080/wementis/v1/psicologos/");
+    this.getCitas("http://localhost:8080/wementis/v1/citas/");
+    this.getGanancias("http://localhost:8080/wementis/v1/ganancias/");
     this.citasCompletadas = await this.getCitasPorEstado(2);
     this.citasActivas = await this.getCitasPorEstado(1);
     this.citasCanceladas = await this.getCitasPorEstado(3);

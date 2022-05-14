@@ -87,7 +87,7 @@ export default {
   methods: {
     actualizarCita() {
       axios
-        .put("wementis/v1/citas/", { 
+        .put("http://localhost:8080/wementis/v1/citas/", { 
           id: this.cita.id,
           fecha: this.fecha || this.cita.fecha,
           estado: this.cita.estado,

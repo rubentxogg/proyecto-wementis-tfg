@@ -17,12 +17,12 @@
         </div>
       </div>
 
-      <modal-new-tarifa @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+      <modal-new-tarifa @updateTabla="getTarifas('http://localhost:8080//v1/tarifas/')"/>
     </div>
 
     <hr>
     <spinner v-if="isLoading"/>
-    <table-tarifas v-else-if="tarifas.length > 0" :tarifas="tarifas" @updateTabla="getTarifas('wementis/v1/tarifas/')"/>
+    <table-tarifas v-else-if="tarifas.length > 0" :tarifas="tarifas" @updateTabla="getTarifas('http://localhost:8080//v1/tarifas/')"/>
     <h2 v-else-if="isSearchPorCampos" class="text-center mt-5 text-muted">No se han encontrado tarifas con tus criterios de búsqueda.</h2>
     <h3 v-else class="text-center mt-5 text-muted">
       Actualmente no existen tarifas en la BBDD, <br><br>
@@ -79,7 +79,7 @@ export default {
       this.isSearchPorCampos = true;
       
       axios
-        .get("wementis/v1/tarifas/", { params })
+        .get("http://localhost:8080/wementis/v1/tarifas/", { params })
         .then((response) => this.tarifas = response.data)
         .catch((err) => console.error(err));
     },
@@ -102,7 +102,7 @@ export default {
     }
   },
   mounted() {
-    this.getTarifas('wementis/v1/tarifas/');
+    this.getTarifas('http://localhost:8080/wementis/v1/tarifas/');
   }
 
 }

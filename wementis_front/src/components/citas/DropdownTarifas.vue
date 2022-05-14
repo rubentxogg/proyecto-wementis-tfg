@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    this.getTarifas("wementis/v1/tarifas/");
+    this.getTarifas("http://localhost:8080/wementis/v1/tarifas/");
   }
 }
 </script>

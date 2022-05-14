@@ -37,7 +37,7 @@ export default {
     methods: {
       completarCita() {
         axios
-          .put("wementis/v1/citas/"+this.id)
+          .put("http://localhost:8080/wementis/v1/citas/"+this.id)
           .then(() => {
             this.$emit("updateTabla");
             this.successAlert();

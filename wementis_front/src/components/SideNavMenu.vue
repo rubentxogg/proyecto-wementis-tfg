@@ -37,7 +37,7 @@
           <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
         </button>
         <ul class="dropdown-menu text-center me-fix">
-          <a class="dropdown-item text-primary text-primary-hover" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
+          <a class="dropdown-item text-primary text-primary-hover" href="http://localhost:8080/wementis/wementis/logout">Cerrar sesión</a>
           <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#cambiarPassModal">Cambiar contraseña</a>
           <a class="dropdown-item text-danger text-danger-hover" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>
@@ -132,7 +132,7 @@ export default {
   },
   methods: {
     borrarUsuario() {
-      axios.delete("wementis/auth/delete?username=" + this.username)
+      axios.delete("http://localhost:8080/wementis/auth/delete?username=" + this.username)
         .then(() => { 
           this.successAlert("Se ha dado de baja con éxito");
           setTimeout(() => {
@@ -148,7 +148,7 @@ export default {
         enabled: true
       }
 
-      axios.put("wementis/auth/users/?password=" + this.passwordActual, user)
+      axios.put("http://localhost:8080/wementis/auth/users/?password=" + this.passwordActual, user)
         .then((response) => { 
           if(response.data === 1) {
             this.successAlert("Se ha cambiado la contraseña con éxito");
@@ -181,7 +181,7 @@ export default {
       });
     },
     getCurrentUsername() {
-      axios.get("wementis/auth/username/")
+      axios.get("http://localhost:8080/wementis/auth/username/")
         .then((response) => this.username = response.data)
         .catch((error) => console.error(error));
     },

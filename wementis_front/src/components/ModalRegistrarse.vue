@@ -76,7 +76,7 @@ export default {
         };
 
         axios
-        .post("wementis/auth/users/", user)
+        .post("http://localhost:8080/wementis/auth/users/", user)
         .then(() => this.email = "", this.emailAgain = "", this.password = "", this.isPasswordHidden = true)
         .then(() => {
           this.successAlert();

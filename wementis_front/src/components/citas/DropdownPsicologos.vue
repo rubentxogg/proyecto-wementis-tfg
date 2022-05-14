@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    this.getPsicologos("wementis/v1/psicologos/");
+    this.getPsicologos("http://localhost:8080/wementis/v1/psicologos/");
   }
 }
 </script>

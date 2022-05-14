@@ -93,7 +93,7 @@ export default {
       }
       
       axios
-        .post("wementis/v1/pacientes/", paciente)
+        .post("http://localhost:8080/wementis/v1/pacientes/", paciente)
         .then(() => this.nombre = "", this.apellidos = "", this.telefono = "", this.email = "", this.fechaNacimiento = "", this.genero = "")
         .then(() => {
           this.$emit("updateTabla");

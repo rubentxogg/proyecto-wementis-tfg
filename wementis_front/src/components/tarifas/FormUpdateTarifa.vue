@@ -41,7 +41,7 @@ export default {
   methods: {
     actualizarTarifa() {
       axios
-        .put("wementis/v1/tarifas/", { 
+        .put("http://localhost:8080/wementis/v1/tarifas/", { 
           idTarifa: this.tarifa.idTarifa || this.tarifa.id,
           nombre: this.nombre || this.tarifa.nombre,
           precioHora: this.precioHora || this.tarifa.precioHora,

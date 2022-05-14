@@ -44,7 +44,7 @@ export default {
       }
       
       axios
-        .post("wementis/v1/tarifas/", tarifa)
+        .post("http://localhost:8080/wementis/v1/tarifas/", tarifa)
         .then(() => this.nombre = "", this.precioHora = "")
         .then(() => {
           this.$emit("updateTabla");

@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    this.getPacientes("wementis/v1/pacientes/");
+    this.getPacientes("http://localhost:8080/wementis/v1/pacientes/");
   }
 }
 </script>
