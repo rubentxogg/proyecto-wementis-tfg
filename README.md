@@ -16,17 +16,16 @@ docker run -d --network redwementis --name wementisbbdd -e MYSQL_ROOT_PASSWORD=P
 
 # 4 Abrir el bash en el contenedor creado 
 docker exec -it wementisbbdd mysql -p
-
-# Crear volumen
-VOLUME ./bbddpersistantdata ~/usr/bbdd
 -------------------------------------------------------------------------------------------------------
 
 # Backend: https://spring.io/guides/gs/spring-boot-docker/
 
+- ./mvnw package para crear el jar
+
 # 1 Crear la imagen mediante dockerFile
 docker build -t rubentxogg/app1 .
 
-# 3 Crear un contenedor en la red creada en el paso anterior y asignar puertos
+# 2 Crear un contenedor en la red creada en el paso anterior y asignar puertos
 docker run -d --network redwementis --name wementisback -p 8080:8080 rubentxogg/app1
 -------------------------------------------------------------------------------------------------------
 
