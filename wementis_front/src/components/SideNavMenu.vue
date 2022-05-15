@@ -37,7 +37,7 @@
           <i class="bi bi-gear me-1"></i> {{ usernameWithoutEmail }}
         </button>
         <ul class="dropdown-menu text-center me-fix">
-          <a class="dropdown-item text-primary text-primary-hover" href="http://localhost:8080/wementis/logout">Cerrar sesión</a>
+          <a class="dropdown-item text-primary text-primary-hover" href="wementis/logout">Cerrar sesión</a>
           <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#cambiarPassModal">Cambiar contraseña</a>
           <a class="dropdown-item text-danger text-danger-hover" href="#" data-bs-toggle="modal" data-bs-target="#bajaModal"><i class="bi bi-exclamation-triangle me-1 p-0"></i>Darse de baja</a>
         </ul>

@@ -2,7 +2,7 @@ module.exports = {
     devServer: {
         proxy: {
             '^/wementis': {
-                target: 'http://localhost:8080'
+                target: 'http://wementisback:8080'
             }
         }
     }

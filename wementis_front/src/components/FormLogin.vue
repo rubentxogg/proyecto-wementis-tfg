@@ -1,6 +1,6 @@
 <template>
   <div class="login form-signin rounded">
-    <form action="http://localhost:8080/wementis/login" method="POST">
+    <form action="wementis/login" method="POST">
       <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
         <label for="floatingInput">Correo</label>
