@@ -1,15 +1,26 @@
-# Proyecto_WeMentis
-Proyecto final DAW
+# Proyecto WeMentis
 
-# 1 Crear la imagen mediante dockerFile
-docker build -t rubentxogg/bbdd1 .
+## Manual de despliegue en Docker:
 
-# 2 Crear la red interna
+### 1.Descargar imagen de la BBDD 
+docker pull rubentxogg/wementisbbdd:latest
+
+### 2.Descargar imagen del back
+docker pull rubentxogg/wementisback:latest
+
+### 3.Descargar imagen del front
+docker pull rubentxogg/wementisfront:latest
+
+### 4.Crear una red interna
 docker network create redwementis
 
-# 3 Crear un contenedor en la red creada en el paso anterior, indicar la contraseña en la variable de entorno y asignar puertos
-docker run -d --network redwementis --name wementisbbdd -e MYSQL_ROOT_PASSWORD=PracticaRoot -p 3307:3306 rubentxogg/bbdd1
-35b9a3bb0de06d952af7464c63006f03f2d185c8341b29fe1da71340789fb810
+### 5.Ejecutar contenedor de la BBDD
+docker run -d --network redwementis --name wementisbbdd -e MYSQL_ROOT_PASSWORD=PracticaRoot -p 3307:3306 rubentxogg/wementisbbdd
 
-# 4 Abrir el bash en el contenedor creado 
-docker exec -it mysql mysql -p
+### 6.Ejecutar contenedor del back
+docker run -d --network redwementis --name wementisback -p 8080:8080 rubentxogg/wementisback
+
+### 7.Ejecutar contenedor del front
+docker run -d --network redwementis --name wementisfront -p 8081:8080 rubentxogg/wementisfront
+
+### 8.Acceder con el navegador a la url: http://localhost:8081/
