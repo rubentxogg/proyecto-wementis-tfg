@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rgg</groupId>
-	<artifactId>WeMentis_Backend</artifactId>
+	<artifactId>WementisRestApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>WeMentis_Backend</name>
+	<name>WementisRestApplication</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>16</java.version>
